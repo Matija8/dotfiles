@@ -1,0 +1,215 @@
+// VSCode settings by Matija8.
+{
+  // Telemetry
+  "telemetry.telemetryLevel": "off",
+
+  // Window
+  "window.closeWhenEmpty": false,
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": true,
+  "window.menuBarVisibility": "visible",
+  "window.newWindowDimensions": "maximized",
+  "window.title": "${rootName}${separator}${dirty}${activeEditorShort}",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
+
+  // Workbench
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "One Monokai",
+  "workbench.editor.centeredLayoutAutoResize": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.showTabs": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.list.openMode": "doubleClick",
+  "workbench.settings.editor": "json",
+  "workbench.sideBar.location": "left",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": true,
+  "workbench.tips.enabled": false,
+  "workbench.tree.expandMode": "doubleClick",
+  "workbench.tree.indent": 12,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+
+  // Terminal
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "Cascadia Code, DejaVu Sans Mono, Menlo",
+  "terminal.integrated.fontSize": 17,
+  "terminal.integrated.lineHeight": 1,
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.toggleSidebarVisibility",
+    "workbench.action.terminal.new"
+  ],
+
+  // Editor
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.cursorBlinking": "phase",
+  "editor.detectIndentation": true,
+  "editor.fastScrollSensitivity": 2,
+  "editor.folding": true,
+  "editor.fontFamily": "Cascadia Code, DejaVu Sans Mono, Menlo",
+  "editor.fontLigatures": "true",
+  "editor.fontSize": 15,
+  "editor.guides.bracketPairs": "active",
+  "editor.lineHeight": 21,
+  "editor.lineNumbers": "on",
+  "editor.minimap.enabled": false,
+  "editor.mouseWheelScrollSensitivity": 1.7,
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "none",
+  "editor.rulers": [80],
+  "editor.suggest.insertMode": "insert",
+  "editor.wordWrap": "off",
+
+  "diffEditor.ignoreTrimWhitespace": false,
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+
+  // Explorer
+  "explorer.autoReveal": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // Files
+  "files.enableTrash": false,
+  "files.trimTrailingWhitespace": true,
+  "files.associations": {
+    "*.lex": "lex",
+    "*.py": "python",
+    "*.vssettings": "xml"
+  },
+  "files.exclude": {
+    // "**/.git": false
+  },
+
+  // Security
+  "security.workspace.trust.enabled": false,
+
+  // Extensions
+  "extensions.ignoreRecommendations": true,
+  "center-editor-window.offset": 3,
+
+  // SpellCheck
+  "cSpell.enabled": false,
+  "cSpell.userWords": [
+    "Cheatsheet",
+    "Readonly",
+    "browserslist",
+    "numpad",
+    "webfonts"
+  ],
+
+  // Markdown
+  "markdownlint.config": {
+    "default": false,
+    "MD001": false,
+    "MD007": false,
+    "MD013": { "line_length": 80 },
+    "MD036": false,
+    "MD041": false,
+    "no-hard-tabs": true
+  },
+  "reflowMarkdown.preferredLineLength": 80,
+
+  // Git
+  "gitlens.keymap": "none",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.defaultDateFormat": null,
+  "gitlens.defaultDateShortFormat": "Do, MM, YYYY",
+  "gitlens.defaultTimeFormat": "hh:mm",
+
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "T*DO",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": true,
+      "italic": false
+    },
+    {
+      "tag": "TODO",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+
+  // C++
+  "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
+  "C_Cpp.default.includePath": ["/usr/local/include"],
+  "C_Cpp.intelliSenseEngine": "Default",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+
+  // Python
+  "python.analysis.typeCheckingMode": "basic",
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  // "python.defaultInterpreterPath": "C:\\Program Files\\Python39\\python.exe",
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfArgs": [],
+  "python.languageServer": "Pylance",
+  "python.linting.enabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.showStartPage": false,
+
+  // Js
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Languages
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

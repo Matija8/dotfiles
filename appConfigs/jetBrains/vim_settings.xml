@@ -1,0 +1,309 @@
+<application>
+  <component name="VimEditorSettings">
+    <editor />
+  </component>
+  <component name="VimKeySettings">
+    <shortcut-conflicts>
+    <!-- Order: Keys, Letters, Numbers, Other -->
+
+
+
+    <!-- CTRL -->
+
+
+      <!-- Ctrl + Keys -->
+
+
+      <!-- Ctrl + Letters -->
+
+      <shortcut-conflict owner="vim"> <!-- Select all -->
+        <text>ctrl pressed A</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed B</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Copy -->
+        <text>ctrl pressed C</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Select word -->
+        <text>ctrl pressed D</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed E</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed F</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed G</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed H</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Cursor redo -->
+        <text>ctrl pressed I</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed J</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed K</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed L</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed M</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed N</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Cursor undo -->
+        <text>ctrl pressed O</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed P</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed Q</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed R</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Save -->
+        <text>ctrl pressed S</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed T</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed U</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Paste -->
+        <text>ctrl pressed V</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Change window -->
+        <text>ctrl pressed W</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Cut -->
+        <text>ctrl pressed X</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed Y</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Undo -->
+        <text>ctrl pressed Z</text>
+      </shortcut-conflict>
+
+
+      <!-- Ctrl + Numbers -->
+
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 1</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 2</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 3</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 4</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 6</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 7</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 8</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 9</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed 0</text>
+      </shortcut-conflict>
+
+
+      <!-- Ctrl + Other -->
+
+      <shortcut-conflict owner="ide">
+        <text>ctrl pressed BACK_SLASH</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- New line below -->
+        <text>ctrl pressed ENTER</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Unindent -->
+        <text>ctrl pressed OPEN_BRACKET</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Indent -->
+        <text>ctrl pressed CLOSE_BRACKET</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Next tab -->
+        <text>ctrl pressed PAGE_DOWN</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Previous tab -->
+        <text>ctrl pressed PAGE_UP</text>
+      </shortcut-conflict>
+
+
+
+    <!-- ALT -->
+
+
+      <!-- Alt + Keys -->
+
+      <shortcut-conflict owner="vim"> <!-- Move line up -->
+        <text>alt pressed UP</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Move line down -->
+        <text>alt pressed DOWN</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Move to start of line -->
+        <text>alt pressed LEFT</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Move to end of line -->
+        <text>alt pressed RIGHT</text>
+      </shortcut-conflict>
+
+
+      <!-- Alt + Letters -->
+
+      <shortcut-conflict owner="ide"> <!-- Increment number -->
+        <text>alt pressed A</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Join lines -->
+        <text>alt pressed J</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Documentation -->
+        <text>alt pressed K</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Block visual mode -->
+        <text>alt pressed V</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Decrement number -->
+        <text>alt pressed X</text>
+      </shortcut-conflict>
+
+
+      <!-- Alt + Numbers -->
+
+
+      <!-- Alt + Other -->
+
+      <shortcut-conflict owner="vim"> <!-- Delete to end of line -->
+        <text>alt pressed DELETE</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Delete to start of line -->
+        <text>alt pressed BACK_SPACE</text>
+      </shortcut-conflict>
+
+
+
+    <!-- SHIFT -->
+
+
+      <!-- Shift + Keys -->
+
+
+      <!-- Shift + Letters -->
+
+
+      <!-- Shift + Numbers -->
+
+
+      <!-- Shift + Other -->
+
+      <shortcut-conflict owner="vim"> <!-- Delete lines -->
+        <text>shift pressed DELETE</text>
+      </shortcut-conflict>
+
+
+
+    <!-- CTRL + ALT -->
+
+
+      <!-- Ctrl + Alt + Keys -->
+
+      <shortcut-conflict owner="vim">
+        <text>ctrl alt pressed UP</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl alt pressed DOWN</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl alt pressed LEFT</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl alt pressed RIGHT</text>
+      </shortcut-conflict>
+
+
+      <!-- Ctrl + Alt + Letters -->
+
+
+      <!-- Ctrl + Alt + Numbers -->
+
+
+      <!-- Ctrl + Alt + Other -->
+
+
+
+    <!-- CTRL + SHIFT -->
+
+
+      <!-- Ctrl + Shift + Keys -->
+
+
+      <!-- Ctrl + Shift + Letters -->
+
+      <shortcut-conflict owner="vim"> <!-- Reopen closed tab -->
+        <text>shift ctrl pressed T</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim"> <!-- Redo -->
+        <text>shift ctrl pressed Z</text>
+      </shortcut-conflict>
+
+
+      <!-- Ctrl + Shift + Numbers -->
+
+      <shortcut-conflict owner="ide">
+        <text>shift ctrl pressed 1</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>shift ctrl pressed 2</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>shift ctrl pressed 3</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>shift ctrl pressed 4</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>shift ctrl pressed 5</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="ide">
+        <text>shift ctrl pressed 6</text>
+      </shortcut-conflict>
+
+
+      <!-- Ctrl + Shift + Other -->
+
+      <shortcut-conflict owner="vim"> <!-- New line above -->
+        <text>shift ctrl pressed ENTER</text>
+      </shortcut-conflict>
+
+
+
+    </shortcut-conflicts>
+  </component>
+  <component name="VimSettings">
+    <state version="7" enabled="true" />
+    <notifications>
+      <idea-join enabled="true" />
+      <idea-put enabled="false" />
+    </notifications>
+  </component>
+</application>

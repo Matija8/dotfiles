@@ -1,0 +1,8 @@
+On Windows:
+echo hello | clip
+
+On Linux:
+echo hello | xclip
+
+On Mac OS:
+echo hello | pbcopy

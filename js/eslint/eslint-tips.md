@@ -1,0 +1,8 @@
+- The rules are in the React-Template repo
+- Put the .eslintrc into the same folder the `package.json` is.
+  - Otherwise eslint will fail to find plugins
+- Don't set project field in parser options, it messes with vscode.
+- Don't install eslint for a create-react-app - it's already installed.
+- always try `npm run lint` for sanity checking. It might just be a vscode problem.
+- Add 'lint' rule to package.json
+  - "lint": "eslint ."

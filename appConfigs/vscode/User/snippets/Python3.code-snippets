@@ -1,0 +1,14 @@
+{
+  "Python3 shebang": {
+    "scope": "python",
+    "prefix": "#!",
+    "body": ["#!/usr/bin/env python3\n# coding: UTF-8"],
+    "description": "python3 shebang"
+  },
+  "__main__": {
+    "scope": "python",
+    "prefix": ["if __name__ == '__main__'", "__main__"],
+    "body": ["if __name__ == '__main__':\n    $1"],
+    "description": "__main__"
+  }
+}

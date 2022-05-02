@@ -1,0 +1,12 @@
+Koristi ga kao da testiras node.
+Nemoj da zavisis od browser/webpack stvari ako mozes!?
+Izoluj biznis logiku, trudi se da izbegnes environment stvari.
+Nemoj da koristis ts-jest,
+    type checking usporava + moze da ti pravi bagove
+    import * as moment from 'moment' <- puca sa ts-jest
+Koristi babel!
+    Bez typechecking-a je brzi + nemas bagova sa tipovima
+
+Kod js module-a
+    Uvek imaj index.ts fajlove sa export * from './xxx';
+    Pokreni npm run build u client-u da resetujes common/dist!?

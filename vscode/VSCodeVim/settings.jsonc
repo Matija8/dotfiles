@@ -1,0 +1,72 @@
+{
+  // Vim
+
+  // Search
+  "vim.incsearch": true,
+  "vim.hlsearch": false,
+  "vim.ignorecase": true,
+  "vim.smartcase": false,
+
+  // Selection/Copy
+  "vim.useSystemClipboard": false,
+  "vim.overrideCopy": true,
+  "vim.mouseSelectionGoesIntoVisualMode": false,
+
+  // Settings
+  "vim.vimrc.enable": false,
+  // Start turned off. Toggle with alt+v.
+  "vim.disableExtension": true,
+  // Toggle easymotion with <leader><leader>.
+  "vim.easymotion": true,
+  "vim.startInInsertMode": false,
+  "vim.leader": "<space>",
+
+  // Keybindings
+  "vim.useCtrlKeys": false,
+  "vim.handleKeys": {
+    "<C-c>": false,
+    "<C-d>": false,
+    "<C-z>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["<BS>"], "commands": ["deleteLeft"] },
+    // u/U: Undo/redo.
+    { "before": ["u"], "commands": ["undo"] },
+    { "before": ["U"], "commands": ["redo"] },
+    // x/X/d/D: Delete instead of cut.
+    { "before": ["x"], "after": ["\"", "_", "x"] },
+    { "before": ["X"], "after": ["\"", "_", "X"] },
+    { "before": ["d"], "after": ["\"", "_", "d"] },
+    { "before": ["D"], "after": ["\"", "_", "D"] },
+    // J/K: Scroll 5 lines up/down.
+    { "before": ["K"], "after": ["C-y", "4", "<C-y>"] },
+    { "before": ["J"], "after": ["C-e", "4", "<C-e>"] },
+    // c/y w: Change/yank inner word.
+    { "before": ["c", "w"], "after": ["c", "i", "w"] },
+    { "before": ["y", "w"], "after": ["y", "i", "w"] },
+    // f/F: Search forward/backward.
+    { "before": ["f"], "after": ["/"] },
+    { "before": ["F"], "after": ["?"] },
+    // Leader:
+    // Space + d: Select inner word.
+    { "before": ["<space>", "d"], "after": ["v", "i", "w"] },
+    // Space + v: Vertical split.
+    { "before": ["<space>", "v"], "after": ["<C-w>", "v"] },
+    // Space + w: Close file.
+    {
+      "before": ["<space>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    // Space + kw: Close all files.
+    {
+      "before": ["<space>", "k", "w"],
+      "commands": ["workbench.action.closeAllEditors"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<BS>"], "commands": ["deleteLeft"] },
+    // d/D: Delete instead of cut.
+    { "before": ["d"], "after": ["\"", "_", "d"] },
+    { "before": ["D"], "after": ["\"", "_", "D"] }
+  ]
+}

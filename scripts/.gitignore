@@ -1,0 +1,7 @@
+/.vscode
+zipped**.zip
+*tmp*
+__pycache__
+.mypy_cache
+.pytest_cache
+.gupdate.sh

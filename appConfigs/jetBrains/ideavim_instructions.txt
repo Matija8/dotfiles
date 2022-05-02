@@ -1,0 +1,11 @@
+Copy `.ideavimrc` to $HOME
+
+LINUX:
+Copy `vim_settings.xml` to `$HOME/.config/JetBrains/IdeaIC2022.2/options/vim_settings.xml`
+Copy `vim_settings.xml` to `$HOME/.config/JetBrains/PyCharmCE2022.2/options/vim_settings.xml`
+Copy `vim_settings.xml` to `$HOME/.config/JetBrains/.../options/vim_settings.xml`
+
+WINDOWS:
+Copy `vim_settings.xml` to `$HOME/AppData/Roaming/JetBrains/IdeaIC2022.2/options/vim_settings.xml`
+Copy `vim_settings.xml` to `$HOME/AppData/Roaming/JetBrains/PyCharmCE2022.2/options/vim_settings.xml`
+Copy `vim_settings.xml` to `$HOME/AppData/Roaming/JetBrains/.../options/vim_settings.xml`

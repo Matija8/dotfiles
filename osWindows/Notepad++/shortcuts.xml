@@ -1,0 +1,354 @@
+<NotepadPlus>
+
+
+
+    <InternalCommands>
+
+
+    <!-- Movement Up/Down -->
+
+
+        <!-- Alt + Up/Down: Move Line Up/Down -->
+        <Shortcut id="42014" Ctrl="no" Alt="yes" Shift="no" Key="38" />
+        <Shortcut id="42015" Ctrl="no" Alt="yes" Shift="no" Key="40" />
+
+
+
+    <!-- Comments -->
+
+
+        <!-- Ctrl + /: Toggle Line Comments -->
+        <Shortcut id="42022" Ctrl="yes" Alt="no" Shift="no" Key="191" />
+
+
+        <!-- Alt + Shift + A: Add Block Comment -->
+        <Shortcut id="42023" Ctrl="no" Alt="yes" Shift="yes" Key="65" />
+
+
+
+    <!-- Tabs -->
+
+
+        <!-- Alt + [1-9]: Jump to tab [n] -->
+        <Shortcut id="44086" Ctrl="no" Alt="yes" Shift="no" Key="49" />
+        <Shortcut id="44087" Ctrl="no" Alt="yes" Shift="no" Key="50" />
+        <Shortcut id="44088" Ctrl="no" Alt="yes" Shift="no" Key="51" />
+        <Shortcut id="44089" Ctrl="no" Alt="yes" Shift="no" Key="52" />
+        <Shortcut id="44090" Ctrl="no" Alt="yes" Shift="no" Key="53" />
+        <Shortcut id="44091" Ctrl="no" Alt="yes" Shift="no" Key="54" />
+        <Shortcut id="44092" Ctrl="no" Alt="yes" Shift="no" Key="55" />
+        <Shortcut id="44093" Ctrl="no" Alt="yes" Shift="no" Key="56" />
+        <Shortcut id="44094" Ctrl="no" Alt="yes" Shift="no" Key="57" />
+
+
+
+    <!-- Other -->
+
+
+        <!-- F1: Sort lines ascending (case sensitive) -->
+        <Shortcut id="42059" Ctrl="no" Alt="no" Shift="no" Key="112" />
+
+
+
+    <!-- Rebinds -->
+
+
+        <!-- Alt + Enter: Word Completion (def: Ctrl + Enter) -->
+        <Shortcut id="50001" Ctrl="no" Alt="yes" Shift="no" Key="13" />
+
+
+        <!-- Alt + S: Save (def: Ctrl + S) -->
+        <Shortcut id="41006" Ctrl="no" Alt="yes" Shift="no" Key="83" />
+
+
+
+    <!-- Removed Bindings -->
+
+
+        <!-- Single Line Comment -->
+        <!-- Single Line Uncomment -->
+        <Shortcut id="42035" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="42036" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+        <!-- Alt + [1-8]: Collapse level [n] -->
+        <Shortcut id="44051" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44052" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44053" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44054" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44055" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44056" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44057" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="44058" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+        <!-- F1: About notepad++ -->
+        <Shortcut id="47000" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+
+    </InternalCommands>
+
+
+
+    <Macros>
+
+
+    <!-- Movement Up/Down -->
+
+
+        <!-- Ctrl + Up/Down: Cursor 4 Up/Down -->
+        <Macro name="4 Up" Ctrl="yes" Alt="no" Shift="no" Key="38">
+            <Action type="0" message="2302" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2302" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2302" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2302" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="4 Down" Ctrl="yes" Alt="no" Shift="no" Key="40">
+            <Action type="0" message="2300" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2300" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2300" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2300" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + Shift + Up/Down: Select 4 Up/Down -->
+        <Macro name="4 Up Select" Ctrl="yes" Alt="no" Shift="yes" Key="38">
+            <Action type="0" message="2303" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2303" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2303" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2303" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="4 Down Select" Ctrl="yes" Alt="no" Shift="yes" Key="40">
+            <Action type="0" message="2301" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2301" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2301" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2301" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + Alt + Up/Down: Scroll 5 Up/Down -->
+        <Macro name="Scroll 5 Up" Ctrl="yes" Alt="yes" Shift="no" Key="38">
+            <Action type="0" message="2343" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2343" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2343" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2343" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2343" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="Scroll 5 Down" Ctrl="yes" Alt="yes" Shift="no" Key="40">
+            <Action type="0" message="2342" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2342" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2342" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2342" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2342" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+
+    <!-- Movement Left/Right -->
+
+
+        <!-- Ctrl + Left/Right: 8 Left/Right -->
+        <Macro name="8 Left" Ctrl="yes" Alt="yes" Shift="no" Key="37">
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2304" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="8 Right" Ctrl="yes" Alt="yes" Shift="no" Key="39">
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + Shift + Left/Right: Select 8 Left/Right -->
+        <Macro name="8 Left Select" Ctrl="yes" Alt="yes" Shift="yes" Key="37">
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2305" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="8 Right Select" Ctrl="yes" Alt="yes" Shift="yes" Key="39">
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2307" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+
+    <!-- Other -->
+
+
+        <!-- Ctrl + [ Shift ] + Enter: New Line Above/Below -->
+        <Macro name="New Line Above" Ctrl="yes" Alt="no" Shift="yes" Key="13">
+            <Action type="0" message="2469" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2451" wParam="0" lParam="0" sParam="" />
+            <Action type="1" message="2170" wParam="0" lParam="0" sParam="a" />
+            <Action type="0" message="2453" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2396" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="New Line Below" Ctrl="yes" Alt="no" Shift="no" Key="13">
+            <!-- Duplicate line (Ctrl + D) -->
+            <Action type="0" message="2469" wParam="0" lParam="0" sParam="" />
+            <!-- Go down once (Only difference with "New Line Above" macro) -->
+            <Action type="0" message="2300" wParam="0" lParam="0" sParam="" />
+            <!-- Go to line end (End) -->
+            <Action type="0" message="2451" wParam="0" lParam="0" sParam="" />
+            <!-- Write a single character ('a' for example) -->
+            <Action type="1" message="2170" wParam="0" lParam="0" sParam="a" />
+            <!-- Go to first nonblank character (Home) -->
+            <Action type="0" message="2453" wParam="0" lParam="0" sParam="" />
+            <!-- Delete to the end of the line -->
+            <Action type="0" message="2396" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + []: Indent/Unindent Line -->
+        <Macro name="Indent Single Line" Ctrl="yes" Alt="no" Shift="no" Key="221">
+            <Action type="0" message="2453" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2327" wParam="0" lParam="0" sParam="" />
+        </Macro>
+        <Macro name="Unindent Single Line" Ctrl="yes" Alt="no" Shift="no" Key="219">
+            <Action type="0" message="2453" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2328" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + D: Select Word -->
+        <!-- Right => Ctrl + Left => Ctrl + Shift + Right -->
+        <Macro name="Select Word" Ctrl="yes" Alt="no" Shift="no" Key="68">
+            <Action type="0" message="2306" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2308" wParam="0" lParam="0" sParam="" />
+            <Action type="0" message="2442" wParam="0" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + S: Trim Whitespace & Save -->
+        <Macro name="Trim Trailing WS and Save" Ctrl="yes" Alt="no" Shift="no" Key="83">
+            <Action type="2" message="0" wParam="42024" lParam="0" sParam="" />
+            <Action type="2" message="0" wParam="41006" lParam="0" sParam="" />
+        </Macro>
+
+
+        <!-- Ctrl + Q: Quit -->
+        <Macro name="Exit" Ctrl="yes" Alt="no" Shift="no" Key="81">
+            <Action type="2" message="0" wParam="41011" lParam="0" sParam="" />
+        </Macro>
+
+
+
+    </Macros>
+
+
+
+    <UserDefinedCommands />
+
+
+
+    <PluginCommands />
+
+
+
+    <ScintillaKeys>
+
+
+    <!-- Movement Left/Right -->
+
+
+        <!-- Alt + Left/Right: Cursor Home/End (def: Home/End) -->
+        <ScintKey ScintID="2453" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="36">
+            <NextKey Ctrl="no" Alt="yes" Shift="no" Key="37" />
+        </ScintKey>
+        <ScintKey ScintID="2451" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="35">
+            <NextKey Ctrl="no" Alt="yes" Shift="no" Key="39" />
+        </ScintKey>
+
+
+        <!-- Alt + Shift + Left/Right: Select Home/End (def: Shift + Home/End) -->
+        <ScintKey ScintID="2454" menuCmdID="0" Ctrl="no" Alt="no" Shift="yes" Key="36">
+            <NextKey Ctrl="no" Alt="yes" Shift="yes" Key="37" />
+        </ScintKey>
+        <ScintKey ScintID="2452" menuCmdID="0" Ctrl="no" Alt="no" Shift="yes" Key="35">
+            <NextKey Ctrl="no" Alt="yes" Shift="yes" Key="39" />
+        </ScintKey>
+
+
+
+    <!-- Deleting -->
+
+
+        <!-- Shift + Delete: Delete Line -->
+        <ScintKey ScintID="2338" menuCmdID="0" Ctrl="no" Alt="no" Shift="yes" Key="46" />
+
+
+        <!-- Alt + Backspace/Delete: Delete to start/end of line (def: Ctrl + Shift + Backspace/Delete) -->
+        <ScintKey ScintID="2395" menuCmdID="0" Ctrl="no" Alt="yes" Shift="no" Key="8" />
+        <ScintKey ScintID="2396" menuCmdID="0" Ctrl="no" Alt="yes" Shift="no" Key="46" />
+
+
+
+    <!-- Rebinds -->
+
+
+        <!-- Ctrl + x: Cut (Rebound from SCI_CUT: Ctrl + x | Shift + Delete) -->
+        <ScintKey ScintID="2177" menuCmdID="42001" Ctrl="yes" Alt="no" Shift="no" Key="88" />
+
+
+        <!-- Alt + []: Move by paragraph (Rebound from SCI_PARAUP/DOWN: Ctrl + []) -->
+        <ScintKey ScintID="2413" menuCmdID="0" Ctrl="no" Alt="yes" Shift="no" Key="221" />
+        <ScintKey ScintID="2415" menuCmdID="0" Ctrl="no" Alt="yes" Shift="no" Key="219" />
+
+
+        <!-- Ctrl + Z: Undo (Removed "Alt + Backspace" Synonym) -->
+        <ScintKey ScintID="2176" menuCmdID="42003" Ctrl="yes" Alt="no" Shift="no" Key="90" />
+
+
+
+    <!-- Removed Bindings -->
+
+
+        <!-- SCI_LINESCROLLDOWN (Ctrl + Down)-->
+        <!-- SCI_LINESCROLLUP   (Ctrl + Up) -->
+        <ScintKey ScintID="2342" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <ScintKey ScintID="2343" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+        <!-- SCI_CHARLEFTRECTEXTEND  (Alt + Shift + Left) -->
+        <!-- SCI_CHARRIGHTRECTEXTEND (Alt + Shift + Right) -->
+        <ScintKey ScintID="2428" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <ScintKey ScintID="2429" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+        <!-- SCI_WORDPARTLEFT (Ctrl + /) -->
+        <ScintKey ScintID="2390" menuCmdID="0" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+        <!-- SCI_SELECTIONDUPLICATE (Ctrl + D) -->
+        <ScintKey ScintID="2469" menuCmdID="42010" Ctrl="no" Alt="no" Shift="no" Key="0" />
+
+
+
+    </ScintillaKeys>
+
+
+
+</NotepadPlus>

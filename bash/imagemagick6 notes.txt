@@ -1,0 +1,15 @@
+TODO: Check valid install command
+To install:
+sudo apt install imagemagick
+
+Privacy policy stuff:
+https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion
+File to change is:
+    /etc/ImageMagick-6/policy.xml
+    sudo vim /etc/ImageMagick-6/policy.xml
+Command to fix!:
+    sudo sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
+
+To stich images into 1 pdf:
+convert 1.jpg 2.jpg 3.jpg out.pdf
+convert *.jpg out.pdf

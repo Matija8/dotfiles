@@ -1,0 +1,7 @@
+https://askubuntu.com/questions/113419/how-can-i-reset-path-to-its-default-value-in-ubuntu
+
+echo $PATH
+echo $(getconf PATH)
+
+PATH=$(getconf PATH)
+

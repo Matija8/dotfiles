@@ -1,0 +1,269 @@
+" Settings:
+
+    set visualbell      " Turn off bell sounds.
+    set nohlsearch      " Don't highlight search (/?) items.
+    set rnu             " Relative line numbers.
+    set ideajoin        " https://github.com/JetBrains/ideavim/wiki/%60ideajoin%60-examples
+
+
+
+" Keybindings:
+
+
+    " Movement Up/Down "
+
+
+        " Ctrl + Up/Down: Move up/down by 4.
+            noremap  <C-Up>     k3k
+            noremap  <C-Down>   j3j
+            inoremap <C-Up>     <Up><Up><Up><Up>
+            inoremap <C-Down>   <Down><Down><Down><Down>
+
+
+        " Shift + Up/Down: Scroll up/down by 5.
+            noremap  <S-Up>     <C-y>4<C-y>
+            noremap  <S-Down>   <C-e>4<C-e>
+            inoremap <S-Up>     <C-o>5<C-y>
+            inoremap <S-Down>   <C-o>5<C-e>
+
+        " Shift + k/j: Scroll up/down by 5.
+            noremap  <S-k>      <C-y>4<C-y>
+            noremap  <S-j>      <C-e>4<C-e>
+
+
+        " Alt + Up/Down: Previous/next method.
+            noremap  <A-Down>   :action MoveLineDown<cr>
+            noremap  <A-Up>     :action MoveLineUp<cr>
+            inoremap <A-Down>   <C-o>:action MoveLineDown<cr>
+            inoremap <A-Up>     <C-o>:action MoveLineUp<cr>
+
+        " Alt + k: Documentation.
+            " Replaces Shift + k.
+            noremap <A-k>   K
+
+        " Alt + j: Join lines.
+            " Replaces Shift + j.
+            noremap <A-j>   J
+
+
+        " Ctrl + Alt + Up/Down: Scroll up/down by 5.
+            noremap  <C-A-Up>   <C-y>4<C-y>
+            noremap  <C-A-Down> <C-e>4<C-e>
+            inoremap <C-A-Up>   <C-o>5<C-y>
+            inoremap <C-A-Down> <C-o>5<C-e>
+
+
+
+    " Movement Left/Right "
+
+
+        " Ctrl + Left/Right: Move left/right by word.
+            noremap  <C-Left>   b
+            noremap  <C-Right>  e
+            inoremap <C-Right>  <C-o>e<Right>
+
+
+        " Shift + Left/Right: Move left/right by "WORD".
+            noremap  <S-Left>   B
+            noremap  <S-Right>  W
+            inoremap <S-Left>   <C-o>B
+            inoremap <S-Right>  <C-o>W
+
+
+        " Alt + Left/Right: Move to line start/end (nonblank).
+            noremap  <A-Left>   ^
+            noremap  <A-Right>  $
+            inoremap <A-Left>   <C-o>^
+            inoremap <A-Right>  <C-o>A
+
+
+        " Ctrl + Alt + Left/Right: Move left/right by 8.
+            noremap  <C-A-Left>     h7h
+            noremap  <C-A-Right>    l7l
+            inoremap <C-A-Left>     <C-o>8h
+            inoremap <C-A-Right>    <C-o>8l
+
+
+
+    " Copy/Paste "
+
+
+        " Y/y: Copy to clipboard:
+            noremap  y  "+y
+            nnoremap yy "+yy
+            nnoremap Y  "+y$
+            vnoremap Y  "+Y
+
+        " P/p: Paste from clipboard:
+            " Use ["x]gp/gP to paste from register x.
+            noremap p   "+p
+            noremap P   "+P
+
+
+        " Ctrl + a: Select all.
+            noremap  <C-a>  <Esc>gg0vG$
+            inoremap <C-a>  <Esc>gg0vG$
+
+
+        " Ctrl + d: Select word.
+            nnoremap <C-d>  <Esc>viw
+            vnoremap <C-d>  <Esc>
+            inoremap <C-d>  <Right><Esc>viw
+
+
+        " Ctrl + c: Copy.
+            nnoremap <C-c>  "+Y
+            vnoremap <C-c>  "+y
+            inoremap <C-c>  <C-o>"+Y
+
+
+        " Ctrl + x: Cut.
+            nnoremap <C-x>  "+dd
+            vnoremap <C-x>  "+x
+            inoremap <C-x>  <C-o>"+dd
+
+        " v_x/X: Cut selected/lines.
+            vnoremap x      "+x
+            vnoremap X      "+X
+
+
+        " Ctrl + v: Paste.
+            nnoremap <C-v>  "+P
+            vnoremap <C-v>  "+P
+            inoremap <C-v>  <C-r><C-p>+
+
+
+        " Alt + v: Visual block mode.
+            nnoremap <A-v>      <C-v>
+
+
+        " cw/dw/yw: Change/delete/yank inner word.
+            nnoremap cw     ciw
+            nnoremap dw     diw
+            nnoremap yw     "+yiw
+
+
+
+    " Delete "
+
+
+        " Backspace/del: Delete previous/current character.
+            nnoremap <BS>       "_X
+            vnoremap <BS>       "_d
+            noremap  <del>      "_x
+            nnoremap x          "_x
+            nnoremap X          "_X
+
+
+        " Ctrl + backspace/del: Delete to the start/end of word.
+            nnoremap <C-BS>     "_db
+            nnoremap <C-del>    "_de
+            inoremap <C-BS>     <C-W>
+            inoremap <C-del>    <C-o>"_de
+
+
+        " Alt + backspace/del: Delete to the start/end of line.
+            nnoremap <A-BS>     "_d0
+            nnoremap <A-del>    "_D
+            inoremap <A-BS>     <C-o>"_d0
+            inoremap <A-del>    <C-o>"_D
+
+
+        " Shift + del: Delete line.
+            nnoremap <S-del>    "_dd
+            vnoremap <S-del>    "_D
+            inoremap <S-del>    <C-o>"_dd
+
+
+
+    " Other "
+
+
+        " Ctrl + Enter: New line below.
+            nnoremap <C-Enter>      o
+            vnoremap <C-Enter>      <Esc>o
+            inoremap <C-Enter>      <C-o>o
+
+        " Ctrl + Shift + Enter: New line above.
+            nnoremap <C-S-Enter>    O
+            vnoremap <C-S-Enter>    <Esc>O
+            inoremap <C-S-Enter>    <C-o>O
+
+
+        " Ctrl + s: Save file.
+            nnoremap <C-s>      :w<cr>
+            vnoremap <C-s>      :w<cr>
+            inoremap <C-s>      <C-o>:w<cr>
+
+
+        " Ctrl + z: Undo.
+            nnoremap <C-z>      u
+            vnoremap <C-z>      <Esc>u
+            " Press gv to return to visual mode.
+            inoremap <C-z>      <C-o>u
+
+
+        " Ctrl + Shift + z: Redo.
+            nnoremap <C-S-z>    <C-r>
+            vnoremap <C-S-z>    <Esc><C-r>
+            inoremap <C-S-z>    <C-o><C-r>
+
+
+        " Ctrl + 4: Close file (default).
+
+
+        " Ctrl + []: Indent/Unindent.
+            nnoremap <C-[>      <<
+            nnoremap <C-]>      >>
+            vnoremap <C-[>      <gv
+            vnoremap <C-]>      >gv
+            inoremap <C-[>      <C-o><<
+            inoremap <C-]>      <C-o>>>
+
+
+
+    " Leader "
+
+
+        " Space + d: Select word.
+            nnoremap <Space>d      viw
+            vnoremap <Space>d      <Esc>viw
+
+
+        " Space + v/V: Move editor left/right (Vertical mnemonic).
+            noremap <Space>v        <Esc>:action MoveTabRight<cr>
+            noremap <Space>V        <Esc>:action MoveEditorToOppositeTabGroup<cr>
+
+
+        " Space + w: Close file.
+            noremap  <Space>w       <Esc>:q<cr>
+
+        " Space + kw: Close all files.
+            noremap  <Space>kw      <Esc>:qa<cr>
+
+
+
+    " Tabs "
+
+
+        " Ctrl + Shift + T: Reopen closed tab.
+            noremap  <C-S-t>    :action ReopenClosedTab<cr>
+
+
+        " Ctrl + pageUp/pageDown: Next/Previous tab.
+            noremap  <C-pageDown>   <Esc>gt
+            inoremap <C-pageDown>   <Esc>gt
+            noremap  <C-pageUp>     <Esc>gT
+            inoremap <C-pageUp>     <Esc>gT
+
+
+        " Space + [number]: Go to tab [number].
+            noremap  <Space>1       <Esc>1gt
+            noremap  <Space>2       <Esc>2gt
+            noremap  <Space>3       <Esc>3gt
+            noremap  <Space>4       <Esc>4gt
+            noremap  <Space>5       <Esc>5gt
+            noremap  <Space>6       <Esc>6gt
+            noremap  <Space>7       <Esc>7gt
+            noremap  <Space>8       <Esc>8gt
+            noremap  <Space>9       <Esc>9gt

@@ -1,0 +1,16 @@
+Open command pallete with F1 or Ctrl+Shift+P
+
+Debug: Attach to node Process
+Developer: Reload Window
+Emmet: Wrap with Abbreviation
+ESLint: Restart ESLint Server
+Five-Server: Close
+Format Selection
+GitLens: Toggle File Blame
+References: Find All References
+Reflow Markdown
+Sort Lines Ascending
+Terminal: Select Default Profile
+Transform to Lowercase
+TypeScript: Restart TS Server
+View: Move Panel Left/Right/Bottom

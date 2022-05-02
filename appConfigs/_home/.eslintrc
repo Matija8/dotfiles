@@ -1,0 +1,35 @@
+// Eslint is installed globally for you (test with eslint -v).
+
+// To use eslint just run `eslint .` or `eslint <PATH_TO_DIR>`.
+// It's important to add the directory!
+
+// To check env info run:
+// eslint --env-info
+
+// To print config for specific file run:
+// eslint --print-config <PATH_TO_FILE>
+{
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+
+  "env": {
+    "es6": true,
+    // By default allow both node & browser apis.
+    // You will choose only one in project level .eslintrc files.
+    "node": true,
+    "browser": true
+  },
+
+  // Important!
+  // The config "eslint:recommended" doesn't force style rules.
+  // It only checks logic inconsistencies!
+  "extends": "eslint:recommended",
+
+  // https://eslint.org/docs/rules/
+  "rules": {
+    // "semi": ["warn", "always"],
+    // "quotes": ["warn", "single"]
+    "no-unused-vars": "warn"
+  }
+}

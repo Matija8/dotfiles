@@ -1,0 +1,2 @@
+C:\Program Files\Git
+C:\Program Files\Neovim\bin

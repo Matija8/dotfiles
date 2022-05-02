@@ -1,0 +1,9 @@
+gtk3 themes dirs:
+    gedit - https://delightlylinux.wordpress.com/2015/03/25/gedit-themes/#:~:text=Themes%20are%20stored%20in%20the,xml%20files%20to%20this%20directory.
+    mousepad - https://forum.xfce.org/viewtopic.php?id=13780
+    https://superuser.com/questions/1222414/where-is-gtk-default-theme-saved#:~:text=System%20themes%20are%20stored%20in,is%20your%20current%20gtk%20theme.
+    https://www.reddit.com/r/linuxquestions/comments/8gt0p7/where_are_gnome_shell_and_gtk_themes_stored/
+
+On linux move themes to:
+    gedit - $HOME/.local/share/gedit/styles/darkmate.xml
+    mousepad - $HOME/.local/share/gtksourceview-3.0/styles/darkmate.xml

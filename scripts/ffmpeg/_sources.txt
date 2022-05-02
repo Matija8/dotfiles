@@ -1,0 +1,47 @@
+Cut with keyframes:
+https://stackoverflow.com/questions/18444194/cutting-the-videos-based-on-start-and-end-time-using-ffmpeg
+ffmpeg -i original.mp4 -ss 00:00:03 -to 00:00:08 -async 1 -strict -2 cut.mp4
+
+
+
+?:
+https://www.arj.no/2018/05/18/trimvideo/
+ffmpeg -i input.mp4 -ss 01:10:27 -to 02:18:51 -c:v copy -c:a copy output.mp4
+
+
+
+Download part of the video:
+https://unix.stackexchange.com/questions/230481/how-to-download-portion-of-video-with-youtube-dl-command
+
+
+
+Concat:
+https://stackoverflow.com/questions/7333232/how-to-concatenate-two-mp4-files-using-ffmpeg
+ffmpeg -f concat -i mylist.txt -c copy output.mp4
+
+
+Remove title:
+ffmpeg -i input.mp4 -metadata title="" -acodec copy -vcodec copy out.mp4
+
+
+
+Merge audio + video:
+https://superuser.com/questions/277642/how-to-merge-audio-and-video-file-in-ffmpeg
+ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -strict experimental output.mp4
+
+
+
+Remove Audio:
+https://superuser.com/questions/268985/remove-audio-from-video-file-with-ffmpeg
+ffmpeg -i example.mkv -c copy -an example-nosound.mkv
+
+
+
+Quieter ffmpeg:
+https://superuser.com/questions/326629/how-can-i-make-ffmpeg-be-quieter-less-verbose
+-loglevel panic -hide_banner
+
+
+
+Crop Video (Height/Width):
+https://video.stackexchange.com/questions/4563/how-can-i-crop-a-video-with-ffmpeg

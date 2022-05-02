@@ -1,0 +1,23 @@
+apt
+basename
+cat
+dirname
+free - memory usage
+grep
+htop - top
+kill
+less
+ln -sf
+lsof
+mkdir
+mv
+printf
+pwd
+read -p "" yn
+realpath - https://stackoverflow.com/questions/3915040/how-to-obtain-the-absolute-path-of-a-file-via-shell-bash-zsh-sh
+rename - https://unix.stackexchange.com/questions/1136/batch-renaming-files
+rm -rf
+sed
+top
+vmstat
+xclip

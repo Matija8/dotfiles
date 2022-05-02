@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# coding: UTF-8
+
+# To your scripts add:
+# source sourceLib
+source "$HOME/_Matija-Scripts/lib.sh"

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# coding: UTF-8
+
+source sourceLib
+
+# printWorkingDirToClipboard
+printQuotedWorkingDirToClipboard

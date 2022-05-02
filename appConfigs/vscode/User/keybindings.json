@@ -1,0 +1,500 @@
+// VSCode keybindings by Matija8.
+// https://code.visualstudio.com/docs/getstarted/keybindings
+// https://code.visualstudio.com/api/references/commands
+// https://code.visualstudio.com/api/references/when-clause-contexts
+[
+  // *** Movement Up/Down ***
+
+  // Ctrl + Up/Down: Cursor up/down by 4.
+  {
+    "key": "ctrl+up",
+    "command": "cursorMove",
+    "args": { "to": "up", "by": "line", "value": 4 },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "cursorMove",
+    "args": { "to": "down", "by": "line", "value": 4 },
+    "when": "editorTextFocus"
+  },
+  // Ctrl + Shift + Up/Down: Select up/down by 4.
+  {
+    "key": "ctrl+shift+up",
+    "command": "cursorMove",
+    "args": { "to": "up", "by": "line", "value": 4, "select": true },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "cursorMove",
+    "args": { "to": "down", "by": "line", "value": 4, "select": true },
+    "when": "editorTextFocus"
+  },
+
+  // Alt + Up/Down: Move line up/down (default).
+
+  // Alt + Shift + Up/Down: Add cursor above/below.
+  {
+    "key": "alt+shift+up",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+down",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+
+  // Ctrl + Alt + Up/Down: Scroll up/down by 5.
+  {
+    "key": "ctrl+alt+up",
+    "command": "editorScroll",
+    "args": { "to": "up", "by": "line", "value": 5, "revealCursor": true },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+down",
+    "command": "editorScroll",
+    "args": { "to": "down", "by": "line", "value": 5, "revealCursor": true },
+    "when": "editorTextFocus"
+  },
+
+  // Ctrl + Alt + Shift + Up/Down: Unset.
+
+  // *** Movement Left/Right ***
+
+  // Ctrl + Left/Right: Move left/right by word (default).
+  {
+    "key": "ctrl+left",
+    "command": "cursorWordLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "cursorWordRight",
+    "when": "editorTextFocus"
+  },
+  // Ctrl + Shift + Left/Right: Select left/right by word (default).
+  {
+    "key": "ctrl+shift+left",
+    "command": "cursorWordLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "cursorWordRightSelect",
+    "when": "editorTextFocus"
+  },
+
+  // Alt + Left/Right: Cursor home/end.
+  {
+    "key": "alt+left",
+    "command": "cursorHome",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+right",
+    "command": "cursorEnd",
+    "when": "editorTextFocus"
+  },
+  // Alt + Shift + Left/Right: Select home/end.
+  {
+    "key": "alt+shift+left",
+    "command": "cursorHomeSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+shift+right",
+    "command": "cursorEndSelect",
+    "when": "editorTextFocus"
+  },
+
+  // Ctrl + Alt + Left/Right: Cursor left/right by 8.
+  {
+    "key": "ctrl+alt+left",
+    "command": "cursorMove",
+    "args": { "to": "left", "by": "character", "value": 8 },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+right",
+    "command": "cursorMove",
+    "args": { "to": "right", "by": "character", "value": 8 },
+    "when": "editorTextFocus"
+  },
+  // Ctrl + Alt + Shift + Left/Right: Select left/right by 8.
+  {
+    "key": "ctrl+alt+shift+left",
+    "command": "cursorMove",
+    "args": { "to": "left", "by": "character", "value": 8, "select": true },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+shift+right",
+    "command": "cursorMove",
+    "args": { "to": "right", "by": "character", "value": 8, "select": true },
+    "when": "editorTextFocus"
+  },
+
+  // *** Deleting ***
+
+  // Alt + Backspace/Delete: Delete until line start/end.
+  {
+    "key": "alt+backspace",
+    "command": "deleteAllLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+delete",
+    "command": "deleteAllRight",
+    "when": "editorTextFocus"
+  },
+
+  // Shift + Delete: Delete lines.
+  {
+    "key": "shift+delete",
+    "command": "editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+backspace",
+    "command": "editor.action.deleteLines",
+    "when": "isMac && textInputFocus && !editorReadonly"
+  },
+
+  // Shift + Alt + j: Join lines.
+  {
+    "key": "shift+alt+j",
+    "command": "editor.action.joinLines"
+  },
+
+  // *** Navigation ***
+
+  // Ctrl + Alt + -/=: Navigate backward/forward.
+  {
+    "key": "ctrl+alt+-",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+alt+=",
+    "command": "workbench.action.navigateForward"
+  },
+  // Alt + [/]: Navigate backward/forward.
+  {
+    "key": "alt+[",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "alt+]",
+    "command": "workbench.action.navigateForward"
+  },
+
+  // Ctrl + u/i: Cursor undo/redo.
+  {
+    "key": "ctrl+u",
+    "command": "cursorUndo"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "cursorRedo"
+  },
+
+  // Ctrl+k Ctrl+k: Toggle bookmark.
+  {
+    "key": "ctrl+k ctrl+k",
+    "command": "bookmarks.toggle"
+  },
+  // Ctrl+Shift+k / Ctrl+k Ctrl+b: Show bookmarks explorer.
+  {
+    "key": "ctrl+shift+k",
+    "command": "bookmarksExplorer.focus"
+  },
+  {
+    "key": "ctrl+k ctrl+b",
+    "command": "bookmarksExplorer.focus"
+  },
+
+  // Ctrl + Home/End: Go to start/end of file (default).
+  // Ctrl + Shift + \: Jump bracket (default).
+
+  // *** Editors / Groups ***
+
+  // Ctrl + PageUp/PageDown: Previous/next editor (default).
+  // Ctrl + Shift + PageUp/PageDown: Move editor left/right (default).
+
+  // Alt + '/\: Move editor to previous/next group.
+  {
+    "key": "alt+'",
+    "command": "workbench.action.moveEditorToPreviousGroup"
+  },
+  {
+    "key": "alt+\\",
+    "command": "workbench.action.moveEditorToNextGroup"
+  },
+
+  // Ctrl + m: Reset group sizes.
+  {
+    "key": "ctrl+m",
+    "command": "workbench.action.evenEditorWidths"
+  },
+
+  // Shift + Alt + f / Ctrl + Shift + i: Format document.
+  {
+    "key": "shift+alt+f",
+    "command": "editor.action.formatDocument"
+  },
+  {
+    "key": "ctrl+shift+i",
+    "command": "editor.action.formatDocument"
+  },
+
+  // Alt + s: Save without formatting.
+  {
+    "key": "alt+s",
+    "command": "workbench.action.files.saveWithoutFormatting"
+  },
+
+  // *** Terminal ***
+
+  // Alt + q: Toggle maximized terminal.
+  {
+    // Toggle maximized terminal when panel is closed.
+    "key": "alt+q",
+    "command": "workbench.action.toggleMaximizedPanel"
+  },
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "isMac"
+  },
+  {
+    // Switch to terminal when it is not focused but panel is open.
+    "key": "alt+q",
+    "command": "workbench.action.terminal.focus",
+    "when": "activePanel"
+  },
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.terminal.focus",
+    "when": "isMac && activePanel"
+  },
+  {
+    // Minimize terminal when it is focused.
+    "key": "alt+q",
+    "command": "workbench.action.togglePanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+q",
+    "command": "workbench.action.togglePanel",
+    "when": "isMac && terminalFocus"
+  },
+
+  // Alt + d: Kill active terminal.
+  {
+    "key": "alt+d",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+
+  // Ctrl + n: New terminal.
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+
+  // Ctrl + t: Split terminal vertically.
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  // Ctrl + 5: Split terminal vertically.
+  {
+    "key": "ctrl+5",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+
+  // Alt + Up/Down: Toggle previous/next terminal.
+  {
+    "key": "alt+up",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+down",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+
+  // Alt + Left/Right: Toggle previous/next terminal pane.
+  {
+    "key": "alt+left",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+  {
+    "key": "alt+right",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus && terminalProcessSupported"
+  },
+
+  // Allow Ctrl+e in terminal.
+  {
+    "key": "ctrl+e",
+    "command": "ctrl+e",
+    "when": "terminalFocus"
+  },
+
+  // *** Font/Ui Zoom ***
+
+  // Ctrl + [=/- | numpad+/-]: Change editor font size.
+  {
+    "key": "ctrl+=",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "editor.action.fontZoomOut"
+  },
+  {
+    "key": "ctrl+numpad_add",
+    "command": "editor.action.fontZoomIn"
+  },
+  {
+    "key": "ctrl+numpad_subtract",
+    "command": "editor.action.fontZoomOut"
+  },
+
+  // Ctrl + Shift + [=/- | numpad+/-]: Change ui zoom level.
+  {
+    "key": "ctrl+shift+=",
+    "command": "workbench.action.zoomIn"
+  },
+  {
+    "key": "ctrl+shift+-",
+    "command": "workbench.action.zoomOut"
+  },
+  {
+    "key": "ctrl+shift+numpad_add",
+    "command": "workbench.action.zoomIn"
+  },
+  {
+    "key": "ctrl+shift+numpad_subtract",
+    "command": "workbench.action.zoomOut"
+  },
+
+  // Alt + =/-: Reset ui and font zoom.
+  {
+    "key": "alt+=",
+    "command": "workbench.action.zoomReset"
+  },
+  {
+    "key": "alt+-",
+    "command": "editor.action.fontZoomReset"
+  },
+
+  // *** Explorer (Side Bar) ***
+
+  // Ctrl+k Ctrl+e: Show files explorer.
+  {
+    "key": "ctrl+k ctrl+e",
+    "command": "workbench.view.explorer"
+  },
+  // Ctrl + Shift + g / Ctrl+k Ctrl+g: Show git explorer.
+  {
+    "key": "ctrl+shift+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+k ctrl+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "shift+cmd+g",
+    "command": "workbench.view.scm",
+    "when": "isMac"
+  },
+
+  // Shift + Enter: Toggle list selection (Same as Ctrl+Shift+Enter).
+  {
+    "key": "shift+enter",
+    "command": "list.toggleSelection",
+    "when": "listFocus && !inputFocus"
+  },
+  // Ctrl + Space: Open to side (Same as Ctrl+Enter).
+  {
+    "key": "ctrl+space",
+    "command": "explorer.openToSide",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+  // Ctrl + n: Open a new file in the active explorer folder.
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+  },
+
+  // *** Other ***
+
+  // Shift + Alt + s: Toggle spell check.
+  {
+    "key": "shift+alt+s",
+    "command": "cSpell.toggleEnableForGlobal"
+  }
+
+  // *** Defaults (Cheatsheet) ***
+
+  // Formatting:
+  // Ctrl+k Ctrl+Shift+s:   Save without formatting.
+  // Ctrl+k Ctrl+x:         Trim trailing whitespace.
+  // Ctrl+k Ctrl+f:         Format selection.
+  // Shift+Alt+f:           Format document.
+  // Shift+alt+o:           Remove unused imports.
+
+  // Opening:
+  // Ctrl+n:                New file.
+  // Ctrl+Shift+n:          New window.
+  // Ctrl+o:                Open file.
+  // Ctrl+k Ctrl+o:         Open folder.
+  // Ctrl+k o:              Open active file in new window.
+  // Ctrl + \:              Split editor (open same file right)
+  // Ctrl+Shift+t:          Reopen last closed editor.
+  // Ctrl+e(p):             Search files by name.
+  // Ctrl+r:                Recent files and folders.
+  // Ctrl+Shift+e / Ctrl+k e: Focus on file explorer.
+
+  // Closing:
+  // Ctrl+w:                Close editor.
+  // Ctrl+k w:              Close all editors in group.
+  // Ctrl+k Ctrl+w:         Close all editors.
+  // Ctrl+k f:              Close folder (workspace).
+  // Ctrl+Shift+w:          Close window.
+  // Ctrl+q:                Close all windows.
+
+  // Autocomplete:
+  // Ctrl+.:                Code actions (quick fix).
+  // Ctrl+Space:            Toggle autocomplete.
+  // Ctrl+Shift+Space:      Toggle parameter list.
+
+  // Misc:
+  // Ctrl+k Ctrl+1:         Fold level 1 !!!
+  // Ctrl+k Ctrl+2:         Fold level 2
+  // Ctrl+k Ctrl+j:         Unfold all
+  // Ctrl+k Ctrl+i:         Show documentation.
+  // Ctrl+[]:               Unindent/indent.
+  // Ctrl+Shift+[]:         Code folding.
+  // Ctrl+Shift+5(%):       Split terminal vertically.
+  // Ctrl+k p:              Copy file path.
+  // Ctrl+k Ctrl+Arrows:    Next group.
+  // Ctrl+k Arrows:         Move group.
+
+  // Settings:
+  // Ctrl+k Ctrl+s:         Keyboard shortcuts.
+  // Alt+k:                 Keyboard shortcuts - search by typing.
+  // Ctrl+,:                Settings.
+  // Ctrl+k Ctrl+t:         Pick color theme.
+]

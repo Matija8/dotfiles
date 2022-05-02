@@ -1,0 +1,8 @@
+{
+  "Bash shebang": {
+    "scope": "shellscript",
+    "prefix": "#!",
+    "body": ["#!/usr/bin/env bash\n# coding: UTF-8"],
+    "description": "bash shebang"
+  }
+}

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# coding: UTF-8
+
+# (Q)uick* apt update & upgrade script.
+
+source "$(dirname "$BASH_SOURCE")/../lib/apt.sh"
+
+updateAptPackages

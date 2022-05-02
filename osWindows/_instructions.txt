@@ -1,0 +1,89 @@
+Chrome
+    https://www.google.com/chrome/
+
+
+Git(bash)
+    https://git-scm.com/download/win
+    Add ssh keys
+        https://docs.github.com/en/enterprise-server@3.4/authentication/connecting-to-github-with-ssh
+        https://github.com/settings/keys
+
+Python
+    https://www.python.org/downloads/windows/
+    Go for 'basic' install, avoid 'custom' (linking errors?)
+
+
+Node.js/NVM
+    NVM
+    https://github.com/coreybutler/nvm-windows/releases
+    Use cmd as admin! -> https://stackoverflow.com/a/52566499
+
+    Node.js (Prefer NVM if possible)
+    https://nodejs.org/en/download/
+    Yes to all, chocolaty too
+
+
+VScode
+    https://code.visualstudio.com/
+    Vscode extensions
+        cd vscode
+        ./install_listed_extensions
+
+
+Notepad++
+    https://notepad-plus-plus.org/downloads/
+
+
+Nvim
+    https://github.com/neovim/neovim/releases
+    Zip is at the bottom of the releases page
+    Copy to `Program Files`
+    Add to PATH (ENV)
+        C:\Program Files\Neovim\bin
+
+
+7zip
+    https://www.7-zip.org/
+
+
+SumatraPdf
+    https://www.sumatrapdfreader.org/download-free-pdf-viewer
+    Change default program, test pdf here:
+    https://www.orimi.com/pdf-test.pdf
+
+
+Mpv
+    https://mpv.io/installation/
+        Open sourceforge (Windows builds by shinchiro (releases and git))
+        Download bootstrapper.zip
+        Extract both updater.bat & updater.ps1 to a Mpv folder
+        Run updater.bat
+        Copy the 'Mpv' folder to /Program Files
+        Add shortcut for mpv to 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'
+    or vlc
+    https://www.videolan.org/vlc/
+
+
+Obs
+    https://obsproject.com/
+
+
+Audacious
+    https://audacious-media-player.org/download
+
+
+Shotcut
+    https://shotcut.org/download/
+
+
+Postman
+    https://www.postman.com/downloads/
+
+
+Input env in search & update "Path" with "env-Path.txt"
+
+Restart to update PATH
+
+py copy_configs
+
+cd osWindows -> install_packages_windows.sh
