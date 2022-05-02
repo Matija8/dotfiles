@@ -1,8 +1,17 @@
-# https://stackoverflow.com/questions/15636367/nodejs-require-a-global-module-package
-NODE_PATH="$(npm root -g)"
-NODE_PATH=$NODE_PATH:"$(yarn global dir)"
-# Npm works. Yarn can't install (no binaries)?
-# https://github.com/felixrieseberg/windows-build-tools/issues/154
+# # https://stackoverflow.com/questions/15636367/nodejs-require-a-global-module-package
+# NODE_PATH="$(npm root -g)"
+# NODE_PATH=$NODE_PATH:"$(yarn global dir)"
+# # Npm works. Yarn can't install (no binaries)?
+# # https://github.com/felixrieseberg/windows-build-tools/issues/154
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    NODE_PATH="$(npm root -g):$(yarn global dir)"
+elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]]; then
+    NODE_PATH="$HOME/AppData/Roaming/npm/node_modules:$HOME/AppData/Local/Yarn/Data/global"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    NODE_PATH="$(npm root -g):$(yarn global dir)"
+fi
+
 export NODE_PATH
 
 function rmnode_modules {
