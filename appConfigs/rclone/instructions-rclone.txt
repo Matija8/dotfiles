@@ -1,0 +1,35 @@
+Start config
+    $ rclone config
+n/s/q>
+    n - new remote
+name>
+    gdrive
+Storage>
+    13 (Google Drive / "drive")
+client_id>
+    # Go to: https://rclone.org/drive/#making-your-own-client-id
+    # Go to: https://console.cloud.google.com/apis/dashboard?pli=1
+    Go to: https://console.cloud.google.com/apis/library/drive.googleapis.com
+        > Manage
+        > Credentials
+        > Edit OAuth Client
+client_secret>
+    See above
+scope>
+    1 -> Full access all files, excluding Application Data Folder.
+root_folder_id>
+    leave blank?
+service_account_file>
+    leave blank
+Edit advanced config? (y/n)
+    n
+Remote config - Use auto config?
+    y
+OAuth...Untrusted!!?
+    Advanced options -> continue
+Configure this as a team drive?
+    n
+[gdrive]...
+    y
+Current remotes:...
+    q
