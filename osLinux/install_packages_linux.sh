@@ -145,12 +145,13 @@ function install_office_apps {
 function install_snaps {
     printf "\n${GREEN}Installing Snaps...${NC}\n"
     aptInstall snapd
-    sudo snap install postman
-    # sudo snap install foliate # Mobi reader
-    # sudo snap install shotcut --classic # Video editing
-    # sudo snap install slack --classic
-    # sudo snap install robo3t-snap
-    # sudo snap install android-studio --classic
+    snapInstall postman
+    # snapInstall foliate # Mobi reader
+    # snapInstall shotcut --classic # Video editing
+    # snapInstall slack --classic
+    # snapInstall robo3t-snap
+    # snapInstall android-studio --classic
+    # snapInstall lxd
     printf "${GREEN}Snaps done...\n${NC}"
 }
 
@@ -322,6 +323,11 @@ function wrap_up_installing {
 function aptInstall {
     printf "${GREEN}Apt-Installing: $@\n${NC}"
     sudo apt install -y $@
+}
+
+function snapInstall {
+    printf "${GREEN}Snap-Installing: $@\n${NC}"
+    sudo snap install $@
 }
 
 main
