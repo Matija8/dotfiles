@@ -5,23 +5,21 @@
 # Change projects_dir to "...ProjectsX" to test script works
 projects_dir="$HOME/Projects"
 dotfiles_dir="$projects_dir/dotfiles"
-scripts_dir="$dotfiles_dir/scripts"
 
 mkdir -p "$projects_dir"
 cd "$projects_dir"
 
 # TODO: github ssh key script!?
 
+sudo apt install -y git
+hash -r
 gclone="git clone"
 
 # https://github.com/Matija8?tab=repositories
 $gclone git@github.com:Matija8/dotfiles.git
 
 # Install packages
-"$dotfiles_dir/osLinux/install_packages_linux.sh" -f
+"$dotfiles_dir/osLinux/install_packages_linux.sh"
 
 # Copy configs
 "$dotfiles_dir/copy_configs.py"
-
-# Link scripts
-"$scripts_dir/link_to_apps.sh"

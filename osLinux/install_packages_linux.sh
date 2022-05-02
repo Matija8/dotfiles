@@ -17,6 +17,7 @@ NC='\033[0m'
 cd "$(dirname "$0")"
 
 function main {
+    trap "exit" INT
     printf "${PURPLE}Starting package installation...${NC}\n"
     sudo printf "${PURPLE}Sudo mode success\n\n"
 
@@ -54,42 +55,45 @@ function install_APT_packages {
     printf "\n"
 
     # Linux
-    sudo apt install -y \
-        git make rclone \
-        smartmontools \
-        tmux htop \
-        android-tools-adb android-tools-fastboot \
-        xclip
+    aptInstall git
+    aptInstall make
+    aptInstall rclone
+    aptInstall smartmontools
+    aptInstall tmux
+    aptInstall htop
+    aptInstall xclip
+
+    # Android/React-Native?
+    aptInstall android-tools-adb
+    aptInstall android-tools-fastboot
 
     # Security
-    sudo apt install -y keepassxc
+    aptInstall keepassxc
 
     # Alerts -> notify-send
-    sudo apt install -y libnotify-bin notify-osd
+    aptInstall libnotify-bin
+    aptInstall notify-osd
 
-    # sudo apt install -y \
-    #     i3 dmenu
+    # aptInstall i3
+    # aptInstall dmenu
 
     install_kde_stuff
     printf "\n"
 
     # Text Editors
-    sudo apt install -y \
-        neovim \
-        fonts-cascadia-code \
-        fonts-firacode \
-        gedit
-
-    # sudo apt install -y \
-    #     neovim-qt \
-    #     mousepad
+    aptInstall neovim
+    aptInstall gedit
+    aptInstall fonts-cascadia-code
+    aptInstall fonts-firacode
 
     # Web
-    sudo apt install -y curl wget qbittorrent
+    aptInstall curl
+    aptInstall wget
+    aptInstall qbittorrent
 
     # Fun
-    sudo apt install -y \
-        cowsay fortune
+    aptInstall cowsay
+    aptInstall fortune
 
     install_office_apps
 }
@@ -97,47 +101,50 @@ function install_APT_packages {
 function install_media_apps {
     printf "\n${GREEN}Installing media apps...${NC}\n"
 
-    sudo apt install -y \
-        mpv audacious viewnior \
-        qpdfview mupdf \
-        kolourpaint4 \
-        gimp \
-        calibre \
-        obs-studio
+    aptInstall mpv
+    aptInstall audacious
+    aptInstall viewnior
+    aptInstall qpdfview
+    aptInstall mupdf
+    aptInstall gimp
+    # aptInstall calibre
+    aptInstall obs-studio
+    aptInstall kolourpaint
 
     sudo add-apt-repository -y ppa:jurplel/qview
-    sudo apt install -y qview
-    sudo apt install -y qt5-image-formats-plugins
+    aptInstall qview
+    aptInstall qt5-image-formats-plugins
 
     sudo apt-add-repository -y ppa:audio-recorder/ppa
-    sudo apt install -y audio-recorder
+    aptInstall audio-recorder
 
     sudo apt-add-repository ppa:marin-m/songrec -y -u
-    sudo apt install -y songrec
+    aptInstall songrec
 
     printf "${GREEN}Media apps done...\n${NC}"
 }
 
 function install_kde_stuff {
     printf "\n${GREEN}Installing KDE stuff...${NC}\n"
-    sudo apt install -y \
-        dolphin konsole \
-        kde-cli-tools ark
+
+    aptInstall dolphin
+    aptInstall konsole
+    aptInstall kde-cli-tools
+    aptInstall ark
     printf "${GREEN}KDE stuff done...\n${NC}"
 }
 
 function install_office_apps {
     printf "\n${GREEN}Installing Office stuff...${NC}\n"
-    sudo apt install -y \
-        libreoffice-writer \
-        libreoffice-calc \
-        libreoffice-impress
+    aptInstall libreoffice-writer
+    aptInstall libreoffice-calc
+    aptInstall libreoffice-impress
     printf "${GREEN}Office stuff done...\n${NC}"
 }
 
 function install_snaps {
     printf "\n${GREEN}Installing Snaps...${NC}\n"
-    sudo apt install snapd
+    aptInstall snapd
     sudo snap install postman
     # sudo snap install foliate # Mobi reader
     # sudo snap install shotcut --classic # Video editing
@@ -152,7 +159,7 @@ function install_brightness_controller {
     # https://github.com/LordAmit/Brightness
     sudo add-apt-repository ppa:apandada1/brightness-controller -y
     sudo apt update
-    sudo apt install brightness-controller
+    aptInstall brightness-controller
     printf "${GREEN}Brightness-controller done...${NC}\n"
 }
 
@@ -175,12 +182,13 @@ function install_vscode {
     fi
     printf "\n${GREEN}Installing VSCode extensions...${NC}\n"
     pwd
-    ../vscode/install_listed_extensions.sh
+    bash ../vscode/install_listed_extensions.sh
 }
 
 function install_python {
     printf "\n\n${GREEN}Python3:${NC}\n\n"
-    sudo apt install -y python3-pip python3.8-venv
+    aptInstall python3-pip
+    aptInstall python3.8-venv
 
     sudo python3 -m pip install --upgrade --no-warn-script-location \
         pip \
@@ -196,7 +204,8 @@ js_install_global_package="sudo yarn global add"
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
     # Installing Node.js & npm
-    sudo apt install -y nodejs npm
+    aptInstall nodejs
+    aptInstall npm
     sudo npm install -g --loglevel=error npm@latest
 
     # Installing yarn
@@ -228,9 +237,8 @@ function install_extra_js_globals {
 
 function install_java {
     printf "\n\n${GREEN}Java:${NC}\n\n"
-    sudo apt install -y \
-        openjdk-11-jdk \
-        openjfx
+    aptInstall openjdk-11-jdk
+    aptInstall openjfx
 }
 
 function install_rust {
@@ -240,7 +248,7 @@ function install_rust {
 
 function install_go_lang {
     printf "\n\n${GREEN}Go:${NC}\n\n"
-    sudo apt install -y golang
+    aptInstall golang
 
     printf "\n\n${BLUE}Go get *packages* starting...${NC}\n\n"
     go get -v \
@@ -257,7 +265,7 @@ function install_go_lang {
 
 function install_c_sharp {
     printf "\n\n${GREEN}C#:${NC}\n\n"
-    sudo apt install mono-complete
+    aptInstall mono-complete
 }
 
 function install_docker {
@@ -309,6 +317,11 @@ function wrap_up_installing {
     sudo apt update
     sudo apt upgrade -y
     sudo apt autoremove -y
+}
+
+function aptInstall {
+    printf "${GREEN}Apt-Installing: $@\n${NC}"
+    sudo apt install -y $@
 }
 
 main
