@@ -106,15 +106,6 @@ class Updater():
                 mkdir_nested(osp.join(dst_folder, suffix))
                 self._update_file(src, dst)
 
-    def _update_if_dir_exists(
-        self, name: str, dir_: PathStr, callback: Callable[[], None]
-    ) -> None:
-        if isdir(dir_):
-            callback()
-            self._updated_apps.add(name)
-        else:
-            _log_folder_missing(name, dir_)
-
     def _update_git(self) -> None:
         self._update_home('/.gitconfig')
 
