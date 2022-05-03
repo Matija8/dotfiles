@@ -20,7 +20,10 @@ usage = '''Usage: Link/copy config files.
 -l, --link     Make links (default).
 -c, --copy     Copy files instead of making links.'''
 
-ConfigDirs = NamedTuple('ConfigDirs', [('nvim', str), ('mpv', str), ('notepad_pp', str)])
+ConfigDirs = NamedTuple(
+    'ConfigDirs',
+    [('nvim', str), ('mpv', str), ('notepad_pp', str), ('mintty', str)]
+)
 
 
 class Updater():
@@ -32,7 +35,8 @@ class Updater():
         self._config_dirs = ConfigDirs(
             nvim=f'{self._app_configs_dir}/nvim',
             mpv=f'{self._app_configs_dir}/mpv',
-            notepad_pp=f'{self._app_configs_dir}/notepad++'
+            notepad_pp=f'{self._app_configs_dir}/notepad++',
+            mintty=f'{self._app_configs_dir}/mintty',
         )
         self._should_link = should_link
         self._bash_configs_dir = f'{self._app_configs_dir}/bash'
@@ -290,16 +294,12 @@ class WindowsUpdater(Updater):
         self._update_folder_r(self._config_dirs.mpv, mpv_target_dir)
 
     def _update_mintty(self) -> None:
-        # TODO: Remove _update_if_dir_exists
-        mintty_dir = f'{self.roaming}/mintty'
-
-        def cb():
-            self._update_file(
-                f'{self.win_fldr}/Mintty/config.txt', f'{mintty_dir}/config'
-            )
-
-        mkdir_nested(mintty_dir)
-        self._update_if_dir_exists('Mintty', mintty_dir, cb)
+        mintty_target_dir = f'{self.roaming}/mintty'
+        mkdir_nested(mintty_target_dir)
+        self._update_file(
+            f'{self._config_dirs.mintty}/config.txt',
+            f'{mintty_target_dir}/config'
+        )
 
     def update_vs_vim(self) -> None:
         self._update_file(
