@@ -1,8 +1,19 @@
-const { exec } = require('child_process');
+const { exec, execSync } = require('child_process');
 
-async function run(cmd) {
+/**
+ * @typedef ConsoleOutput
+ * @property {string} stdout
+ * @property {string} stderr
+ */
+
+/**
+ * Run shell command and return promise of stdout & stderr.
+ * @param {string} command Shell command to be run.
+ * @returns {Promise<ConsoleOutput>}
+ */
+async function run(command) {
   return new Promise(function (resolve, reject) {
-    exec(cmd, (err, stdout, stderr) => {
+    exec(command, (err, stdout, stderr) => {
       if (err) {
         reject(err);
       } else {
@@ -10,6 +21,25 @@ async function run(cmd) {
       }
     });
   });
+}
+
+/**
+ * @param {string} command Shell command to be run.
+ * @returns {string}
+ */
+function runSync(command) {
+  const res = runSyncQuiet(command);
+  process.stdout.write(res);
+  return res;
+}
+
+/**
+ * https://nodejs.org/api/child_process.html#child_processexecsynccommand-options
+ * @param {string} command Shell command to be run.
+ * @returns {string}
+ */
+function runSyncQuiet(command) {
+  return execSync(command, { encoding: 'utf-8' });
 }
 
 function logSh({ stderr, stdout }) {
@@ -46,6 +76,8 @@ module.exports = {
   run,
   runP: (cmd) => run(cmd).then(logSh), // Run & print
   runPerr: (cmd) => run(cmd).then(logShQErr), // Run & print stderr only
+  runs: runSync,
+  runsq: runSyncQuiet,
   logSh,
   logShQ: logShQErr,
   ignoreErr,

@@ -2,7 +2,7 @@
 
 const readline = require('readline');
 
-function askQuestion(query) {
+function prompt(query) {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
@@ -16,7 +16,7 @@ function askQuestion(query) {
 }
 
 (async function main() {
-  const ans = await askQuestion(
+  const ans = await prompt(
     'Are you sure you want to deploy to PRODUCTION? ',
   );
   console.log(`You said ${ans.trim()}`);

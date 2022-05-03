@@ -5,8 +5,12 @@ const execSync = (() => {
   return (command) => execSync(command, { encoding: 'utf-8' });
 })();
 
-function main() {
-  console.log(execSync('ls'));
+function write(text) {
+  // Omits ending '\n' of console.log()
+  process.stdout.write(text);
 }
 
-main();
+(function main() {
+  console.log('ls returned:');
+  write(execSync('ls'));
+})();
