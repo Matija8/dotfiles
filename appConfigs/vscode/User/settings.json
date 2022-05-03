@@ -47,6 +47,7 @@
   // Editor
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.cursorBlinking": "phase",
+  "editor.cursorSmoothCaretAnimation": true,
   "editor.detectIndentation": true,
   "editor.fastScrollSensitivity": 2,
   "editor.folding": true,
