@@ -72,9 +72,9 @@ class Updater():
     def _update_file(self, src: PathStr, dst: PathStr) -> None:
         ''' Copy/link src to dst. '''
         if self._should_link:
-            make_link(src, dst)
+            link_file(src, dst)
         else:
-            copy_config(src, dst)
+            copy_file(src, dst)
 
     # TODO: Change all `folder`s to `dir`s?
     def _update_folder(self, src_folder: PathStr, dst_folder: PathStr) -> None:
@@ -381,20 +381,14 @@ def mkdir_nested(dir_path: PathStr) -> None:
     Path(dir_path).mkdir(parents=True, exist_ok=True)
 
 
-def copy_config(src: PathStr, dest: PathStr) -> None:
-    ''' Copy file from src to dest. '''
-    callback = lambda: shutil.copyfile(src, str(dest))
-    _try_remove_then_do(dest, callback)
+def copy_file(src: PathStr, dest: PathStr) -> None:
+    _try_remove_file(dest)
+    shutil.copyfile(src, dest)
 
 
-def make_link(file_to_link: PathStr, link_dest: PathStr) -> None:
-    '''
-    Make hard link to src, and place it on dest.\n
-    src - file in ~/.config/...\n
-    dest - file in dotfiles/
-    '''
-    callback = lambda: os.link(src=file_to_link, dst=link_dest)
-    _try_remove_then_do(link_dest, callback)
+def link_file(file_to_link: PathStr, link_dest: PathStr) -> None:
+    _try_remove_file(link_dest)
+    os.link(src=file_to_link, dst=link_dest)
 
 
 def _try_remove_file(dest: PathStr):
@@ -408,11 +402,11 @@ def _try_remove_dir(dest: PathStr):
 
 
 def _try_remove_file_or_dir(dest: PathStr):
-    if osp.exists(dest):
-        if isdir(dest):
-            rmdir_r(dest)
-            return
-        rmfile(dest)
+    if not osp.exists(dest):
+        return
+    if isdir(dest):
+        rmdir_r(dest)
+    rmfile(dest)
 
 
 def rmdir_r(dir_path: PathStr) -> None:
@@ -421,23 +415,6 @@ def rmdir_r(dir_path: PathStr) -> None:
 
 def rmfile(dest: PathStr) -> None:
     os.remove(dest)
-
-
-# TODO: Remove
-def _try_remove_then_do(dest: PathStr, callback: Callable[[], Any]) -> None:
-    try:
-        _try_remove_file(dest)
-        callback()
-    except Exception:
-        print(f'\nUnknown exception!')
-        print(traceback.format_exc())
-
-
-def _log_folder_missing(
-    program_name: str,
-    dir_: str,
-) -> None:
-    print(f'{program_name} folder ({dir_}) missing!\n')
 
 
 def validate_program_is_on_path(program_name: str) -> bool:
