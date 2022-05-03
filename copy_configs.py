@@ -20,7 +20,7 @@ usage = '''Usage: Link/copy config files.
 -l, --link     Make links (default).
 -c, --copy     Copy files instead of making links.'''
 
-ConfigDirs = NamedTuple('ConfigDirs', [('nvim', str), ('mpv', str)])
+ConfigDirs = NamedTuple('ConfigDirs', [('nvim', str), ('mpv', str), ('notepad_pp', str)])
 
 
 class Updater():
@@ -31,7 +31,8 @@ class Updater():
         self._app_configs_dir = './appConfigs/'
         self._config_dirs = ConfigDirs(
             nvim=f'{self._app_configs_dir}/nvim',
-            mpv=f'{self._app_configs_dir}/mpv'
+            mpv=f'{self._app_configs_dir}/mpv',
+            notepad_pp=f'{self._app_configs_dir}/notepad++'
         )
         self._should_link = should_link
         self._bash_configs_dir = f'{self._app_configs_dir}/bash'
@@ -275,14 +276,8 @@ class WindowsUpdater(Updater):
         self._update_vscode_user_dir(vsc_user_dir)
 
     def _update_npp(self) -> None:
-        # TODO: Remove _update_if_dir_exists
-        npad_dir = f'{self.roaming}/Notepad++'
-
-        def cb():
-            mkdir_nested(f'{npad_dir}/themes')
-            self._update_folder(f'{self.win_fldr}/Notepad++/', npad_dir)
-
-        self._update_if_dir_exists('Notepad++', npad_dir, cb)
+        npad_target_dir = f'{self.roaming}/Notepad++'
+        self._update_folder_r(self._config_dirs.notepad_pp, npad_target_dir)
 
     def _update_nvim(self) -> None:
         if not validate_program_is_on_path('nvim'):
