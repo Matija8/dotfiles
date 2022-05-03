@@ -9,9 +9,9 @@ import os
 import os.path as osp
 import shutil
 import sys
-import traceback
 from pathlib import Path
-from typing import Any, Callable, List, Tuple, Set, NamedTuple
+from typing import List, Tuple, Set, NamedTuple
+from scripts.libPy.fs import link_file, copy_file, mkdir_nested, try_remove_dir
 
 PathStr = str
 
@@ -121,7 +121,7 @@ class Updater():
         scripts_dir = './scripts'
         scripts_dir_home = f'{get_home()}/_Matija-Scripts'
 
-        _try_remove_dir(scripts_dir_home)
+        try_remove_dir(scripts_dir_home)
         self._update_folder_r(scripts_dir, scripts_dir_home)
         # link_dir - Permission issues on windows!?
         # link_dir(scripts_dir, scripts_dir_home)
@@ -365,56 +365,6 @@ def get_cwd() -> str:
 
 def get_home() -> str:
     return str(Path.home())
-
-
-def isdir(dir_path: PathStr) -> bool:
-    return osp.isdir(dir_path)
-
-
-def link_dir(src: PathStr, dest: PathStr) -> None:
-    _try_remove_file(dest)
-    os.symlink(osp.realpath(src), osp.realpath(dest))
-
-
-def mkdir_nested(dir_path: PathStr) -> None:
-    ''' Make directory. Does nothing if directory exists. '''
-    Path(dir_path).mkdir(parents=True, exist_ok=True)
-
-
-def copy_file(src: PathStr, dest: PathStr) -> None:
-    _try_remove_file(dest)
-    shutil.copyfile(src, dest)
-
-
-def link_file(file_to_link: PathStr, link_dest: PathStr) -> None:
-    _try_remove_file(link_dest)
-    os.link(src=file_to_link, dst=link_dest)
-
-
-def _try_remove_file(dest: PathStr):
-    if osp.exists(dest):
-        rmfile(dest)
-
-
-def _try_remove_dir(dest: PathStr):
-    if osp.exists(dest):
-        rmdir_r(dest)
-
-
-def _try_remove_file_or_dir(dest: PathStr):
-    if not osp.exists(dest):
-        return
-    if isdir(dest):
-        rmdir_r(dest)
-    rmfile(dest)
-
-
-def rmdir_r(dir_path: PathStr) -> None:
-    shutil.rmtree(dir_path)
-
-
-def rmfile(dest: PathStr) -> None:
-    os.remove(dest)
 
 
 def validate_program_is_on_path(program_name: str) -> bool:
