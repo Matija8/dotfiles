@@ -19,12 +19,12 @@ function gpull {
     # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
     __br
     cd "$1"
-    last_commit_msg=$(git --no-pager log -1 --oneline --pretty=%B | xargs)
     printf "${GREEN}$1${NC}\n\n"
     git status -sb &&
         git pull &&
         printf "\n${GREEN}Good${NC}" ||
         printf "\n${RED}Fail $1${NC}"
+    last_commit_msg=$(git --no-pager log -1 --oneline --pretty=%B | xargs)
     printf "\n\n${GREEN}Last commit:${NC}\n${last_commit_msg}"
     printf "\n\n"
 }
