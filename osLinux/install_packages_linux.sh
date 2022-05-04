@@ -199,14 +199,16 @@ function install_python {
         youtube_dl
 }
 
-# js_install_global_package="sudo npm i -g"
-js_install_global_package="sudo yarn global add"
-
 function install_js {
+    source "$(dirname "$BASH_SOURCE")/../osCommon/common_lib_js.sh"
+    __js_install_global_package="sudo $__js_install_global_package"
+    # TODO: Test!
+
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
     # Installing Node.js & npm
     aptInstall nodejs
     aptInstall npm
+    # Update npm
     sudo npm install -g --loglevel=error npm@latest
 
     # Installing yarn
@@ -215,25 +217,9 @@ function install_js {
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update && sudo apt install -y yarn
 
-    $js_install_global_package \
-        nodemon prettier \
-        eslint \
-        vite \
-        http-server \
-        npkill kill-port n \
-        depcheck \
-        glob \
-        typescript ts-node
-
-    # install_extra_js_globals
-}
-
-function install_extra_js_globals {
-    $js_install_global_package \
-        create-react-app \
-        @angular/cli \
-        expo-cli \
-        pm2
+    install_js_globals
+    install_js_globals_unix
+    # install_js_globals_extra
 }
 
 function install_java {

@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
 # coding: UTF-8
 
-pip install --upgrade --no-warn-script-location \
-    pip \
-    pylint mypy \
-    yapf \
-    pytest \
-    numpy scipy scikit-learn matplotlib \
-    virtualenv \
-    youtube_dl
+function main {
+    install_py
+    install_js
+}
 
-npm i -g \
-    nodemon prettier \
-    eslint \
-    http-server \
-    npkill kill-port \
-    depcheck \
-    typescript ts-node
+function install_py {
+    pip install --upgrade --no-warn-script-location \
+        pip \
+        pylint mypy \
+        yapf \
+        pytest \
+        numpy scipy scikit-learn matplotlib \
+        virtualenv \
+        youtube_dl
+}
+
+function install_js {
+    source "$(dirname "$BASH_SOURCE")/../osCommon/common_lib_js.sh"
+    install_js_globals
+    # install_js_globals_extra
+}
+
+main
