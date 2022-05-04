@@ -2,16 +2,12 @@
 # coding: UTF-8
 # Bash script that installs packages for Ubuntu.
 
-os_linux_dir="$(dirname "$0")"
-dotfiles_root_dir="$os_linux_dir/.."
+os_linux_dir="$(realpath "$(dirname "$0")")"
+dotfiles_root_dir="$(realpath "$os_linux_dir/..")"
 source "$dotfiles_root_dir/scripts/lib/colors.sh"
-source "$dotfiles_root_dir/osCommon/common_lib_js.sh"
 
 # Retry this script as root.
 # ((EUID != 0)) && exec sudo -- "$0" "$@"
-
-# Set current working directory to this scripts directory.
-cd "$os_linux_dir"
 
 function main {
     trap "exit" INT
@@ -179,8 +175,7 @@ function install_vscode {
         return
     fi
     printf "\n${GREEN}Installing VSCode extensions...${NC}\n"
-    pwd
-    bash ../vscode/install_listed_extensions.sh
+    bash "$dotfiles_root_dir/vscode/install_listed_extensions.sh"
 }
 
 function install_python {
@@ -210,6 +205,7 @@ function install_js {
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update && sudo apt install -y yarn
 
+    source "$dotfiles_root_dir/osCommon/common_lib_js.sh"
     __js_install_global_package="sudo $__js_install_global_package"
     install_js_globals
     install_js_globals_unix
