@@ -1,20 +1,17 @@
 #!/usr/bin/env bash
 # coding: UTF-8
-# Bash script that installs packages for Kubuntu.
+# Bash script that installs packages for Ubuntu.
 
-# Colors:
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-LGREEN='\033[1;32m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-NC='\033[0m'
+os_linux_dir="$(dirname "$0")"
+dotfiles_root_dir="$os_linux_dir/.."
+source "$dotfiles_root_dir/scripts/lib/colors.sh"
+source "$dotfiles_root_dir/osCommon/common_lib_js.sh"
 
 # Retry this script as root.
 # ((EUID != 0)) && exec sudo -- "$0" "$@"
 
 # Set current working directory to this scripts directory.
-cd "$(dirname "$0")"
+cd "$os_linux_dir"
 
 function main {
     trap "exit" INT
@@ -200,10 +197,6 @@ function install_python {
 }
 
 function install_js {
-    source "$(dirname "$BASH_SOURCE")/../osCommon/common_lib_js.sh"
-    __js_install_global_package="sudo $__js_install_global_package"
-    # TODO: Test!
-
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
     # Installing Node.js & npm
     aptInstall nodejs
@@ -217,6 +210,7 @@ function install_js {
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt update && sudo apt install -y yarn
 
+    __js_install_global_package="sudo $__js_install_global_package"
     install_js_globals
     install_js_globals_unix
     # install_js_globals_extra
