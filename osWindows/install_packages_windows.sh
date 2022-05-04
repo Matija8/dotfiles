@@ -10,21 +10,15 @@ function main {
     install_js
 }
 
-function install_py {
-    pip install --upgrade --no-warn-script-location \
-        pip \
-        pylint mypy \
-        yapf \
-        pytest \
-        numpy scipy scikit-learn matplotlib \
-        virtualenv \
-        youtube_dl
-}
-
 function install_js {
     source "$dotfiles_root_dir/osCommon/common_lib_js.sh"
     install_js_globals
     # install_js_globals_extra
+}
+
+function install_py {
+    source "$dotfiles_root_dir/osCommon/common_lib_py.sh"
+    install_python_globals
 }
 
 main

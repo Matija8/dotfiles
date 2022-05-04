@@ -183,12 +183,9 @@ function install_python {
     aptInstall python3-pip
     aptInstall python3.8-venv
 
-    sudo python3 -m pip install --upgrade --no-warn-script-location \
-        pip \
-        pylint mypy yapf pytest \
-        pandas numpy scipy scikit-learn matplotlib \
-        virtualenv \
-        youtube_dl
+    source "$dotfiles_root_dir/osCommon/common_lib_py.sh"
+    __py_install_global_packages="sudo python3 -m pip install"
+    install_python_globals
 }
 
 function install_js {
