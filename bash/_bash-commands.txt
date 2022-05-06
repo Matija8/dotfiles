@@ -7,7 +7,7 @@ grep
 htop - top
 kill
 less
-ln -sf
+ln -sfn - https://superuser.com/questions/81164/why-create-a-link-like-this-ln-nsf
 lsof
 mkdir
 mv
