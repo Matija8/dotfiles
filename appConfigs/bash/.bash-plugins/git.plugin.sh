@@ -43,6 +43,7 @@ alias gcb="git checkout -b" # Creates and checks out if branch doesn't exist
 # "git checkout -B" # gcb + resets the branch (-f). Use this to override!
 
 alias gd="git diff"
+alias gdc="git diff --cached"
 alias gdiff="git diff"
 
 alias gf="git fetch"
