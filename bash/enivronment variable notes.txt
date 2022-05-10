@@ -2,6 +2,10 @@ https://superuser.com/questions/153371/what-does-export-do-in-bash
 Exported variables get passed on to child processes, not-exported variables do not.
     export PATH=$PATH:"$HOME/_Matija-Scripts/bin"
 
+Export doesn't need an inline setting:
+    ZTESTMATIJA="test1"
+    export ZTESTMATIJA
+
 To debug env vars, run:
     printenv
 or:
