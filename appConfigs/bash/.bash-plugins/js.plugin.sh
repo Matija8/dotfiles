@@ -1,17 +1,23 @@
-# # https://stackoverflow.com/questions/15636367/nodejs-require-a-global-module-package
-# NODE_PATH="$(npm root -g)"
-# NODE_PATH=$NODE_PATH:"$(yarn global dir)"
-# # Npm works. Yarn can't install (no binaries)?
-# # https://github.com/felixrieseberg/windows-build-tools/issues/154
-
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+function _set_NODE_PATH {
     NODE_PATH="$(npm root -g):$(yarn global dir)"
-elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]]; then
-    NODE_PATH="$HOME/AppData/Roaming/npm/node_modules:$HOME/AppData/Local/Yarn/Data/global"
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    NODE_PATH="$(npm root -g):$(yarn global dir)"
-fi
+    # https://stackoverflow.com/questions/15636367/nodejs-require-a-global-module-package
+    # Npm works. Yarn can't be tested (no binaries?)???
+    # https://github.com/felixrieseberg/windows-build-tools/issues/154
+}
+# https://askubuntu.com/questions/58814/how-do-i-add-environment-variables#:~:text=To%20set%20it%20permanently%2C%20and%20system%20wide
 
+# # https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
+# if [ -z "${WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN+x}" ]; then
+#     _set_NODE_PATH
+#     WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN="YES"
+#     printf "NODE_PATH set now.\n"
+# else
+#     :
+#     printf "NODE_PATH already set.\n"
+# fi
+# # printf "NODE_PATH=$NODE_PATH\n\n"
+
+# export WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN
 export NODE_PATH
 
 function rmnode_modules {
