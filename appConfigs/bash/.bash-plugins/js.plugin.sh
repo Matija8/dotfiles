@@ -5,7 +5,7 @@ function _set_NODE_PATH {
     # https://github.com/felixrieseberg/windows-build-tools/issues/154
 }
 
-function _set_NODE_PATH_system_wide {
+function _set_NODE_PATH_system_wide_linux {
     # https://askubuntu.com/questions/58814/how-do-i-add-environment-variables#:~:text=To%20set%20it%20permanently%2C%20and%20system%20wide
     printf "Appending NODE_PATH to /etc/environment\n"
     sudo printf ""
@@ -19,8 +19,15 @@ function _set_NODE_PATH_system_wide {
 
 # https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 if [ -z "${NODE_PATH+x}" ]; then
-    _set_NODE_PATH_system_wide
-    # printf "NODE_PATH set now.\n"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        _set_NODE_PATH_system_wide_linux
+        printf "Js-plugin: NODE_PATH set now.\n" # TODO: Remove this line
+    elif [[ "$OSTYPE" == "msys" ]]; then
+        :
+        # _set_NODE_PATH
+        # TODO
+    fi
+    # printf "Js-plugin: NODE_PATH set now.\n" # TODO: Uncomment this line
 else
     :
     # printf "NODE_PATH already set.\n"
