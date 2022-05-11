@@ -1,3 +1,8 @@
+https://www.tecmint.com/set-unset-environment-variables-in-linux/
+    export
+    unset
+    /etc/environment
+
 https://superuser.com/questions/153371/what-does-export-do-in-bash
 Exported variables get passed on to child processes, not-exported variables do not.
     export PATH=$PATH:"$HOME/_Matija-Scripts/bin"

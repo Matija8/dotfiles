@@ -4,18 +4,28 @@ function _set_NODE_PATH {
     # Npm works. Yarn can't be tested (no binaries?)???
     # https://github.com/felixrieseberg/windows-build-tools/issues/154
 }
-# https://askubuntu.com/questions/58814/how-do-i-add-environment-variables#:~:text=To%20set%20it%20permanently%2C%20and%20system%20wide
 
-# # https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
-# if [ -z "${WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN+x}" ]; then
-#     _set_NODE_PATH
-#     WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN="YES"
-#     printf "NODE_PATH set now.\n"
-# else
-#     :
-#     printf "NODE_PATH already set.\n"
-# fi
-# # printf "NODE_PATH=$NODE_PATH\n\n"
+function _set_NODE_PATH_system_wide {
+    # https://askubuntu.com/questions/58814/how-do-i-add-environment-variables#:~:text=To%20set%20it%20permanently%2C%20and%20system%20wide
+    printf "Appending NODE_PATH to /etc/environment\n"
+    sudo printf ""
+    _set_NODE_PATH
+    # https://stackoverflow.com/questions/6207573/how-to-append-output-to-the-end-of-a-text-file#:~:text=41-,Using%20tee,-with%20option%20%2Da
+    echo "NODE_PATH=\"$NODE_PATH\"" | sudo tee -a /etc/environment
+    sudo vim /etc/environment
+    # https://superuser.com/questions/339617/how-to-reload-etc-environment-without-rebooting
+    printf "\nDon't forget to logout to apply changes to /etc/environment!\n\n"
+}
+
+# https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
+if [ -z "${NODE_PATH+x}" ]; then
+    _set_NODE_PATH_system_wide
+    # printf "NODE_PATH set now.\n"
+else
+    :
+    # printf "NODE_PATH already set.\n"
+fi
+# printf "NODE_PATH=$NODE_PATH\n\n"
 
 # export WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN
 export NODE_PATH
