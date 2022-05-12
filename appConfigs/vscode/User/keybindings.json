@@ -438,6 +438,27 @@
     "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
   },
 
+  // *** Closing ***
+
+  // Don't close window on ctrl+shift+w/alt+f4. Prevent accidental key presses.
+  {
+    "key": "ctrl+shift+w",
+    "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "alt+f4",
+    "command": "-workbench.action.closeWindow"
+  },
+  // Don't close app on ctrl+q. Close on alt+f4 only! Prevent accidental key presses.
+  {
+    "key": "ctrl+q",
+    "command": "-workbench.action.quit"
+  },
+  {
+    "key": "alt+f4",
+    "command": "workbench.action.quit"
+  },
+
   // *** Other ***
 
   // Shift + Alt + s: Toggle spell check.
