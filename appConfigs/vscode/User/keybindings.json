@@ -249,6 +249,13 @@
     "command": "editor.action.formatDocument"
   },
 
+  // Alt + Shift + a: Toggle block comment.
+  {
+    "key": "alt+shift+a",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+
   // Alt + s: Save without formatting.
   {
     "key": "alt+s",
