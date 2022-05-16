@@ -395,6 +395,8 @@ def is_program_on_path(program_name: str) -> bool:
 
 if __name__ == '__main__':
     if (is_run_from_wsl()):
-        print('Running from WSL2')
+        print('Running from WSL2, but in the Windows file system!')
+        print('Aborting...')
+        exit()
     flags = sys.argv[1:]
     Main(flags).main()
