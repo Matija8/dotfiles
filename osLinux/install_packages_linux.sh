@@ -24,7 +24,10 @@ function main {
 
     install_APT_packages
     install_snaps
-    install_vscode
+
+    if [ -z "${WSL_DISTRO_NAME+x}" ]; then
+        install_vscode
+    fi
 
     install_python
     install_js

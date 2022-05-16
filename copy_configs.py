@@ -216,7 +216,9 @@ class LinuxUpdater(Updater):
         )
 
     def _add_templates(self) -> None:
-        open(f'{get_home()}/Templates/Text File', mode='w+')
+        templates_dir=f'{get_home()}/Templates'
+        mkdir_nested(templates_dir)
+        open(f'{templates_dir}/Text File', mode='w+')
 
     def _update_gtk3(self) -> None:
         themesDotfilesDir = f'{self._app_configs_dir}/gtk3/themes'
