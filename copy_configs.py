@@ -346,9 +346,10 @@ class Main():
 
     def _get_updater(self) -> Updater:
         user_os = sys.platform
-        if user_os == 'linux':
+
+        if user_os == 'linux' and not is_run_from_wsl():
             return LinuxUpdater(self.should_link)
-        elif user_os == 'win32':
+        elif user_os == 'win32' or (user_os == 'linux' and is_run_from_wsl()):
             return WindowsUpdater(self.should_link)
         elif user_os == 'darwin':
             return MacUpdater(self.should_link)
@@ -396,7 +397,5 @@ def is_program_on_path(program_name: str) -> bool:
 if __name__ == '__main__':
     if (is_run_from_wsl()):
         print('Running from WSL2, but in the Windows file system!')
-        print('Aborting...')
-        exit()
     flags = sys.argv[1:]
     Main(flags).main()
