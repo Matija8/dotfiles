@@ -35,7 +35,8 @@
 
   // Terminal
   "terminal.integrated.defaultProfile.linux": "bash",
-  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  // "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
   "terminal.integrated.fontFamily": "Cascadia Code, DejaVu Sans Mono, Menlo",
   "terminal.integrated.fontSize": 17,
   "terminal.integrated.lineHeight": 1,
