@@ -20,19 +20,11 @@ function _set_NODE_PATH_system_wide_linux {
 # https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 if [ -z "${NODE_PATH+x}" ]; then
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        _set_NODE_PATH_system_wide_linux
-        printf "Js-plugin: NODE_PATH set now.\n" # TODO: Remove this line
+        NODE_PATH="/usr/local/lib/node_modules:/home/matija/.config/yarn/global"
     elif [[ "$OSTYPE" == "msys" ]]; then
-        :
-        # _set_NODE_PATH
-        # TODO
+        NODE_PATH="C:\Program Files\nodejs\node_modules:$HOME\AppData\Local\Yarn\Data\global"
     fi
-    # printf "Js-plugin: NODE_PATH set now.\n" # TODO: Uncomment this line
-else
-    :
-    # printf "NODE_PATH already set.\n"
 fi
-# printf "NODE_PATH=$NODE_PATH\n\n"
 
 # export WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN
 export NODE_PATH
