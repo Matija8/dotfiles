@@ -346,12 +346,13 @@ class Main():
 
     def _get_updater(self) -> Updater:
         user_os = sys.platform
+        wsl_in_windows = is_in_windows_fs_via_wsl()
 
-        if user_os == 'linux' and not is_run_from_wsl():
+        if user_os == 'linux' and not wsl_in_windows:
             return LinuxUpdater(self.should_link)
-        elif user_os == 'win32' or (user_os == 'linux' and is_run_from_wsl()):
+        if user_os == 'win32' or (user_os == 'linux' and wsl_in_windows):
             return WindowsUpdater(self.should_link)
-        elif user_os == 'darwin':
+        if user_os == 'darwin':
             return MacUpdater(self.should_link)
         print('Your os is unsupported', user_os)
         raise Exception()
@@ -370,12 +371,13 @@ def get_abs_script_path() -> str:
     return osp.abspath(__file__)
 
 
-def is_run_from_wsl() -> bool:
-    return get_abs_script_path().startswith('/mnt/')
+def is_in_windows_fs_via_wsl() -> bool:
+    return 'WSL_DISTRO_NAME' in os.environ and get_abs_script_path(
+    ).startswith('/mnt/')
 
 
 def get_home() -> str:
-    if (is_run_from_wsl()):
+    if (is_in_windows_fs_via_wsl()):
         split_dirs = get_abs_script_path().split('/')
         users_idx = split_dirs.index('Users')
         return '/'.join(split_dirs[:users_idx + 2])
@@ -395,7 +397,7 @@ def is_program_on_path(program_name: str) -> bool:
 
 
 if __name__ == '__main__':
-    if (is_run_from_wsl()):
+    if (is_in_windows_fs_via_wsl()):
         print('Running from WSL2, but in the Windows file system!')
     flags = sys.argv[1:]
     Main(flags).main()
