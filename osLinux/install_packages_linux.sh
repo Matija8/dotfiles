@@ -191,6 +191,7 @@ function install_python {
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
     # Installing Node.js & npm
+    curl -s https://deb.nodesource.com/setup_16.x | sudo bash
     aptInstall nodejs
     aptInstall npm
     # Update npm
