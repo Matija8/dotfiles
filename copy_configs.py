@@ -216,7 +216,7 @@ class LinuxUpdater(Updater):
         )
 
     def _add_templates(self) -> None:
-        templates_dir=f'{get_home()}/Templates'
+        templates_dir = f'{get_home()}/Templates'
         mkdir_nested(templates_dir)
         open(f'{templates_dir}/Text File', mode='w+')
 
@@ -365,7 +365,19 @@ def get_cwd() -> str:
     return os.getcwd()
 
 
+def get_abs_script_path() -> str:
+    return osp.abspath(__file__)
+
+
+def is_run_from_wsl() -> bool:
+    return get_abs_script_path().startswith('/mnt/')
+
+
 def get_home() -> str:
+    if (is_run_from_wsl()):
+        split_dirs = get_abs_script_path().split('/')
+        users_idx = split_dirs.index('Users')
+        return '/'.join(split_dirs[:users_idx + 2])
     return str(Path.home())
 
 
@@ -382,5 +394,7 @@ def is_program_on_path(program_name: str) -> bool:
 
 
 if __name__ == '__main__':
+    if (is_run_from_wsl()):
+        print('Running from WSL2')
     flags = sys.argv[1:]
     Main(flags).main()
