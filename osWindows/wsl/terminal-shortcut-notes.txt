@@ -1,0 +1,9 @@
+Find the `wt.exe` app in:
+    %LocalAppData%\Microsoft\WindowsApps
+    https://stackoverflow.com/questions/62894666/path-and-name-of-exe-file-of-windows-terminal-preview
+
+Create a shortcut, rename it to Terminal, and move it to:
+    C:\ProgramData\Microsoft\Windows\Start Menu\Programs
+
+Right click on the shortcut, select properties and set `Shortcut key` to:
+    CTRL + ALT + T
