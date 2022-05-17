@@ -3,5 +3,9 @@
 	name = matija8
 [core]
 	editor = nvim
+	# LF vs CRLF
 	# https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important
 	autocrlf = input
+	# Global excludes file
+	# https://stackoverflow.com/questions/7335420/global-git-ignore
+	excludesFile = ~/.gitignore
