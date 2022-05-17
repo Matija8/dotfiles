@@ -49,6 +49,7 @@ alias gbv="git branch -vv" # Show local branches info
 alias gc="git commit -v"
 alias gco="git checkout"
 alias gcb="git checkout -b" # Creates and checks out if branch doesn't exist
+alias gcob="git checkout -b"
 # "git checkout -B" # gcb + resets the branch (-f). Use this to override!
 
 alias gd="git diff"
