@@ -24,6 +24,15 @@ function gfpa {
                 awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done
 }
 
+# https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor
+if command -v nvim &>/dev/null; then
+    GIT_EDITOR="nvim"
+else
+    GIT_EDITOR="vim"
+fi
+export GIT_EDITOR
+
 alias g="git"
 
 alias ga="git add"
