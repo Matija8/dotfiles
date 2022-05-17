@@ -1,6 +1,7 @@
 # By: Matija8
 # This rc file is for bash on linux & git-bash on windows.
 
+# printf "Loading bashrc started...\n"
 # bashrc_loading_start_time=$SECONDS
 
 RED='\033[0;31m'
@@ -52,4 +53,4 @@ function sourcePlugins {
 
 # sourcePlugins
 
-# printf ".bashrc loading duration = $((SECONDS - bashrc_loading_start_time)) seconds.\n"
+# printf "Base .bashrc loading duration = $((SECONDS - bashrc_loading_start_time)) seconds.\n"

@@ -165,6 +165,11 @@ class Updater():
                 stitched_bashrc_contents += '### ' + plugin_name + '\n\n'
                 stitched_bashrc_contents += plugin_contents
 
+        stitched_bashrc_contents += (
+            '\n# printf "Full .bashrc loading duration = ' +
+            '$((SECONDS - bashrc_loading_start_time)) seconds.\\n"\n'
+        )
+
         return stitched_bashrc_contents
 
     def _update_vscode_user_dir(self, vscode_user_dir_path: PathStr) -> None:
