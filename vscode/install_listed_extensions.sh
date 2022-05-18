@@ -2,12 +2,14 @@
 
 code --install-extension aaron-bond.better-comments
 code --install-extension adpyke.vscode-sql-formatter
+code --install-extension AlDuncanson.react-hooks-snippets
 code --install-extension alefragnani.Bookmarks
 code --install-extension azemoh.one-monokai
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension clinyong.vscode-css-modules
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
+code --install-extension diegolincoln.vscode-styled-components
 code --install-extension donjayamanne.githistory
 code --install-extension DotJoshJohnson.xml
 code --install-extension eamodio.gitlens
