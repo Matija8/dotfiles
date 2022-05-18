@@ -13,7 +13,7 @@
   },
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["lx1", "log"],
+    "prefix": ["lx1"],
     "body": ["console.log(`*$`, {$0}); //T*DO"],
     "description": "Quick console.log(_)"
   },
@@ -21,6 +21,12 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx2"],
     "body": "console.log(`VVVVV\\n\\n`, { ts: new Date(), msg: ``,$0 }, `\\n\\nΛΛΛΛΛ`); //T*DO",
-    "description": "Unleash logging to insert between noisy winston logs"
-  }
+    "description": "Insert console.log() between noisy winston logs"
+  },
+  "Matija-log-x3-eslint-ignore": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["lx3"],
+    "body": ["// eslint-disable-next-line no-console\nconsole.log(`*$`, {$0}); //T*DO"],
+    "description": "Quick console.log(_) that doesn't trigger eslint error"
+  },
 }
