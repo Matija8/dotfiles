@@ -26,7 +26,17 @@
   "Matija-log-x3-eslint-ignore": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx3"],
-    "body": ["// eslint-disable-next-line no-console\nconsole.log(`*$`, {$0}); //T*DO"],
+    "body": [
+      "// eslint-disable-next-line no-console\nconsole.log(`*$`, {$0}); //T*DO"
+    ],
     "description": "Quick console.log(_) that doesn't trigger eslint error"
   },
+  "Matija-trace-x1": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["tr1"],
+    "body": [
+      "// eslint-disable-next-line no-console\nconsole.trace(`*$`, {$0}); //T*DO"
+    ],
+    "description": "Quick console.trace(_) that doesn't trigger eslint error"
+  }
 }
