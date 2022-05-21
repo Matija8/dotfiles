@@ -1,0 +1,7 @@
+https://docs.python.org/3/reference/import.html#package-relative-imports
+
+Method 3 here works!:
+https://www.geeksforgeeks.org/python-import-from-parent-directory/
+
+https://stackoverflow.com/questions/4383571/importing-files-from-different-folder
+https://stackoverflow.com/questions/56452800/how-can-i-fix-these-relative-import-error
