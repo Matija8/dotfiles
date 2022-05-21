@@ -7,6 +7,7 @@ import os.path as osp
 
 sys.path.append(osp.dirname(f'{osp.dirname(osp.realpath(__file__))}/../libPy'))
 from libPy.filename import make_out_file_path_suffixed
+from libPy.ffmpeg import copy_video_without_sound_cmd
 
 
 def main():
@@ -22,15 +23,12 @@ def main():
 
 
 def make_video_copy_without_sound(input_file_path: str):
-    subprocess.run(make_video_copy_without_sound_cmd(input_file_path))
-
-
-def make_video_copy_without_sound_cmd(input_file_path: str):
-    # ffmpeg -i example.mkv -c copy -an example-nosound.mkv
-    return [
-        'ffmpeg', '-i', input_file_path, '-c', 'copy', '-an',
-        make_out_file_path_suffixed(input_file_path, ' - NO AUDIO')
-    ]
+    subprocess.run(
+        copy_video_without_sound_cmd(
+            input_file_path,
+            make_out_file_path_suffixed(input_file_path, ' - NO AUDIO')
+        )
+    )
 
 
 if __name__ == '__main__':
