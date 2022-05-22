@@ -24,6 +24,12 @@ function gfpa {
                 awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done
 }
 
+function gbp {
+    # *** Git branch `prefixed` ***
+    # https://stackoverflow.com/questions/41716025/how-do-i-list-branches-having-a-common-prefix
+    git branch -a | grep "$1"
+}
+
 # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor
 if command -v nvim &>/dev/null; then
@@ -39,9 +45,10 @@ alias ga="git add"
 alias gaa="git add -A"
 
 alias gb="git branch"      # Show local branches
-alias gbls="git branch"    # Show local branches
+alias gbl="git branch"     # Show local branches
 alias gbr='git branch -r'  # Show remote branches
 alias gba='git branch -a'  # Show all branches (local + remote)
+alias gbg='gbp'            # Show branches with prefix by using GREP
 alias gbd='git branch -d'  # Safe delete branch (has remote)
 alias gbD='git branch -D'  # Force delete branch
 alias gbv="git branch -vv" # Show local branches info
