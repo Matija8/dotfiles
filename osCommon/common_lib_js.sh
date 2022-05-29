@@ -10,6 +10,8 @@ function install_js_global {
 
 function install_js_globals {
     install_js_global nodemon
+    # https://www.npmjs.com/package/node-fetch/v/2.6.1
+    install_js_global node-fetch@2
     install_js_global prettier
     install_js_global eslint
     install_js_global vite
@@ -31,4 +33,6 @@ function install_js_globals_extra {
     install_js_global @angular/cli
     install_js_global expo-cli
     install_js_global pm2
+    install_js_global axios
+    install_js_global node-fetch
 }
