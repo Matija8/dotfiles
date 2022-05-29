@@ -10,16 +10,27 @@ const gUsername = 'matija8';
 
 async function main() {
   const ghBackupDirPath = path.join(os.homedir(), 'Documents', 'github-backup');
-  await fs.rm(ghBackupDirPath, { recursive: true, force: true });
+  // await fs.rm(ghBackupDirPath, { recursive: true, force: true });
   await fs.mkdir(ghBackupDirPath, { recursive: true });
   const repos = await getReposFromGithub();
   console.log(`${repos.length} repos found on github`);
 
   for (const repo of repos) {
+    // break;
+    console.log('-'.repeat(40));
+    console.log(`Parsing ${repo.name}...`);
     await sh(`cd ${ghBackupDirPath}` + ` && git clone ${repo.ssh_url}`)
-      .catch((err) => console.log(err))
+      .catch(emptyShLogResponse)
+      .then(logSh);
+
+    await sh(`cd ${ghBackupDirPath}/${repo.name}` + ` && git pull`)
+      .catch(catch1)
       .then(logSh);
   }
+
+  // await sh(`cd ${ghBackupDirPath}` + ` && zip -q -r ${ghBackupDirPath}`)
+  //   .catch(catch1)
+  //   .then(logSh);
 }
 
 async function getAuthHeaders() {
@@ -99,6 +110,11 @@ function logSh({ stderr, stdout }) {
 function logStdOut(stdout) {
   // console.log('---stdout start---\n' + stdout + '---stdout end---\n');
   console.log(stdout);
+}
+
+function catch1(err) {
+  console.error(err);
+  return emptyShLogResponse();
 }
 
 function emptyShLogResponse() {
