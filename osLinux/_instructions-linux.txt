@@ -1,0 +1,3 @@
+Launch terminal on startup
+    https://askubuntu.com/questions/308581/how-to-launch-terminal-on-login
+    Use `konsole` as command instead of `gnome-terminal`
