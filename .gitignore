@@ -3,4 +3,4 @@
 /.mypy_cache
 /__pycache__
 /appConfigs/bash/.bash-plugins-hidden/**
-**/gh-pat.txt
+scripts/github/gh-pat.txt
