@@ -36,6 +36,12 @@ function gbi {
     git branch -a | grep -i "$1"
 }
 
+function gpup {
+    # *** Git push - set upstream ***
+    local current_branch=$(git rev-parse --abbrev-ref HEAD)
+    git push --set-upstream origin $current_branch
+}
+
 # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor
 if command -v nvim &>/dev/null; then
