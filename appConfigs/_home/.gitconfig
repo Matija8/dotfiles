@@ -9,3 +9,5 @@
 	# Global excludes file
 	# https://stackoverflow.com/questions/7335420/global-git-ignore
 	excludesFile = ~/.gitignore
+[init]
+	defaultBranch = main
