@@ -17,7 +17,12 @@ NC='\033[0m'
 
 prompt_time_hhmm="\A"
 prompt_pwd="\w"
-prompt_matija_1="$BLUE$prompt_time_hhmm $GREEN[$prompt_pwd]$RED\$ $NC"
+
+PRMPT_CLR_NC="\[\e[m\]"
+PRMPT_CLR_RED="\[\e[31m\]"
+PRMPT_CLR_GREEN="\[\e[32m\]"
+PRMPT_CLR_BLUE="\[\e[34m\]"
+prompt_matija_1="$PRMPT_CLR_BLUE$prompt_time_hhmm $PRMPT_CLR_GREEN[$prompt_pwd]$PRMPT_CLR_RED\$ $PRMPT_CLR_NC"
 
 # Prompt.
 export PS1="$prompt_matija_1"
