@@ -14,7 +14,7 @@
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
-    "body": ["console.log(`*$`, {$0}); //T*DO"],
+    "body": ["console.log(`$*$`, {$0}); //T*DO"],
     "description": "Quick console.log(_)"
   },
   "Matija-log-x2-winston": {
@@ -27,7 +27,7 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx3"],
     "body": [
-      "// eslint-disable-next-line no-console\nconsole.log(`*$`, {$0}); //T*DO"
+      "// eslint-disable-next-line no-console\nconsole.log(`$*$`, {$0}); //T*DO"
     ],
     "description": "Quick console.log(_) that doesn't trigger eslint error"
   },
@@ -35,7 +35,7 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["tr1"],
     "body": [
-      "// eslint-disable-next-line no-console\nconsole.trace(`*$`, {$0}); //T*DO"
+      "// eslint-disable-next-line no-console\nconsole.trace(`$*$`, {$0}); //T*DO"
     ],
     "description": "Quick console.trace(_) that doesn't trigger eslint error"
   }
