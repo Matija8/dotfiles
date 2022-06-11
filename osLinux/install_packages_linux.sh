@@ -249,6 +249,7 @@ function install_c_sharp {
 function install_docker {
     printf "\n\n${GREEN}Docker:${NC}\n\n"
     # https://docs.docker.com/engine/install/ubuntu/#installation-methods
+    # https://docs.docker.com/engine/install/linux-postinstall
 
     # Remove old docker
     sudo apt remove docker docker-engine docker.io containerd runc
@@ -273,7 +274,7 @@ function install_docker {
 
     # Install
     sudo apt update
-    sudo apt install docker-ce docker-ce-cli containerd.io
+    sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 }
 
 function install_docker_compose {
