@@ -8,6 +8,9 @@ alias ping5="ping -c 5" # Stop after 5 packets
 # ping
 # nslookup
 # netstat
-# wget
-# curl
+# telnet
+# nc
+# nmap
+# wget - downloads index.html
+# curl - prints index.html to terminal
 # ssh

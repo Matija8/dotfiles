@@ -85,6 +85,7 @@ function install_APT_packages {
     # Web
     aptInstall curl
     aptInstall wget
+    aptInstall nmap
     aptInstall qbittorrent
 
     # Fun
