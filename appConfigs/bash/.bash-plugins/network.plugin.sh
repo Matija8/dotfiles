@@ -3,3 +3,11 @@
 
 alias sshv="ssh -vvv"   # Verbosity level 3 (highest) - For debugging
 alias ping5="ping -c 5" # Stop after 5 packets
+
+# Useful Commands:
+# ping
+# nslookup
+# netstat
+# wget
+# curl
+# ssh
