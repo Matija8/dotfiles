@@ -11,6 +11,9 @@
     "body": ["#!/usr/bin/env ts-node\n"],
     "description": "ts-node shebang"
   },
+
+  // *** Log ***
+
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
@@ -31,12 +34,24 @@
     ],
     "description": "Quick console.log(_) that doesn't trigger eslint error"
   },
-  "Matija-trace-x1": {
+
+  // *** Trace ***
+
+  "Matija-trace-1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["tr1"],
     "body": [
       "// eslint-disable-next-line no-console\nconsole.trace(`$*$`, {$0}); //T*DO"
     ],
     "description": "Quick console.trace(_) that doesn't trigger eslint error"
+  },
+
+  // *** Debugger ***
+
+  "Matija-debug-1": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["deb1"],
+    "body": ["// eslint-disable-next-line no-debugger\ndebugger;$0 //T*DO"],
+    "description": "Quick debugger command that doesn't trigger eslint error"
   }
 }
