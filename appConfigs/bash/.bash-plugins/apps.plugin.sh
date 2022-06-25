@@ -7,7 +7,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias chrome="google-chrome"
     alias t="tmux"
     alias tm="tmux"
-    alias py="python3"
 elif [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "msys" ]]; then
     alias chrome="start chrome"
     alias exp="explorer" # File explorer.
