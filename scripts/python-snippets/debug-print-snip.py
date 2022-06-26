@@ -7,7 +7,8 @@
 
 def p(*args, **kwargs):
     kwargs['sep'] = '\n'
-    kwargs['end'] = '\n\n'
+    # kwargs['end'] = '\n\n'
+    # end='\n\n' can be bad for var regions (REGION LABEL)
     print(*args, **kwargs)
 
 
@@ -16,10 +17,16 @@ def main():
     p('val1', val1)
 
     val2 = [3]
-    p('val1', val1, 'val2', val2)
+    p('\nval1', val1, 'val2', val2)
 
     val3 = [4, 5]
-    p({'val3': val3})
+    p('\n', {'val3': val3})
+
+    p('\nREGION LABEL')
+    p(val1)
+    p(val2)
+    p(val3)
+    p('\n\n')
 
 
 if __name__ == '__main__':
