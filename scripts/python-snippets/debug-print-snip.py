@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # coding: UTF-8
 
-# Quick option:
+# Quick options:
 # p = print
+# d = dir
 
 
 def p(*args, **kwargs):
@@ -21,6 +22,9 @@ def main():
 
     val3 = [4, 5]
     p('\n', {'val3': val3})
+
+    # This is for lib classes, like pandas models...
+    p('\nval3 object fields/keys/attrs', dir(val3))
 
     p('\nREGION LABEL')
     p(val1)
