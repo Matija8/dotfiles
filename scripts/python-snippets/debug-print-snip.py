@@ -3,7 +3,11 @@
 
 # Quick options:
 # p = print
-# d = dir
+d = dir
+v = vars
+
+# dir, vars:
+# https://datagy.io/python-print-objects-attributes/
 
 
 def p(*args, **kwargs):
@@ -11,6 +15,13 @@ def p(*args, **kwargs):
     # kwargs['end'] = '\n\n'
     # end='\n\n' can be bad for var regions (REGION LABEL)
     print(*args, **kwargs)
+
+
+class Dog:
+
+    def __init__(self):
+        self.age = 5
+        self.name = 'Rex'
 
 
 def main():
@@ -24,7 +35,11 @@ def main():
     p('\n', {'val3': val3})
 
     # This is for lib classes, like pandas models...
-    p('\nval3 object fields/keys/attrs', dir(val3))
+    p('\nval3 object fields/keys/attrs', d(val3))
+
+    p('\nDog object fields/keys/attrs', d(Dog()))
+
+    p('\nDog object data fields & values', v(Dog()))
 
     p('\nREGION LABEL')
     p(val1)
