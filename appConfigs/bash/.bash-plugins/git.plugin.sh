@@ -90,8 +90,9 @@ alias gm="git merge"
 alias grb="git rebase"
 alias grm="git rm"
 
-alias gst="git stash"       # Save changes to stash
-alias gsts="git stash show" # Show all stashes
+alias gst="git stash"        # Save changes to stash
+alias gsts="git stash show"  # Show all stashes
+alias gstls="git stash show" # Show all stashes
 
 alias gsta="git stash apply"
 alias gstp="git stash pop"   # Apply & drop
