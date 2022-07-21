@@ -17,3 +17,10 @@ function updateAptPackages {
     printf "\n\n${GREEN}Apt update done!${NC}\n\n"
 
 }
+
+function updateSnapPackages {
+    # Snaps are automatically updated in the background once per day.
+    # https://snapcraft.io/docs/getting-started#heading--refreshing
+    # https://askubuntu.com/questions/760823/how-can-i-update-all-snap-packages
+    sudo snap refresh
+}
