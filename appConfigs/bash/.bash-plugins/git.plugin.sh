@@ -90,14 +90,16 @@ alias gm="git merge"
 alias grb="git rebase"
 alias grm="git rm"
 
-alias gst="git stash"        # Save changes to stash
-alias gsts="git stash show"  # Show all stashes
-alias gstls="git stash show" # Show all stashes
+alias gst="git stash"        # Save changes to stash, same as push
+alias gsts="git stash show"  # Inspect stash
+alias gstl="git stash list"  # List all stashes
+alias gstls="git stash list" # List all stashes
 
-alias gsta="git stash apply"
-alias gstp="git stash pop"   # Apply & drop
-alias gstc="git stash clear" # Delete all stashes
-alias gstd="git stash drop"  # Delete specific stash, or the latest stash
+alias gsta="git stash apply"   # Apply stash to top of current working tree
+alias gstpush="git stash push" # Save stash and revert to HEAD
+alias gstpop="git stash pop"   # Apply & drop - Opposite of push
+alias gstc="git stash clear"   # Delete all stashes
+alias gstd="git stash drop"    # Delete specific stash, or the latest stash
 
 alias gclone="git clone"
 alias ginit="git init"
