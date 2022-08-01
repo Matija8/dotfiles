@@ -472,6 +472,11 @@
   {
     "key": "shift+alt+s",
     "command": "cSpell.toggleEnableForGlobal"
+  },
+  {
+    "key": "shift+alt+r",
+    "command": "references-view.findReferences",
+    "when": "editorHasReferenceProvider"
   }
 
   // *** Defaults (Cheatsheet) ***
