@@ -1,0 +1,2 @@
+Open cmd
+wmic bios get serialnumber
