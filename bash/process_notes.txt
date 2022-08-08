@@ -1,0 +1,3 @@
+
+Run multiple long-running processes at once
+    https://stackoverflow.com/questions/66537526/bash-spawn-child-processes-that-quit-when-parent-script-quits
