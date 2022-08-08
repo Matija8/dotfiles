@@ -287,6 +287,19 @@ function install_docker_compose {
     sudo chmod +x /usr/local/bin/docker-compose
 }
 
+function install_mongodb {
+    printf "\n\n${GREEN}Installing mongodb...${NC}\n\n"
+
+    # https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+    aptInstall gnupg
+    wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+    sudo apt update
+    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" |
+        sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+
+    aptInstall mongodb-org
+}
+
 function wrap_up_installing {
     printf "\n\n${GREEN}Wrapping up...${NC}\n\n"
 
