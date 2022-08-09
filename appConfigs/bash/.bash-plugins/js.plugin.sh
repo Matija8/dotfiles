@@ -37,6 +37,22 @@ function rmnode_modules {
     echo "Removed node_modules & lock files in $dirName"
 }
 
+function init_ts_project {
+    # https://www.digitalocean.com/community/tutorials/typescript-new-project
+
+    project_dir='new-ts-project'
+    rm -rf "$project_dir"
+    mkdir "$project_dir"
+    cd "$project_dir"
+
+    printf "node_modules/\nyarn.lock\n" >.gitignore
+    yarn init -y
+    yarn add -D typescript ts-node
+    npx tsc --init
+
+    # Copy prettier and eslint?
+}
+
 alias y="yarn"
 alias ys="yarn start"
 alias yt="yarn test"
