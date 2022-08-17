@@ -6,9 +6,12 @@
 
 # To sanity check docker, run:
 # docker run hello-world
+# https://hub.docker.com/_/hello-world
 
 alias docker-psa="docker ps -a"
 alias dpsa="docker ps -a"
+alias docker-test="docker run hello-world"
+alias docker-images="docker images"
 
 # https://stackoverflow.com/questions/20111063/bash-alias-command-with-both-single-and-double-quotes
 # Be careful with aliases that contain $() in them! Don't use "" quotes then!
