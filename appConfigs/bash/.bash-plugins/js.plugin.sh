@@ -58,6 +58,7 @@ alias ys="yarn start"
 alias yt="yarn test"
 alias yr="yarn run"
 alias yga="sudo yarn global add"
+alias ycleancache="yarn cache clean"
 
 alias nr="npm run"
 alias ni="npm i"
