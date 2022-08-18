@@ -60,7 +60,8 @@ alias yr="yarn run"
 alias yga="sudo yarn global add"
 alias yconfig="yarn config"
 alias ycl="yarn config list"
-# The "yarn config list" command is super useful for debugging CodeArtifact/Nexus!
+alias yclv="yarn config list --verbose"
+# The "yclv" command is super useful for debugging CodeArtifact/Nexus!
 alias ycleancache="yarn cache clean"
 
 alias nr="npm run"
