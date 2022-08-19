@@ -57,17 +57,29 @@ alias y="yarn"
 alias ys="yarn start"
 alias yt="yarn test"
 alias yr="yarn run"
+alias yip="yarn install --prod"
 alias yga="sudo yarn global add"
 alias ycleancache="yarn cache clean"
 
-# The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
-# On Yarn 1.x use "yarn config list"
-# https://classic.yarnpkg.com/en/docs/cli/config
-# On Yarn 3.x use "yarn config"
-# https://yarnpkg.com/cli/config
 alias yc="yarn config"
-alias ycl="yarn config list"
-alias yclv="yarn config list --verbose"
+function ycl {
+    # The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
+    # On Yarn 1.x use "yarn config list"
+    # https://classic.yarnpkg.com/en/docs/cli/config
+    # On Yarn >= 2.x use "yarn config"
+    # https://yarnpkg.com/cli/config
+
+    # https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash
+    local _yarn_version=$(yarn --version)
+
+    # https://www.cyberciti.biz/faq/bash-check-if-string-starts-with-character-such-as/
+    if [[ $_yarn_version = 1* ]]; then
+        yarn config list $@
+    else
+        yarn config $@
+    fi
+}
+alias yclv="ycl --verbose"
 
 alias nr="npm run"
 alias ni="npm i"
