@@ -1,0 +1,1 @@
+alias gorun="go run"

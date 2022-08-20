@@ -229,17 +229,20 @@ function install_go_lang {
     printf "\n\n${GREEN}Go:${NC}\n\n"
     aptInstall golang
 
-    printf "\n\n${BLUE}Go get *packages* starting...${NC}\n\n"
-    go get -v \
-        golang.org/x/lint/golint \
-        golang.org/x/tools/cmd/gorename \
-        github.com/ramya-rao-a/go-outline \
-        github.com/mdempsky/gocode \
-        github.com/stamblerre/gocode \
-        github.com/uudashr/gopkgs/v2/cmd/gopkgs \
-        github.com/sqs/goreturns \
-        github.com/rogpeppe/godef
-    printf "\n${BLUE}Go get *packages* done!${NC}\n"
+    # VSCode will propmt you to install useful go packages.
+    # You don't have to install them yourself.
+
+    # printf "\n\n${BLUE}Go get *packages* starting...${NC}\n\n"
+    # go get -v \
+    #     golang.org/x/lint/golint \
+    #     golang.org/x/tools/cmd/gorename \
+    #     github.com/ramya-rao-a/go-outline \
+    #     github.com/mdempsky/gocode \
+    #     github.com/stamblerre/gocode \
+    #     github.com/uudashr/gopkgs/v2/cmd/gopkgs \
+    #     github.com/sqs/goreturns \
+    #     github.com/rogpeppe/godef
+    # printf "\n${BLUE}Go get *packages* done!${NC}\n"
 }
 
 function install_c_sharp {

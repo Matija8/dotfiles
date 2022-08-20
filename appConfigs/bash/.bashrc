@@ -42,20 +42,4 @@ alias rehash="hash -r"
 # https://stackoverflow.com/questions/342969/how-do-i-get-bash-completion-to-work-with-aliases
 # https://gist.github.com/JuggoPop/10706934
 
-# ***Plugins***
-# All these plugins should work both for bash and zsh!
-
-function sourcePlugins {
-    # printf "Source plugins start\n"
-    # plugin_source_start_t=$SECONDS
-    plugins_folder="$HOME/.bash-plugins"
-    for f in "$plugins_folder"/*; do
-        # echo "Added plugin: $f"
-        . "$f"
-    done
-    # printf "sourcePlugins duration = $((SECONDS - plugin_source_start_t)) seconds.\n"
-}
-
-# sourcePlugins
-
 # printf "Base .bashrc loading duration = $((SECONDS - bashrc_loading_start_time)) seconds.\n"
