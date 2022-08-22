@@ -42,6 +42,22 @@ function gpup {
     git push --set-upstream origin $current_branch
 }
 
+function gDeleteRemoteBranch {
+    # https://www.educative.io/answers/how-to-delete-remote-branches-in-git
+
+    if [ "$#" -ne 1 ] && [ "$#" -ne 2 ]; then
+        echo "Illegal number of arguments"
+        echo "Is $#, should be 1 or 2"
+        return 1
+    fi
+
+    local branch_to_delete="$1"
+    # local remote=${$2:="origin"}
+    local remote="origin"
+    echo "Deleting branch $branch_to_delete on remote $remote"
+    git push "$remote" --delete "$branch_to_delete"
+}
+
 # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor
 if command -v nvim &>/dev/null; then
@@ -61,8 +77,8 @@ alias gbl="git branch"     # Show local branches
 alias gbr='git branch -r'  # Show remote branches
 alias gba='git branch -a'  # Show all branches (local + remote)
 alias gbm='gbi matija'     # Show branches with name containing 'matija'
-alias gbd='git branch -d'  # Safe delete branch (has remote)
-alias gbD='git branch -D'  # Force delete branch
+alias gbd='git branch -d'  # Delete a local branch that has a remote
+alias gbD='git branch -D'  # Delete a local branch
 alias gbv="git branch -vv" # Show local branches info
 
 alias gc="git commit -v"
