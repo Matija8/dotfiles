@@ -72,28 +72,36 @@ alias g="git"
 alias ga="git add"
 alias gaa="git add -A"
 
+# Branches immutable
 alias gb="git branch"      # Show local branches
 alias gbl="git branch"     # Show local branches
 alias gbr='git branch -r'  # Show remote branches
 alias gba='git branch -a'  # Show all branches (local + remote)
 alias gbm='gbi matija'     # Show branches with name containing 'matija'
-alias gbd='git branch -d'  # Delete a local branch that has a remote
-alias gbD='git branch -D'  # Delete a local branch
 alias gbv="git branch -vv" # Show local branches info
 
+# Branches mutable
+alias gbd='git branch -d'  # Delete a local branch that has a remote
+alias gbD='git branch -D'  # Delete a local branch
+
 alias gc="git commit -v"
+
+# Branch checkout
 alias gco="git checkout"
 alias gcb="git checkout -b" # Creates and checks out if branch doesn't exist
 alias gcob="git checkout -b"
 # "git checkout -B" # gcb + resets the branch (-f). Use this to override!
 
+# Diff
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gdiff="git diff"
 
+# Fetch
 alias gf="git fetch"
 alias gfp="git fetch -p" # Prune!
 
+# Commits graph
 alias glo="git log --oneline --decorate --graph"
 alias glog="git log --oneline --decorate --graph"
 alias gloga="git log --oneline --decorate --graph --all"
@@ -106,11 +114,13 @@ alias gm="git merge"
 alias grb="git rebase"
 alias grm="git rm"
 
+# Stash immutable
 alias gst="git stash"        # Save changes to stash, same as push
 alias gsts="git stash show"  # Inspect stash
 alias gstl="git stash list"  # List all stashes
 alias gstls="git stash list" # List all stashes
 
+# Stash mutable
 alias gsta="git stash apply"   # Apply stash to top of current working tree
 alias gstpush="git stash push" # Save stash and revert to HEAD
 alias gstpop="git stash pop"   # Apply & drop - Opposite of push
@@ -119,3 +129,4 @@ alias gstd="git stash drop"    # Delete specific stash, or the latest stash
 
 alias gclone="git clone"
 alias ginit="git init"
+alias gremote="git remote -v"
