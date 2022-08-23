@@ -98,3 +98,12 @@ alias yarnls="yarn global list"
 
 # Append name to the end of command to avoid prompt
 alias cr-next-app="yarn create next-app --typescript"
+
+function jestSingleTest {
+    # https://stackoverflow.com/questions/28725955/how-do-i-test-a-single-file-using-jest
+    # yarn test -- foo.test.ts
+    # npm run test -- foo.test.ts
+    # If you're using yarn 3.x, npm run test will not work
+    yarn test -- $1
+}
+alias jestTestSingle="jestSingleTest"
