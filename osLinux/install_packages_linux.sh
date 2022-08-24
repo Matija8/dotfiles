@@ -286,14 +286,28 @@ function install_docker {
     sudo apt update
     sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
+    docker_allow_no_sudo
+}
+
+function docker_allow_no_sudo {
     # Post install (to use without sudo)
     # https://docs.docker.com/engine/install/linux-postinstall
+
+    # https://linuxize.com/post/how-to-list-groups-in-linux/
     sudo groupadd docker
+
+    # To see docker is in groups run:
+    # less +/docker /etc/group
+    # For less the + means pass a command, and / is search (like vim)
+
+    # https://linuxize.com/post/usermod-command-in-linux/
     sudo usermod -aG docker $USER
+    # https://linux.die.net/man/1/newgrp
     newgrp docker
 
     # To sanity check that docker now works without sudo, run:
     # docker run hello-world
+    # docker ps -a
 }
 
 function install_docker_compose {
