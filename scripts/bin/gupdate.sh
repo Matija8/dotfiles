@@ -17,9 +17,17 @@ function gpull {
     # https://stackoverflow.com/questions/7293008/display-last-git-commit-comment
     # https://stackoverflow.com/questions/17077973/how-to-make-git-diff-write-to-stdout
     # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
+
     __br
-    cd "$1"
     printf "${GREEN}$1${NC}\n\n"
+
+    if [ ! -d "$1" ]; then
+        # https://www.cyberciti.biz/faq/howto-check-if-a-directory-exists-in-a-bash-shellscript/
+        printf "Directory [$1] is missing!?\n"
+        return 1
+    fi
+
+    cd "$1"
     git status -sb &&
         git pull &&
         printf "\n${GREEN}Good${NC}" ||
