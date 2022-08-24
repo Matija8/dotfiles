@@ -247,6 +247,12 @@ function install_go_lang {
 
 function install_c_sharp {
     printf "\n\n${GREEN}C#:${NC}\n\n"
+    # https://www.mono-project.com/download/stable/
+    aptInstall gnupg ca-certificates
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+    echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" |
+        sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+    sudo apt update
     aptInstall mono-complete
 }
 
@@ -279,6 +285,15 @@ function install_docker {
     # Install
     sudo apt update
     sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+    # Post install (to use without sudo)
+    # https://docs.docker.com/engine/install/linux-postinstall
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+
+    # To sanity check that docker now works without sudo, run:
+    # docker run hello-world
 }
 
 function install_docker_compose {
