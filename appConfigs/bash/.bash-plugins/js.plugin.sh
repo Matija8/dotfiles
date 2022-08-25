@@ -107,3 +107,20 @@ function jestSingleTest {
     yarn test -- $1
 }
 alias jestTestSingle="jestSingleTest"
+
+function tsCheck {
+    # https://stackoverflow.com/questions/57078953/incremental-compilation-with-typescript-while-using-noemit
+    # https://stackoverflow.com/questions/41542907/how-to-check-typescript-code-for-syntax-errors-from-a-command-line
+    # https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#faster-subsequent-builds-with-the---incremental-flag
+    local GREEN='\033[0;32m'
+    local NC='\033[0m'
+    printf "\n${GREEN}Starting TypeScript check...${NC}\n\n"
+    local tsCheckStartTime=$SECONDS
+    which tsc &>/dev/null
+    if [ $? -eq "0" ]; then
+        tsc --noEmit --incremental
+    else
+        npx tsc --noEmit --incremental
+    fi
+    printf "\n\n${GREEN}TypeScript check duration = $((SECONDS - tsCheckStartTime)) seconds.${NC}\n\n"
+}
