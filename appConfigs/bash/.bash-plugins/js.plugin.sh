@@ -97,7 +97,8 @@ alias npmls="npm list -g --depth=0"
 alias yarnls="yarn global list"
 
 # Append name to the end of command to avoid prompt
-alias cr-next-app="yarn create next-app --typescript"
+# https://nextjs.org/docs/basic-features/typescript#create-next-app-support
+alias create-next-app="yarn create next-app --typescript"
 
 function jestSingleTest {
     # https://stackoverflow.com/questions/28725955/how-do-i-test-a-single-file-using-jest
