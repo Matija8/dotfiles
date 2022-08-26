@@ -4,7 +4,9 @@ code --install-extension aaron-bond.better-comments
 code --install-extension adpyke.vscode-sql-formatter
 code --install-extension AlDuncanson.react-hooks-snippets
 code --install-extension alefragnani.Bookmarks
+code --install-extension arcanis.vscode-zipfs
 code --install-extension azemoh.one-monokai
+code --install-extension bradlc.vscode-tailwindcss
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension clinyong.vscode-css-modules
 code --install-extension DavidAnson.vscode-markdownlint
@@ -31,9 +33,10 @@ code --install-extension msjsdiag.vscode-react-native
 code --install-extension nhoizey.gremlins
 code --install-extension PKief.material-icon-theme
 code --install-extension quicktype.quicktype
-code --install-extension rust-lang.rust
+code --install-extension rust-lang.rust-analyzer
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension stringham.move-ts
+code --install-extension tomoki1207.pdf
 code --install-extension wix.glean
 code --install-extension yandeu.five-server
 code --install-extension yzane.markdown-pdf
