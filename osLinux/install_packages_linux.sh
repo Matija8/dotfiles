@@ -22,6 +22,7 @@ function main {
     sudo apt update
     sudo apt upgrade -y
 
+    remove_ubuntu_ctrl_alt_LR_keybindings
     install_APT_packages
     install_snaps
 
@@ -150,6 +151,22 @@ function install_snaps {
     # snapInstall android-studio --classic
     # snapInstall lxd
     printf "${GREEN}Snaps done...\n${NC}"
+}
+
+function remove_ubuntu_ctrl_alt_LR_keybindings {
+    # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
+    if ! command -v gsettings &>/dev/null; then
+        return
+    fi
+
+    # https://stackoverflow.com/questions/47808160/intellij-idea-ctrlaltleft-shortcut-doesnt-work-in-ubuntu
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "[]"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "[]"
+
+    # gsettings reset org.gnome.desktop.wm.keybindings switch-to-workspace-left
+    # gsettings reset org.gnome.desktop.wm.keybindings switch-to-workspace-right
+
+    printf "\n${GREEN}Ubuntu ctrl+alt+LR keybindings removed!${NC}\n"
 }
 
 function install_brightness_controller {
