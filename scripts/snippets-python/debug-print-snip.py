@@ -3,11 +3,14 @@
 
 # Quick options:
 # p = print
-d = dir
-v = vars
 
 # dir, vars:
 # https://datagy.io/python-print-objects-attributes/
+
+# The type function:
+# https://www.programiz.com/python-programming/methods/built-in/type
+# https://www.digitalocean.com/community/tutorials/python-type
+# https://stackoverflow.com/questions/1549801/what-are-the-differences-between-type-and-isinstance
 
 
 def p(*args, **kwargs):
@@ -35,11 +38,13 @@ def main():
     p('\n', {'val3': val3})
 
     # This is for lib classes, like pandas models...
-    p('\nval3 object fields/keys/attrs', d(val3))
+    p('\nval3 object fields/keys/attrs', dir(val3))
 
-    p('\nDog object fields/keys/attrs', d(Dog()))
+    p('\nDog object fields/keys/attrs', dir(Dog()))
 
-    p('\nDog object data fields & values', v(Dog()))
+    p('\nDog object data fields & values', vars(Dog()))
+
+    p('\nDog object type', type(Dog()))
 
     p('\nREGION LABEL')
     p(val1)
