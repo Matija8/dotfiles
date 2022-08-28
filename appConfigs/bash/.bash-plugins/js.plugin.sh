@@ -125,3 +125,8 @@ function tsCheck {
     fi
     printf "\n\n${GREEN}TypeScript check duration = $((SECONDS - tsCheckStartTime)) seconds.${NC}\n\n"
 }
+
+function upgradeNodePackages {
+    # https://nodejs.dev/en/learn/update-all-the-nodejs-dependencies-to-their-latest-version
+    npx npm-check-updates -u
+}
