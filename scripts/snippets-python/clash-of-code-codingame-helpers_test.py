@@ -1,5 +1,5 @@
 import sys
-from math import sqrt, log2
+from math import sqrt, log2, comb
 from string import ascii_lowercase, ascii_uppercase, ascii_letters
 
 
@@ -74,6 +74,20 @@ def str_ops(in_str: str):
     print(in_str.find('substr') != -1)
     print(in_str.isnumeric())
     print(in_str.isupper(), in_str.islower())
+
+
+def hash_map_counting(input_str):
+    repetitions = {}
+    for ch in input_str:
+        repetitions[ch] = repetitions.get(ch, 1) + 1
+    return repetitions
+
+
+def nCr(n, r):
+    # n choose r
+    # https://stackoverflow.com/questions/4941753/is-there-a-math-ncr-function-in-python
+    # Other combinatorics stuff?
+    return comb(n, r)
 
 
 def exit_as_out_of_main_return(year):
@@ -151,3 +165,6 @@ class Test(unittest.TestCase):
 
     def test_reverse_str(self):
         self.assertEqual(reverse_string("Hello World"), 'dlroW olleH')
+
+    def test_hash_map_counting(self):
+        self.assertEqual(hash_map_counting('abbc'), {'a': 2, 'b': 3, 'c': 2})
