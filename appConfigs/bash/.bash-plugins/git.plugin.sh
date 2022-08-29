@@ -107,6 +107,9 @@ alias glog="git log --oneline --decorate --graph"
 alias gloga="git log --oneline --decorate --graph --all"
 
 alias gl="git pull"
+
+# https://stackoverflow.com/questions/14290113/git-pushing-code-to-two-remotes
+# https://stackoverflow.com/questions/5785549/able-to-push-to-all-git-remotes-with-the-one-command
 alias gp="git push"
 # "git push -f" # Force* push!
 
