@@ -64,6 +64,8 @@ def unicode_order():
 
 def str_ops(in_str: str):
     print(in_str.count('substr'))
+    # https://stackoverflow.com/questions/6005891/replace-first-occurrence-only-of-a-string
+    print(in_str.replace('old', 'new', 1))
     print(in_str.replace('old', 'new'))
     print(in_str.index('substr'))
     print(in_str.find('substr') != -1)
