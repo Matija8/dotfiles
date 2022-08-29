@@ -1,7 +1,10 @@
 apt
 basename
 cat
+command -v
+cp
 dirname
+du -hs
 free - memory usage
 grep
 head [10]
@@ -9,9 +12,11 @@ htop - top
 kill
 less
 ln -sf[n] SRC TARGET - https://superuser.com/questions/81164/why-create-a-link-like-this-ln-nsf
+ls -la
 lsof
 mkdir
 mv
+netstat
 printf
 pwd
 read -p "Press enter to continue" __inputed_text_dump_var
@@ -21,6 +26,8 @@ rm -rf
 sed
 tail [10]
 top
+vim
 vmstat
+which
 xclip
 xkill

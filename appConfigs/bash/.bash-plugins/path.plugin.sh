@@ -11,3 +11,6 @@ function echoPATH {
     # https://stackoverflow.com/questions/2871181/replacing-some-characters-in-a-string-with-another-character
     echo $PATH | tr : "\n"
 }
+
+# Use the "which" command to find program location on $PATH
+# https://stackoverflow.com/questions/37056192/which-vs-command-v-in-bash
