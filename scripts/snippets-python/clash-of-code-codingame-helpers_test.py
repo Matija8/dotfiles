@@ -7,6 +7,9 @@ def p(*args, **kwargs):
     print(*args, **kwargs, file=sys.stderr, flush=True)
 
 
+# -------- Cut to here for CoC template --------
+
+
 def diff(a, b):
     return abs(a - b)
 
@@ -73,6 +76,13 @@ def str_ops(in_str: str):
     print(in_str.isupper(), in_str.islower())
 
 
+def exit_as_out_of_main_return(year):
+    if year % 400:
+        print('365')
+        exit()
+    print('366')
+
+
 class CodeGolf:
 
     def use_input_as_print(self):
@@ -99,6 +109,12 @@ class CodeGolf:
     def use_bool_as_0_or_1(self):
         cond = 1 > 2
         print(['YES', 'NO'][cond])
+
+    def use_non_zero_modulo_as_true(self, year):
+        if year % 400:
+            print('year isn\'t divisible by 400')
+            exit()  # out of main return
+        print('year is divislbe by 400')
 
 
 import unittest
