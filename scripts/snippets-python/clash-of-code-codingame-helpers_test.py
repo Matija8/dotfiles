@@ -62,6 +62,15 @@ def unicode_order():
     print(ord('$'))  # 36
 
 
+def str_ops(in_str: str):
+    print(in_str.count('substr'))
+    print(in_str.replace('old', 'new'))
+    print(in_str.index('substr'))
+    print(in_str.find('substr') != -1)
+    print(in_str.isnumeric())
+    print(in_str.isupper(), in_str.islower())
+
+
 class CodeGolf:
 
     def use_input_as_print(self):
