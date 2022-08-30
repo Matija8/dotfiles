@@ -36,6 +36,21 @@ function gbi {
     git branch -a | grep -i "$1"
 }
 
+function gpa {
+    # *** Git push to *all* remotes ***
+    # https://stackoverflow.com/questions/14290113/git-pushing-code-to-two-remotes
+    # https://stackoverflow.com/questions/5785549/able-to-push-to-all-git-remotes-with-the-one-command
+    local git_remotes_arr=$(git remote)
+    # printf "Origins:\n$git_remotes_arr\n\n"
+    # https://superuser.com/questions/284187/bash-iterating-over-lines-in-a-variable
+    # https://unix.stackexchange.com/questions/184863/what-is-the-meaning-of-ifs-n-in-bash-scripting
+    while IFS= read -r an_origin; do
+        printf "Pushing to remote: $an_origin...\n"
+        git push "$an_origin"
+        printf "\n"
+    done <<<"$git_remotes_arr"
+}
+
 function gpup {
     # *** Git push - set upstream ***
     local current_branch=$(git rev-parse --abbrev-ref HEAD)
@@ -81,8 +96,8 @@ alias gbm='gbi matija'     # Show branches with name containing 'matija'
 alias gbv="git branch -vv" # Show local branches info
 
 # Branches mutable
-alias gbd='git branch -d'  # Delete a local branch that has a remote
-alias gbD='git branch -D'  # Delete a local branch
+alias gbd='git branch -d' # Delete a local branch that has a remote
+alias gbD='git branch -D' # Delete a local branch
 
 alias gc="git commit -v"
 
@@ -107,9 +122,6 @@ alias glog="git log --oneline --decorate --graph"
 alias gloga="git log --oneline --decorate --graph --all"
 
 alias gl="git pull"
-
-# https://stackoverflow.com/questions/14290113/git-pushing-code-to-two-remotes
-# https://stackoverflow.com/questions/5785549/able-to-push-to-all-git-remotes-with-the-one-command
 alias gp="git push"
 # "git push -f" # Force* push!
 
