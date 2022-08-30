@@ -124,6 +124,10 @@ alias gloga="git log --oneline --decorate --graph --all"
 alias gl="git pull"
 alias gp="git push"
 # "git push -f" # Force* push!
+# Setting the default remote for push:
+# git push -u <remote_name> <branch_name>
+# gp -u origin main
+# https://stackoverflow.com/questions/18801147/changing-the-git-remote-push-to-default
 
 alias gm="git merge"
 alias grb="git rebase"
