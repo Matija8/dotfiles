@@ -6,7 +6,7 @@ function cdq {
 alias c="clear"
 alias cls="clear"
 alias l="ls -1"
-alias la="ls -a"
+alias la="ls -1a"
 alias hist="history"
 alias chx="chmod +x"
 alias rmrf="rm -rf"
