@@ -4,3 +4,4 @@
 /__pycache__
 /appConfigs/bash/.bash-plugins-hidden/**
 scripts/github/gh-pat.txt
+gupdatex.sh

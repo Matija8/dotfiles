@@ -37,17 +37,16 @@ function gpull {
     printf "\n\n"
 }
 
-gpull "$HOME/Projects/dotfiles/"
+_projects_dir="$HOME/Projects"
+gpull "$_projects_dir/dotfiles/"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then py="python3"; else py="py"; fi
 __br
-"$py" "$HOME/Projects/dotfiles/copy_configs.py"
+"$py" "$_projects_dir/dotfiles/copy_configs.py"
 
 __br
-# Put extra commands into .gupdate.sh
-# script_path=$(realpath -s "$0")
-# extended_script_path="$(dirname "$script_path")/.gupdate.sh"
-extended_script_path="$(dirname "$0")/.gupdate.sh"
+# The x in gupdate'x' stands for 'extended'
+extended_script_path="$(dirname "$0")/gupdatex.sh"
 # https://superuser.com/questions/1068031/replace-backslash-with-forward-slash-in-a-variable-in-bash
 extended_script_path_display="${extended_script_path//\\//}"
 printf "\nExtended script path: $extended_script_path_display\n"
