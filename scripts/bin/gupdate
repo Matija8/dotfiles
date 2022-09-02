@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# coding: UTF-8
+
+# This file is here for nicer autocomplete in the terimnal.
+# Otherwise you would have to choose between gupdate.sh and gupdatex.sh.
+
+. "$(dirname "$0")/gupdate.sh"
