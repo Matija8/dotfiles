@@ -1,0 +1,17 @@
+You need to first setup ts imports, then workspaces.
+1) TypeScript imports (tsconfig.json > references...)
+2) Yarn/Npm Workspaces (package.json, node_modules...)
+3) *Webpack (resolve > aliases)
+
+TypeScript debugging commands:
+tsc
+
+Workspace debugging commands:
+yarn workspaces list --json # ??
+yarn workspaces info --json
+
+https://classic.yarnpkg.com/en/docs/cli/workspaces
+
+https://spin.atomicobject.com/2022/02/07/typescript-project-workspaces/
+
+You need a tsconfig.json in your /shared workspace.
