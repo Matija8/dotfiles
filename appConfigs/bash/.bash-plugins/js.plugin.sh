@@ -59,6 +59,8 @@ alias yt="yarn test"
 alias yr="yarn run"
 alias yip="yarn install --prod"
 alias yga="sudo yarn global add"
+alias yaddD="yarn add -D" # add dev dep
+alias yaddP="yarn add"    # add "prod" dep
 alias ycleancache="yarn cache clean"
 
 alias yc="yarn config"
