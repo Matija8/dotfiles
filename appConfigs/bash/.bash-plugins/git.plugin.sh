@@ -100,6 +100,7 @@ alias gbd='git branch -d' # Delete a local branch that has a remote
 alias gbD='git branch -D' # Delete a local branch
 
 alias gc="git commit -v"
+alias gcnv="git commit -v --no-verify"
 
 # Branch checkout
 alias gco="git checkout"
