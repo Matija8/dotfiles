@@ -3,6 +3,11 @@ function cdq {
     cd "$1" &>/dev/null
 }
 
+function cdf {
+    # cd to the parent dir of file path argument
+    cd $(dirname "$1")
+}
+
 alias c="clear"
 alias cls="clear"
 alias l="ls -1"
