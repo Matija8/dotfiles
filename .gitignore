@@ -5,3 +5,11 @@
 /appConfigs/bash/.bash-plugins-hidden/**
 scripts/github/gh-pat.txt
 gupdatex.sh
+
+# Js/Ts
+node_modules/
+package-lock.json
+yarn.lock
+
+# C/C++
+a.out
