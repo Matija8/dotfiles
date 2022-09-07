@@ -63,6 +63,7 @@ alias yaddD="yarn add -D" # add dev dep
 alias yaddP="yarn add"    # add "prod" dep
 alias ycleancache="yarn cache clean"
 
+alias npmcl="npm config list"
 alias yc="yarn config"
 function ycl {
     # The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
