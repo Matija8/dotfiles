@@ -10,6 +10,7 @@ gupdatex.sh
 node_modules/
 package-lock.json
 yarn.lock
+out-log.txt
 
 # C/C++
 a.out
