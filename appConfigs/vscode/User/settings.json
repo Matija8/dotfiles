@@ -94,10 +94,10 @@
   // SpellCheck
   "cSpell.enabled": false,
   "cSpell.userWords": [
-    "Cheatsheet",
-    "Readonly",
     "browserslist",
+    "Cheatsheet",
     "numpad",
+    "Readonly",
     "webfonts"
   ],
 
@@ -186,6 +186,9 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[javascript]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -212,5 +215,11 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
