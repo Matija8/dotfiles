@@ -1,0 +1,5 @@
+https://forum.shotcut.org/t/how-do-i-move-a-clip-quickly/24832/2
+
+Split videos with "S"
+Delete a clip with "delete" or "d"
+Right click on empty space and select remove (or "x"?)
