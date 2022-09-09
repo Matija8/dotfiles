@@ -1,0 +1,22 @@
+/* https://stackoverflow.com/questions/19445867/inject-css-with-chrome-developer-tool */
+
+First way, inspector-stylesheet:
+
+Open Inspect Element (F12 Or Ctrl+ Shift+I)
+
+Go to Elements tab (Ctrl+ Shift+ P and type show elements),
+if you are not already there, see the Styles tab, now see on right corner,
+there would be a + icon, click it
+(or long press that icon if it doesn't automatically add inspector-stylesheet),
+it will add selector of currently highlighted element, just next to the selector,
+there will a link/button inspector-stylesheet, click it,
+it will take you a window, where you can add styles.
+
+-----
+
+Watch for the "+" icon!
+*******
+*     *
+*  +  *
+*    v*
+*******
