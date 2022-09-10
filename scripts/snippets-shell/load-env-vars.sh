@@ -27,3 +27,16 @@ if [ -f "$env_file_path" ]; then
 else
     printf "Env file NOT found!\n"
 fi
+
+################################################################################
+# Even better (IIFE):
+
+_() {
+    local env_file_path="$(realpath $(dirname $0))/../env.txt"
+    if [ -f "$env_file_path" ]; then
+        export $(cat "$env_file_path" | xargs)
+    else
+        printf "Env file NOT found!\n"
+    fi
+} && _ "$@"
+unset -f _
