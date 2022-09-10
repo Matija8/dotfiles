@@ -1,0 +1,50 @@
+-- Practice:
+-- https://www.hackerrank.com/challenges/earnings-of-employees/problem?isFullScreen=true
+-- Use MS SQL!
+-- MySQL doesn't seem to support WITH clause??
+--
+-- select * from employee;
+--
+-- select max(salary) from employee;
+--
+-- select months * salary from employee;
+--
+-- select months * salary from employee where months * salary > 10000;
+--
+-- with tmp_table1 (max_sal) as (select max(salary) from employee)
+-- select * from tmp_table1;
+--
+-- with tmp_table1 (max_sal) as (select max(months * salary) from employee)
+-- select * from tmp_table1;
+--
+-- with tmp_table1 (max_sal) as (select max(months * salary) from employee)
+-- select months * salary
+-- from employee join tmp_table1 on months * salary < tmp_table1.max_sal;
+--
+-- with tmp_table1 (max_sal) as (select max(months * salary) from employee)
+-- select months * salary
+-- from employee as e join tmp_table1 on e.months * e.salary = tmp_table1.max_sal;
+--
+--
+-- https://stackoverflow.com/questions/5375634/can-i-use-multiple-with
+--
+-- with tmp_table1 (max_sal) as (
+--     select max(months * salary) from employee
+-- ),
+-- tmp_table2 (count_max_sal) as (
+--     select count(*)
+--     from employee join tmp_table1 on months * salary = tmp_table1.max_sal
+-- )
+-- select count_max_sal from tmp_table2;
+--
+-- Final solution:
+--
+-- with tmp_table1 (max_sal) as (
+--     select max(months * salary) from employee
+-- ),
+-- tmp_table2 (count_max_sal) as (
+--     select count(*)
+--     from employee join tmp_table1 on months * salary = tmp_table1.max_sal
+-- )
+-- select max_sal, count_max_sal from tmp_table1, tmp_table2;
+--
