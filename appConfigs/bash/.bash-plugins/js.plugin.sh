@@ -84,6 +84,7 @@ function ycl {
     fi
 }
 alias yclv="ycl --verbose"
+alias yinfo="yarn info"
 
 alias nr="npm run"
 alias ni="npm i"
