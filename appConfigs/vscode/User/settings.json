@@ -62,6 +62,7 @@
   "editor.renderControlCharacters": false,
   "editor.renderWhitespace": "none",
   "editor.rulers": [80],
+  "editor.stickyScroll.enabled": true,
   "editor.suggest.insertMode": "insert",
   "editor.wordWrap": "off",
 
