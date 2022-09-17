@@ -15,24 +15,35 @@
   },
 
   // *** Log ***
-
+  "Matija-log": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["log"],
+    "body": ["console.log($0);"],
+    "description": "Quick console.log(_)"
+  },
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
+    "body": ["console.log(`$*$ log `,{$0 }); //T*DO"],
+    "description": "Quick console.log(_) for debugging"
+  },
+  "Matija-log-x2": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["lx2"],
     // https://stackoverflow.com/questions/41856706/whats-the-best-way-to-write-multi-line-code-snippets-in-vs-code
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.log(`$*$ log $0`,{ }); //T*DO"
+      "console.log(`$*$ log `,{$0 }); //T*DO"
     ],
     "description": "Quick console.log(_) that doesn't trigger eslint error"
   },
-  "Matija-log-x2-winston": {
+  "Matija-log-x3-winston": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["lx2"],
+    "prefix": ["lx3"],
     "body": [
       "// eslint-disable-next-line no-console",
       "console.log(`VVVVV\\n\\n`,",
-      "{ ts: new Date(), msg: `log $0`, }, ",
+      "{ ts: new Date(), msg: `log `,$0 }, ",
       "`\\n\\nΛΛΛΛΛ`); //T*DO"
     ],
     "description": "Insert console.log() between noisy winston logs"
@@ -45,7 +56,7 @@
     "prefix": ["tr1"],
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.trace(`$*$ trace $0`,{ }); //T*DO"
+      "console.trace(`$*$ trace `,{$0 }); //T*DO"
     ],
     "description": "Quick console.trace(_) that doesn't trigger eslint error"
   },
@@ -57,13 +68,23 @@
     "prefix": ["tm1"],
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.time('$*$ time $0');",
+      "console.time('$*$ time $0'); //T*DO",
       "// eslint-disable-next-line no-console",
-      "console.timeEnd('$*$ time $0');"
+      "console.timeEnd('$*$ time $0'); //T*DO"
     ],
-    "description": "Quick debugger command that doesn't trigger eslint error"
+    "description": "Quick time command that doesn't trigger eslint error"
   },
-
+  "Matija-time-2": {
+    // https://stackoverflow.com/questions/313893/how-to-measure-time-taken-by-a-function-to-execute
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["tm2"],
+    "body": [
+      "let startTime = performance.now();",
+      "let endTime = performance.now();",
+      "console.log(`Time $0 : ${endTime - startTime} milliseconds`);"
+    ],
+    "description": "Perf timing"
+  },
   // *** Debugger ***
 
   "Matija-debug-1": {
