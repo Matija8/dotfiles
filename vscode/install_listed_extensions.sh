@@ -6,7 +6,6 @@ code --install-extension AlDuncanson.react-hooks-snippets
 code --install-extension alefragnani.Bookmarks
 code --install-extension arcanis.vscode-zipfs
 code --install-extension azemoh.one-monokai
-code --install-extension bradlc.vscode-tailwindcss
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension clinyong.vscode-css-modules
 code --install-extension DavidAnson.vscode-markdownlint
