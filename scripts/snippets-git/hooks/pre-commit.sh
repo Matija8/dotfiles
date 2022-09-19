@@ -12,4 +12,5 @@ function exit_if_last_op_failed {
 npm run test
 # npm run bb # build/bundle BE
 # npm run bf # build/bundle FE
-exit_if_last_op_failed
+# exit_if_last_op_failed
+if [ $? -ne 0 ]; then exit 1; fi # Or shorter snippet version
