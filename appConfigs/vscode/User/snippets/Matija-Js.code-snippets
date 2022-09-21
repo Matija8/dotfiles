@@ -43,8 +43,8 @@
     "body": [
       "// eslint-disable-next-line no-console",
       "console.log(`VVVVV\\n\\n`,",
-      "{ ts: new Date(), msg: `log `,$0 }, ",
-      "`\\n\\nΛΛΛΛΛ`); //T*DO"
+      "{ ts: new Date(), msg: `log `,$0 }, //T*DO",
+      "`\\n\\nΛΛΛΛΛ`);"
     ],
     "description": "Insert console.log() between noisy winston logs"
   },
