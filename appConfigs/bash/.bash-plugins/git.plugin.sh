@@ -122,6 +122,18 @@ alias glo="git log --oneline --decorate --graph"
 alias glog="git log --oneline --decorate --graph"
 alias gloga="git log --oneline --decorate --graph --all"
 
+# Restore/Reset/Revert/Clean
+#
+# https://git-scm.com/docs/git-restore
+# https://www.atlassian.com/git/tutorials/undoing-changes/git-reset
+# https://www.atlassian.com/git/tutorials/undoing-changes/git-revert
+# https://www.atlassian.com/git/tutorials/undoing-changes/git-clean
+#
+# https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git
+alias grst="git restore"
+# https://www.atlassian.com/git/tutorials/undoing-changes/git-rm
+alias grm="git rm"
+
 alias gl="git pull"
 alias gp="git push"
 # "git push -f" # Force* push!
@@ -132,7 +144,6 @@ alias gp="git push"
 
 alias gm="git merge"
 alias grb="git rebase"
-alias grm="git rm"
 
 # Stash immutable
 alias gst="git stash"        # Save changes to stash, same as push
