@@ -139,3 +139,7 @@ function upgradeNodePackages {
     # https://nodejs.dev/en/learn/update-all-the-nodejs-dependencies-to-their-latest-version
     npx npm-check-updates -u
 }
+
+# https://bun.sh/
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
