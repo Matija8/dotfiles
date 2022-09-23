@@ -103,7 +103,11 @@ alias yarnls="yarn global list"
 
 # Append name to the end of command to avoid prompt
 # https://nextjs.org/docs/basic-features/typescript#create-next-app-support
-alias create-next-app="yarn create next-app --typescript"
+alias create-next-app="yarn create next-app --typescript ."
+
+# https://vitejs.dev/guide/#scaffolding-your-first-vite-project
+# https://github.com/vitejs/awesome-vite#templates
+alias create-vite-app="yarn create vite --template react-ts ."
 
 function jestSingleTest {
     # https://stackoverflow.com/questions/28725955/how-do-i-test-a-single-file-using-jest
