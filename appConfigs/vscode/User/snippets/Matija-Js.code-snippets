@@ -85,12 +85,33 @@
     ],
     "description": "Perf timing"
   },
+
   // *** Debugger ***
 
   "Matija-debug-1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["deb1"],
     "body": ["// eslint-disable-next-line no-debugger", "debugger; //T*DO$0"],
+    "description": "Quick debugger command that doesn't trigger eslint error"
+  },
+
+  // *** Window ***
+
+  "Matija-window-debug-shift-t": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["wt1", "wt2"],
+    "body": [
+      "window.addEventListener('keypress', async (ev) => {",
+      "  if (!ev.shiftKey || ev.key.toLowerCase() !== 't') return;",
+      "  // eslint-disable-next-line no-console",
+      "  console.log(`$*$ wt start`); //T*DO",
+      "  // eslint-disable-next-line no-debugger",
+      "  // debugger; //T*DO",
+      "  $0",
+      "  // eslint-disable-next-line no-console",
+      "  console.log(`$*$ wt end`, { }); //T*DO",
+      "});"
+    ],
     "description": "Quick debugger command that doesn't trigger eslint error"
   }
 }

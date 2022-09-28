@@ -84,6 +84,11 @@
   "files.exclude": {
     // "**/.git": false
   },
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
 
   // Security
   "security.workspace.trust.enabled": false,
