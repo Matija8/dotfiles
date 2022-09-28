@@ -103,15 +103,26 @@
     "body": [
       "window.addEventListener('keypress', async (ev) => {",
       "  if (!ev.shiftKey || ev.key.toLowerCase() !== 't') return;",
-      "  // eslint-disable-next-line no-console",
-      "  console.log(`$*$ wt start`); //T*DO",
-      "  // eslint-disable-next-line no-debugger",
-      "  // debugger; //T*DO",
-      "  $0",
-      "  // eslint-disable-next-line no-console",
-      "  console.log(`$*$ wt end`, { }); //T*DO",
+      "  try {",
+      "    // eslint-disable-next-line no-console",
+      "    console.log(`$*$ wt start`); //T*DO",
+      "    // eslint-disable-next-line no-debugger",
+      "    // debugger; //T*DO",
+      "    //",
+      "    //",
+      "    ",
+      "    //",
+      "    //",
+      "    // eslint-disable-next-line no-console",
+      "    console.log(`$*$ wt end`, {}); //T*DO",
+      "  } catch (err) {",
+      "    // eslint-disable-next-line no-console",
+      "    console.error(`$*$ wt error`); //T*DO",
+      "    // eslint-disable-next-line no-console",
+      "    console.error(err);",
+      "  }",
       "});"
     ],
-    "description": "Quick debugger command that doesn't trigger eslint error"
+    "description": "Trigger async callback on Shift+T."
   }
 }
