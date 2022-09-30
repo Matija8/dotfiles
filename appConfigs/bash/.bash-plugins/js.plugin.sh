@@ -115,10 +115,16 @@ function jestSingleTest {
     # npm run test -- foo.test.ts
 
     # If you're using yarn 3.x, npm run test will not work
-    # yarn test -- $1
+    yarn test -- $1
 
     # If you're using test to be `jest unit` or similar, better do:
-    npx jest -- $1
+    # npx jest -- $1
+    #
+    # or
+    # https://docs.npmjs.com/cli/v8/commands/npm-exec
+    # npm exec -c "jest $1"
+    # https://yarnpkg.com/cli/exec
+    # yarn exec "jest $1"
 }
 alias jestTestSingle="jestSingleTest"
 
