@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # coding: UTF-8
 
-import sys
 import codecs
+from importlib.resources import path
 import re
+import sys
+import os.path as osp
+from typing import List
 
 mapping = {
     'ć': 'c',
@@ -28,19 +31,29 @@ def replace_by_mapping(text):
     return pattern.sub(lambda m: mapping[re.escape(m.group(0))], text)
 
 
-def main():
-    args = sys.argv
-    if len(args) < 2:
-        exit("Provide more arguments!")
+def main(subtitle_file_paths: List[str]):
+    if len(subtitle_file_paths) < 1:
+        print("Error: Provide at least one .srt file path!")
+        exit()
+    validate_files_exist(subtitle_file_paths)
     # It is asumed that all files in the argument vector have the same encoding.
-    promptEncoding = 'Enter encoding for the inputed srt files:\n' + \
-    '\n(Common encodings for Serbian .srt subtitles are: cp1250, cp1252...)'
-    encoding = input('').strip()
-    for file in args[1:]:
+    promptEncoding = 'Enter encoding for the inputed .srt files:\n' + \
+    '(Common encodings for Serbian .srt subtitles are: cp1250, cp1252...)\n'
+    encoding = input(promptEncoding).strip()
+    for file in subtitle_file_paths:
+        print(f'Fixing subtitle for {file} started...')
         to_ascii(file, encoding)
 
 
-def to_ascii(path, inputFileEncoding="cp1252"):
+def validate_files_exist(file_paths: List[str]):
+    non_existant_files = [path for path in file_paths if not osp.exists(path)]
+    if len(non_existant_files) > 0:
+        print(f'Error: Some files don\'t exist?!\nFiles:')
+        print('\n'.join(non_existant_files))
+        exit()
+
+
+def to_ascii(path: str, inputFileEncoding="cp1252"):
     try:
         f = codecs.open(path, encoding=inputFileEncoding)
         contents = f.read()
@@ -73,4 +86,4 @@ def make_out_name(in_name):
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1:])

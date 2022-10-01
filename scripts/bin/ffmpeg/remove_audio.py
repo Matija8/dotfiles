@@ -5,7 +5,9 @@ import time
 import subprocess
 import os.path as osp
 
-sys.path.append(osp.dirname(f'{osp.dirname(osp.realpath(__file__))}/../libPy'))
+sys.path.append(
+    osp.dirname(f'{osp.dirname(osp.realpath(__file__))}/../../libPy')
+)
 from libPy.filename import make_out_file_path_suffixed
 from libPy.ffmpeg import copy_video_without_sound_cmd
 

@@ -1,4 +1,10 @@
-PATH=$PATH:"$HOME/_Matija-Scripts/bin"
+_() {
+    local __scripts_dir="$HOME/_Matija-Scripts/bin"
+    PATH=$PATH:"$__scripts_dir"
+    PATH=$PATH:"$__scripts_dir/ffmpeg"
+    PATH=$PATH:"$__scripts_dir/ffmpeg/subtitles"
+} && _ "$@"
+unset -f _
 
 # For Python packages
 # https://stackoverflow.com/questions/35898734/pip-installs-packages-successfully-but-executables-not-found-from-command-line

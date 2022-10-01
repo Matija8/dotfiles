@@ -5,7 +5,9 @@ import time
 import subprocess
 import os.path as osp
 
-sys.path.append(osp.dirname(f'{osp.dirname(osp.realpath(__file__))}/../libPy'))
+sys.path.append(
+    osp.dirname(f'{osp.dirname(osp.realpath(__file__))}/../../libPy')
+)
 from libPy.ffmpeg import cut_video_command
 from libPy.filename import make_out_file_path_suffixed_inc
 

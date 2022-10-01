@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import sys
+from typing import List
 
 
 def main():
@@ -17,22 +18,25 @@ def main():
     return
 
 
-def parse_file(file):
+def parse_file(file: str):
     try:
         with open(file, "r", encoding='latin-1') as lines:
             new_lines = []
             mapp = create_map()
             for line in lines:
                 new_line = []
+                line_changed = False
                 for letter in line:
                     try:
                         new_letter = mapp[letter]
+                        line_changed = True
                     except KeyError:
                         new_letter = letter
                     new_line.append(new_letter)
+                if line_changed:
+                    print(f'{line} -> {new_line}')
                 new_lines.append(''.join(new_line))
-            print(new_lines)
-            #write_to_file_overwrite(make_out_name(file), new_lines)
+            write_to_file_overwrite(make_out_name(file), new_lines)
         print(f"File: {file} done...\n")
     except UnicodeDecodeError:
         print('Bad encoding!')
@@ -40,13 +44,13 @@ def parse_file(file):
         print("Input file: {file} not found. Please confirm file name exists.")
 
 
-def write_to_file_overwrite(out_file, lines: str):
+def write_to_file_overwrite(out_file, lines: List[str]):
     try:
         with open(out_file, "w") as out:
             for line in lines:
                 out.write(line.strip() + '\n')
-    except IOError:
-        print("IOError!.")
+    except IOError as err:
+        print("IOError!.", err)
     return
 
 
