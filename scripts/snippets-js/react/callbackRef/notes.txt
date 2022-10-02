@@ -1,0 +1,9 @@
+For doing things that should later cause a rerender, useRef isn't good!
+You need a callback ref + state.
+Take a look at:
+https://stackoverflow.com/questions/60476155/is-it-safe-to-use-ref-current-as-useeffects-dependency-when-ref-points-to-a-dom
+
+***
+If you're setting a scroll listener, useRef is just fine.
+You don't need to add ref.current to the useEffect dependency array then!
+(IntersectionContainer)
