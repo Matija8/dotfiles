@@ -25,8 +25,9 @@ alias docker-rm-allsu='sudo docker rm -f $(sudo docker ps -a -q)'
 # WSL2 Start Docker
 # https://stackoverflow.com/questions/44678725/cannot-connect-to-the-docker-daemon-at-unix-var-run-docker-sock-is-the-docker
 # https://unix.stackexchange.com/questions/269805/how-can-i-detach-a-process-from-a-bash-script
-
-alias docker-wsl2-start="sudo dockerd & disown"
+#
+# alias docker-wsl2-start="sudo dockerd & disown"
+alias docker-wsl2-start="sudo dockerd"
 
 # TODO:
 # Docker attach
