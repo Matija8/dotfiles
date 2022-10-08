@@ -101,13 +101,26 @@ alias tst="ts-node -T"
 alias npmls="npm list -g --depth=0"
 alias yarnls="yarn global list"
 
-# Append name to the end of command to avoid prompt
-# https://nextjs.org/docs/basic-features/typescript#create-next-app-support
-alias create-next-app="yarn create next-app --typescript ."
+function create-next-app {
+    # https://nextjs.org/docs/basic-features/typescript#create-next-app-support
+    # Append name to the end of command to avoid prompt
+    # Dot "." is a valid project name.
+    ls -1
+    local project_name="$1"
+    yarn create next-app --typescript "$project_name"
+    if [ $? -ne 0 ]; then return 1; fi
+    if [ "$project_name" != "" ]; then code "$project_name"; fi
+}
 
-# https://vitejs.dev/guide/#scaffolding-your-first-vite-project
-# https://github.com/vitejs/awesome-vite#templates
-alias create-vite-app="yarn create vite --template react-ts ."
+function create-vite-app-react {
+    # https://vitejs.dev/guide/#scaffolding-your-first-vite-project
+    # https://github.com/vitejs/awesome-vite#templates
+    ls -1
+    local project_name="$1"
+    yarn create vite --template react-ts "$project_name"
+    if [ $? -ne 0 ]; then return 1; fi
+    if [ "$project_name" != "" ]; then code "$project_name"; fi
+}
 
 function jestSingleTest {
     # https://stackoverflow.com/questions/28725955/how-do-i-test-a-single-file-using-jest
