@@ -65,6 +65,15 @@ def unicode_order():
     print(ord('$'))  # 36
 
 
+def unicode_chr():
+    # https://www.programiz.com/python-programming/methods/built-in/chr
+    # Revers of `ord`.
+    print(chr(97))  # $
+    print(chr(ord('a')))  # a
+    print(chr(ord('a') + 1))  # b
+    print(chr(ord('$')))  # $
+
+
 def str_ops(in_str: str):
     print(in_str.count('substr'))
     # https://stackoverflow.com/questions/6005891/replace-first-occurrence-only-of-a-string
