@@ -1,0 +1,8 @@
+{
+  "outline": {
+    "scope": "css, scss, less",
+    "prefix": ["lx1", "outline"],
+    "body": ["outline: solid$0;"],
+    "description": "The css equivalent of console.log"
+  }
+}
