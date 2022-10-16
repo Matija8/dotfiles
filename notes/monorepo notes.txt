@@ -1,0 +1,13 @@
+Monorepo vs Polyrepo - Nrwl
+https://monorepo.tools/
+
+Tools:
+
+Bazel
+Gradle
+Lage
+Lerna
+Nx
+Pants
+Rush
+Turborepo
