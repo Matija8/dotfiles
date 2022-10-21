@@ -126,5 +126,14 @@
       "//T*DO"
     ],
     "description": "Trigger async callback on Shift+T."
+  },
+
+  // *** JSX ***
+
+  "Matija-jsx-h1-return": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["rh1"],
+    "body": ["return <h1>Test $0</h1>"],
+    "description": "Quick return of an h1 tag for debugging react component trees"
   }
 }
