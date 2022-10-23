@@ -40,3 +40,6 @@ alias commandv="command -v"
 # dush: disk usage summarize human-readable
 alias dush="du -sh"
 alias duhs="du -sh"
+
+# https://superuser.com/questions/105367/command-sudo-su
+alias sudosu="sudo su"
