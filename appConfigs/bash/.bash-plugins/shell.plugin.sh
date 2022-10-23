@@ -8,6 +8,13 @@ function cdf {
     cd $(dirname "$1")
 }
 
+# Alias "e" is "echo -e" to have the trailing newline,
+# but in scripts "printf" is just "a better version of echo".
+# Use "e" for printing env vars, like $HOME, $SHELL, $USER, etc...
+# https://stackoverflow.com/questions/8467424/echo-newline-in-bash-prints-literal-n
+# https://unix.stackexchange.com/questions/65803/why-is-printf-better-than-echo
+alias e="echo -e"
+
 alias c="clear"
 alias cls="clear"
 alias l="ls -1"
