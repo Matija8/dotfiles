@@ -17,8 +17,10 @@ alias e="echo -e"
 
 alias c="clear"
 alias cls="clear"
-alias l="ls -1"
-alias la="ls -1a"
+# https://linuxhint.com/ls_colors_bash/
+# https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls
+alias l="ls -1 --color"
+alias la="ls -1a --color"
 alias hist="history"
 alias chx="chmod +x"
 alias rmrf="rm -rf"
