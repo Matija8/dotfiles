@@ -163,6 +163,10 @@ function upgradeNodePackages {
     npx npm-check-updates -u
 }
 
+# https://deno.land/
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
 # https://bun.sh/
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
