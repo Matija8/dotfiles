@@ -1,6 +1,0 @@
-# https://stackoverflow.com/questions/26215625/name-option-doesnt-work-with-git-submodule-add-command
-
-[submodule "frontend"]
-path = frontend
-# url = https://github.com/Matija8/TC-law
-url = git@github.com:Matija8/TC-law.git
