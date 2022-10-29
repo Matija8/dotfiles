@@ -11,5 +11,21 @@
     "prefix": "lcnz",
     "body": "if [ $? -ne 0 ]; then exit 1$0; fi",
     "description": "last command returned non-zero"
+  },
+
+  "cd_dirname": {
+    // https://stackoverflow.com/questions/72274207/adding-dollar-sign-in-a-vscode-code-snippet
+    "prefix": ["dirname", "cd dirname", "cd $(dirname"],
+    "body": "cd $(dirname \"\\$0$0\")",
+    "description": "Cd to the parent dir of the script."
+  },
+
+  "script_dir": {
+    "prefix": ["cd dirname", "dirname"],
+    "body": [
+      "script_dir=$(realpath $(dirname \"\\$0\"))",
+      "cd \"\\$script_dir/..\""
+    ],
+    "description": "Get path to the parent directory of the script file."
   }
 }
