@@ -329,11 +329,19 @@ function docker_allow_no_sudo {
 
 function install_docker_compose {
     # https://docs.docker.com/compose/install/#install-compose-on-linux-systems
-    sudo curl -L \
-        "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" \
-        -o /usr/local/bin/docker-compose
+    # https://docs.docker.com/compose/install/other/
 
-    sudo chmod +x /usr/local/bin/docker-compose
+    # echo "$(uname -s)-$(uname -m)"
+    # is the same as:
+    # linux-x86_64
+
+    local docker_compose_bin_path="/usr/local/bin/docker-compose"
+
+    sudo curl -SL \
+        "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" \
+        -o "$docker_compose_bin_path"
+
+    sudo chmod +x "$docker_compose_bin_path"
 }
 
 function install_mongodb {
