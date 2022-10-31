@@ -29,28 +29,20 @@ fi
 # export WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN
 export NODE_PATH
 
+# https://deno.land/
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+# https://bun.sh/
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 function rmnode_modules {
     rm -rf ./node_modules
     rm -f package-lock.json
     rm -f yarn.lock
     dirName=$(basename "$PWD")
     echo "Removed node_modules & lock files in $dirName"
-}
-
-function init_ts_project {
-    # https://www.digitalocean.com/community/tutorials/typescript-new-project
-
-    project_dir='new-ts-project'
-    rm -rf "$project_dir"
-    mkdir "$project_dir"
-    cd "$project_dir"
-
-    printf "node_modules/\nyarn.lock\n" >.gitignore
-    yarn init -y
-    yarn add -D typescript ts-node
-    npx tsc --init
-
-    # Copy prettier and eslint?
 }
 
 alias y="yarn"
@@ -101,6 +93,32 @@ alias tst="ts-node -T"
 alias npmls="npm list -g --depth=0"
 alias yarnls="yarn global list"
 
+function init_ts_project {
+    # https://www.digitalocean.com/community/tutorials/typescript-new-project
+
+    local project_dir='new-ts-project'
+    rm -rf "$project_dir"
+    mkdir "$project_dir"
+    cd "$project_dir"
+
+    printf "node_modules/\nyarn.lock\n" >.gitignore
+    yarn init -y
+    yarn add -D typescript ts-node
+    npx tsc --init
+
+    # Copy prettier and eslint?
+}
+
+function create-vite-app-react {
+    # https://vitejs.dev/guide/#scaffolding-your-first-vite-project
+    # https://github.com/vitejs/awesome-vite#templates
+    ls -1
+    local project_name="$1"
+    yarn create vite --template react-ts "$project_name"
+    if [ $? -ne 0 ]; then return 1; fi
+    if [ "$project_name" != "" ]; then code "$project_name"; fi
+}
+
 function create-next-app {
     # https://nextjs.org/docs/basic-features/typescript#create-next-app-support
     # Append name to the end of command to avoid prompt
@@ -112,12 +130,11 @@ function create-next-app {
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
 
-function create-vite-app-react {
-    # https://vitejs.dev/guide/#scaffolding-your-first-vite-project
-    # https://github.com/vitejs/awesome-vite#templates
+function create-redwood-app {
+    # https://redwoodjs.com/docs/tutorial/chapter1/installation
     ls -1
     local project_name="$1"
-    yarn create vite --template react-ts "$project_name"
+    yarn create redwood-app --ts "$project_name"
     if [ $? -ne 0 ]; then return 1; fi
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
@@ -162,11 +179,3 @@ function upgradeNodePackages {
     # https://nodejs.dev/en/learn/update-all-the-nodejs-dependencies-to-their-latest-version
     npx npm-check-updates -u
 }
-
-# https://deno.land/
-export DENO_INSTALL="$HOME/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-
-# https://bun.sh/
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
