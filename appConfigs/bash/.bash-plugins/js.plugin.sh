@@ -130,6 +130,15 @@ function create-next-app {
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
 
+function create-t3-app {
+    # https://beta.create.t3.gg/en/installation#yarn
+    ls -1
+    local project_name="$1"
+    yarn create t3-app "$project_name"
+    if [ $? -ne 0 ]; then return 1; fi
+    if [ "$project_name" != "" ]; then code "$project_name"; fi
+}
+
 function create-redwood-app {
     # https://redwoodjs.com/docs/tutorial/chapter1/installation
     ls -1
