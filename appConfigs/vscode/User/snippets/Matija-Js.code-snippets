@@ -7,6 +7,7 @@
     "body": ["#!/usr/bin/env node\n"],
     "description": "node shebang"
   },
+
   "ts-node shebang": {
     // https://github.com/TypeStrong/ts-node/issues/73
     "scope": "typescript",
@@ -14,6 +15,7 @@
     "body": ["#!/usr/bin/env -S ts-node -T\n"],
     "description": "ts-node shebang"
   },
+
   "deno shebang": {
     // https://deno.land/manual@v1.26.0/examples/shebang
     "scope": "typescript",
@@ -23,19 +25,22 @@
   },
 
   // *** Log ***
+
   "Matija-log": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["log"],
     "body": ["console.log($0);"],
     "description": "Quick console.log(_)"
   },
+
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
     "body": ["console.log(`$*$ log `,{$0 }); //T*DO"],
     "description": "Quick console.log(_) for debugging"
   },
-  "Matija-log-x2": {
+
+  "Matija-log-x2-eslint": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx2"],
     // https://stackoverflow.com/questions/41856706/whats-the-best-way-to-write-multi-line-code-snippets-in-vs-code
@@ -45,6 +50,7 @@
     ],
     "description": "Quick console.log(_) that doesn't trigger eslint error"
   },
+
   "Matija-log-x3-winston": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx3"],
@@ -104,6 +110,20 @@
   },
 
   // *** Window ***
+
+  "Matija-window-attach": {
+    "scope": "javascript, javascriptreact",
+    "prefix": ["wn1", "window1"],
+    "body": "window._x1 = $0; //T*DO",
+    "description": "Debug object methods with autocomplete via window"
+  },
+
+  "Matija-window-attach-ts": {
+    "scope": "typescript, typescriptreact",
+    "prefix": ["wn1", "window1"],
+    "body": "(window as any)._x1 = $0; //T*DO",
+    "description": "Debug object methods with autocomplete via window"
+  },
 
   "Matija-window-debug-shift-t": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
