@@ -188,3 +188,14 @@ function upgradeNodePackages {
     # https://nodejs.dev/en/learn/update-all-the-nodejs-dependencies-to-their-latest-version
     npx npm-check-updates -u
 }
+
+function decodeUri {
+    # https://nodejs.org/api/cli.html#-e---eval-script
+    #
+    # Test for this:
+    # decodeUri "response_type=code&client_id=0RZ7rE2vqbaWnz2ck40WQVIz7ikoxWWr&redirect_uri=https%3A%2F%2Fpr-1185--specialk.dev.cs-int-592.com%2Foauth&scope=categorize_image%20read%3Aall_people%20read%3Aall_data_master%20write%3Aall_data_master%20read%3Aall_data_version%20write%3Aall_data_version%20read%3Aall_data_batch%20write%3Aall_data_batch&state=oauth-1669206874215"
+    #
+    # Inputs need to be inside quotes, f.e. "URI".
+    #
+    node -e "'$1' && console.log('\n' + decodeURIComponent('$1'))"
+}
