@@ -32,6 +32,9 @@ alias hist="history"
 alias chx="chmod +x"
 alias rmrf="rm -rf"
 
+# https://stackoverflow.com/questions/3915040/how-to-obtain-the-absolute-path-of-a-file-via-shell-bash-zsh-sh
+alias rp="realpath"
+
 # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 alias commandv="command -v"
 
