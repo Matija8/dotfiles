@@ -28,7 +28,7 @@
 
   "Matija-log": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["log"],
+    "prefix": ["lg", "log"],
     "body": ["console.log($0);"],
     "description": "Quick console.log(_)"
   },
