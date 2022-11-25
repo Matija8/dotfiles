@@ -14,13 +14,15 @@
   },
 
   "cd_dirname": {
-    // https://stackoverflow.com/questions/72274207/adding-dollar-sign-in-a-vscode-code-snippet
+    "scope": "shellscript",
     "prefix": ["dirname", "cd dirname", "cd $(dirname"],
+    // https://stackoverflow.com/questions/72274207/adding-dollar-sign-in-a-vscode-code-snippet
     "body": "cd $(dirname \"\\$0$0\")",
     "description": "Cd to the parent dir of the script."
   },
 
   "script_dir": {
+    "scope": "shellscript",
     "prefix": ["rp", "dirname", "cd dirname"],
     "body": [
       "script_dir=$(realpath $(dirname \"\\$0\"))",
