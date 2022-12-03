@@ -10,7 +10,8 @@
 // eslint --print-config <PATH_TO_FILE>
 {
   "parserOptions": {
-    "ecmaVersion": 2017
+    // https://stackoverflow.com/questions/57378411/eslint-fails-to-parse-and-red-highlights-optional-chaining-and-nullish-coal
+    "ecmaVersion": 2020
   },
 
   "env": {
