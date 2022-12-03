@@ -55,14 +55,23 @@ function install_APT_packages {
     aptInstall git
     aptInstall make
     aptInstall rclone
-    aptInstall smartmontools
     aptInstall tmux
     aptInstall htop
     aptInstall xclip
 
+    # Hard disk tools:
+    #
+    # smartd, smartctl
+    # https://www.smartmontools.org/
+    aptInstall smartmontools
+    #
+    # gnome-disks
+    # https://askubuntu.com/questions/59064/how-to-run-a-checkdisk
+    aptInstall gnome-disk-utility
+
     # Android/React-Native?
-    aptInstall android-tools-adb
-    aptInstall android-tools-fastboot
+    # aptInstall android-tools-adb
+    # aptInstall android-tools-fastboot
 
     # Security
     aptInstall keepassxc
