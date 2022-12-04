@@ -35,13 +35,17 @@ alias rmrf="rm -rf"
 # https://stackoverflow.com/questions/3915040/how-to-obtain-the-absolute-path-of-a-file-via-shell-bash-zsh-sh
 alias rp="realpath"
 
-# Rsync
+# Rsync:
 # -P, --progress + --partial => shows a progress bar + keeps partially transferred files.
 # https://linuxhint.com/see-rsync-progress/
 # -a, --archive => Sync directories recursively.
 # -v, --verbose
 # https://linuxize.com/post/how-to-use-rsync-for-local-and-remote-data-transfer-and-synchronization/
 alias rsyncavp="rsync -avP"
+# -n, --dry-run => Don't update files. Only compare.
+# https://unix.stackexchange.com/questions/57305/rsync-compare-directories
+# -u, --update => Skip files that are newer on the receiver.
+alias rsyncavn="rsync -avun"
 
 # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
 alias commandv="command -v"
