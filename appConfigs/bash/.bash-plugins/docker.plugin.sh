@@ -15,9 +15,10 @@ alias docker-images="docker images"
 
 # https://stackoverflow.com/questions/20111063/bash-alias-command-with-both-single-and-double-quotes
 # Be careful with aliases that contain $() in them! Don't use "" quotes then!
-alias docker-rm-all='docker rm -f $(docker ps -a -q)'
+alias docker-stop-all='docker stop $(docker ps -aq)'
+alias docker-rm-all='docker rm -f $(docker ps -aq)'
 # TODO: Don't require sudo on linux?
-alias docker-rm-allsu='sudo docker rm -f $(sudo docker ps -a -q)'
+alias docker-rm-allsu='sudo docker rm -f $(sudo docker ps -aq)'
 
 # If you get any errors, checkout:
 # https://docs.docker.com/engine/install/linux-postinstall
