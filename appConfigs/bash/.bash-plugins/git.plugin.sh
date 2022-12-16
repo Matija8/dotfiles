@@ -129,6 +129,11 @@ alias gloga="git log --oneline --decorate --graph --all"
 # https://www.atlassian.com/git/tutorials/undoing-changes/git-revert
 # https://www.atlassian.com/git/tutorials/undoing-changes/git-clean
 #
+# Reverting git revert (reflog)
+# https://stackoverflow.com/questions/2510276/how-do-i-undo-git-reset
+#
+# git reset 'HEAD@{1}'
+#
 # https://stackoverflow.com/questions/52704/how-do-i-discard-unstaged-changes-in-git
 alias grst="git restore"
 # https://www.atlassian.com/git/tutorials/undoing-changes/git-rm
