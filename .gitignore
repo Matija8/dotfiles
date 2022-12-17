@@ -1,10 +1,8 @@
+# Temporary files/folders
 .directory
 /.vscode
 /.mypy_cache
 /__pycache__
-/appConfigs/bash/.bash-plugins-hidden/**
-scripts/github/gh-pat.txt
-gupdatex.sh
 
 # Js/Ts
 node_modules/
@@ -14,3 +12,11 @@ out-log.txt
 
 # C/C++
 a.out
+
+# Secrets
+/appConfigs/bash/.bash-plugins-hidden/**
+scripts/github/gh-pat.txt
+
+# Bin folder
+sync12
+gupdatex.sh

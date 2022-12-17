@@ -8,7 +8,11 @@ NC='\033[0m'
 HARD_DISK_1="/media/matija/Hard Disk 1"
 HARD_DISK_2="/media/matija/Hard Disk 2"
 
-function main {
+# Usage: sync12
+#
+# . "$(dirname "$0")/sync12.sh"
+
+function example_main {
   sync_hard_12_dirs "Random/Video/"
   sync_hard_12_dirs "Bjj/"
 }
@@ -42,5 +46,3 @@ function prompt_y_or_n {
     esac
   done
 }
-
-main
