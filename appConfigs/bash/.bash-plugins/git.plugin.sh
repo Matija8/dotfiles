@@ -150,6 +150,15 @@ alias gp="git push"
 alias gm="git merge"
 alias grb="git rebase"
 
+# Remotes
+#
+# List remotes
+alias gremote="git remote -v"
+#
+# Remove remote
+# https://stackoverflow.com/questions/16330404/how-to-remove-remote-origin-from-a-git-repository
+# git remote remove origin-name
+
 # Stash immutable
 alias gst="git stash"        # Save changes to stash, same as push
 alias gsts="git stash show"  # Inspect stash
@@ -165,4 +174,3 @@ alias gstd="git stash drop"    # Delete specific stash, or the latest stash
 
 alias gclone="git clone"
 alias ginit="git init"
-alias gremote="git remote -v"
