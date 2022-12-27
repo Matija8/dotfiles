@@ -32,6 +32,9 @@ alias drmf="docker rm -f" # Remove containers
 
 # Image ops:
 alias dim="docker image"
+alias dimage="docker image"
+# List images
+alias dims="docker image ls"
 alias dimls="docker image ls" # Same as `docker images`
 alias docker-images="docker images"
 # Deleting images
