@@ -23,7 +23,20 @@ alias dbfp="docker build - <"
 alias dbfc="docker build . -t"
 
 # Running containers from images:
-alias drun="docker run" # Add TAG_NAME or ID at the end
+#
+# For most of these commands, add a TAG_NAME or ID at the end
+alias drun="docker run"
+# Pawels command. Interactive, shell mode.
+# Prefer `docker exec` to `docker run` to not create too many containers.
+alias drunit="docker run -it --entrypoint ./bin/sh"
+
+function dexecit {
+    # https://stackoverflow.com/questions/20813486/exploring-docker-containers-file-system
+    # https://docs.docker.com/engine/reference/commandline/exec/
+    # Must be run on an already running container.
+    local container_name="$1"
+    docker exec -it "$container_name" ./bin/sh
+}
 
 # Container ops:
 alias dpsa="docker ps -a" # List containers
@@ -45,6 +58,7 @@ alias dimrm="docker image rm"
 # Be careful with aliases that contain $() in them! Don't use "" quotes then!
 alias docker-stop-all='docker stop $(docker ps -aq)'
 alias docker-rm-all='docker rm -f $(docker ps -aq)'
+alias drmf-all='docker rm -f $(docker ps -aq)' # Remove all containers
 # TODO: Don't require sudo on linux?
 alias docker-rm-allsu='sudo docker rm -f $(sudo docker ps -aq)'
 
