@@ -161,14 +161,16 @@
   "Matija-jsx-h1-expression": {
     "scope": "html, javascriptreact, typescriptreact",
     "prefix": ["xh1"],
-    "body": ["<h1>$*$ h1 Test $0 </h1>"],
+    "body": "<h1 style={{outline:'solid red'}}>$*$ h1 $0 </h1>",
     "description": "An h1 tag for debugging react component trees"
+    // https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/
+    // style={{ outline: 'solid red', background: 'beige' }}
   },
 
   "Matija-jsx-h1-return": {
     "scope": "javascriptreact, typescriptreact",
     "prefix": ["rh1"],
-    "body": ["return <h1>$*$ h1 Test $0 </h1>; //T*DO"],
+    "body": "return <h1 style={{outline:'solid red'}}>$*$ h1 $0 </h1>; //T*DO",
     "description": "Return of an h1 tag for debugging react component trees"
   },
 
