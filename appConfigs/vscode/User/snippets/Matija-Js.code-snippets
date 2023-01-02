@@ -158,8 +158,16 @@
 
   // *** JSX ***
 
+  "Matija-h1-expression-html": {
+    "scope": "html",
+    "prefix": ["xh1"],
+    "body": "<h1 style=\"outline:solid red\">$*$ h1 $0 </h1>",
+    "description": "An h1 tag for debugging component trees"
+  },
+
   "Matija-jsx-h1-expression": {
-    "scope": "html, javascriptreact, typescriptreact",
+    // The "javascript" scope is for admin pages.
+    "scope": "javascript, javascriptreact, typescriptreact",
     "prefix": ["xh1"],
     "body": "<h1 style={{outline:'solid red'}}>$*$ h1 $0 </h1>",
     "description": "An h1 tag for debugging react component trees"
