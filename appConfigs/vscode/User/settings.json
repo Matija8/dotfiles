@@ -1,9 +1,11 @@
 // VSCode settings by Matija8.
 {
   // Telemetry
+
   "telemetry.telemetryLevel": "off",
 
   // Window
+
   "window.closeWhenEmpty": false,
   "window.customMenuBarAltFocus": false,
   "window.enableMenuBarMnemonics": true,
@@ -14,6 +16,7 @@
   "window.zoomLevel": 0,
 
   // Workbench
+
   "workbench.activityBar.visible": false,
   "workbench.colorTheme": "One Monokai",
   "workbench.editor.centeredLayoutAutoResize": false,
@@ -34,6 +37,7 @@
   },
 
   // Terminal
+
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.windows": "Git Bash", // Ubuntu (WSL)
   "terminal.integrated.fontFamily": "Cascadia Code, DejaVu Sans Mono, Menlo",
@@ -45,7 +49,9 @@
   ],
 
   // Editor
+
   "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.accessibilitySupport": "off",
   "editor.cursorBlinking": "phase",
   "editor.cursorSmoothCaretAnimation": true,
   "editor.detectIndentation": true,
@@ -67,13 +73,14 @@
   "editor.wordWrap": "off",
 
   "diffEditor.ignoreTrimWhitespace": false,
-  "debug.javascript.autoAttachFilter": "onlyWithFlag",
 
   // Explorer
+
   "explorer.autoReveal": false,
   "explorer.confirmDragAndDrop": false,
 
   // Files
+
   "files.enableTrash": false,
   "files.trimTrailingWhitespace": true,
   "files.associations": {
@@ -91,13 +98,16 @@
   },
 
   // Security
+
   "security.workspace.trust.enabled": false,
 
   // Extensions
+
   "extensions.ignoreRecommendations": true,
   "center-editor-window.offset": 3,
 
   // SpellCheck
+
   "cSpell.enabled": false,
   "cSpell.userWords": [
     "browserslist",
@@ -108,6 +118,7 @@
   ],
 
   // Markdown
+
   "markdownlint.config": {
     "default": false,
     "MD001": false,
@@ -120,6 +131,7 @@
   "reflowMarkdown.preferredLineLength": 80,
 
   // Git
+
   "gitlens.keymap": "none",
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.enabled": false,
@@ -159,6 +171,7 @@
   ],
 
   // C++
+
   "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
   "C_Cpp.default.includePath": ["/usr/local/include"],
   "C_Cpp.intelliSenseEngine": "Default",
@@ -167,6 +180,7 @@
   },
 
   // Python
+
   "python.analysis.typeCheckingMode": "basic",
   "python.defaultInterpreterPath": "/usr/bin/python3",
   // "python.defaultInterpreterPath": "C:\\Program Files\\Python39\\python.exe",
@@ -179,12 +193,16 @@
   "python.showStartPage": false,
 
   // Js
+
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
 
   // Languages
+
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+    // "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -224,6 +242,7 @@
   },
   "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    // "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
