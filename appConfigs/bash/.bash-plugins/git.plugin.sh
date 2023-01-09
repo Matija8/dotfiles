@@ -149,6 +149,7 @@ alias gp="git push"
 
 alias gm="git merge"
 alias grb="git rebase"
+alias gcp="git cherry-pick"
 
 # Remotes
 #
