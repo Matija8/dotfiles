@@ -5,4 +5,5 @@
 # This also changes resolution! BAD
 # ffmpeg -i video -i image -filter_complex "[1][0]scale2ref[i][v];[v][i]overlay" -c:a copy out.mp4
 
-# TODO: Good solution
+# This seems to work?!
+ffmpeg -i image.jpg -i audio.mp3 -c:a copy out.mp4
