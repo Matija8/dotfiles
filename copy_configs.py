@@ -116,6 +116,7 @@ class Updater():
         self._update_home('/.prettierrc')
         self._update_home('/.clang-format')
         self._update_home('/.style.yapf')
+        self._update_home('/.scalafmt.conf')
 
     def _update_scripts(self) -> None:
         scripts_dir = './scripts'
