@@ -29,6 +29,10 @@ fi
 # export WAS_NODE_PATH_SET_FROM_DOTFILES_PLUGIN
 export NODE_PATH
 
+# Add yarn global binaries to PATH
+# https://github.com/yarnpkg/yarn/issues/648#issuecomment-253162900
+export PATH="$(yarn global bin):$PATH"
+
 # https://deno.land/
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
@@ -90,6 +94,7 @@ alias nrt="npm run test"
 
 alias tst="ts-node -T"
 
+# List globally installed packages:
 alias npmls="npm list -g --depth=0"
 alias yarnls="yarn global list"
 
