@@ -12,6 +12,7 @@ code --install-extension christian-kohler.npm-intellisense
 code --install-extension clinyong.vscode-css-modules
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
+code --install-extension denoland.vscode-deno
 code --install-extension diegolincoln.vscode-styled-components
 code --install-extension donjayamanne.githistory
 code --install-extension DotJoshJohnson.xml
