@@ -7,6 +7,8 @@
   "react-useState": {
     "scope": "javascriptreact, typescriptreact",
     "prefix": "ush",
+    // Use "tab" to go to next placeholder!
+    // https://code.visualstudio.com/docs/editor/userdefinedsnippets#:~:text=jump%20to%20the%20next%20placeholder%20with%20Tab
     "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"],
     "description": "React useState() hook"
   },
