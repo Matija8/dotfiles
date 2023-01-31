@@ -1,0 +1,56 @@
+// alDuncanson / react-hooks-snippets
+// https://github.com/alDuncanson/react-hooks-snippets/blob/master/snippets/snippets.json
+
+{
+  // *** Hooks ***
+
+  "react-useState": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "ush",
+    "body": ["const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"],
+    "description": "React useState() hook"
+  },
+
+  "react-useEffect": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "ueh",
+    "body": [
+      "useEffect(() => {",
+      "\t$1",
+      "\n\treturn () => {",
+      "\t\t$2",
+      "\t}",
+      "}, [${3}]);$0"
+    ],
+    "description": "React useEffect() hook"
+  },
+
+  "react-useMemo": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": "umh",
+    "body": [
+      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}]);$0"
+    ],
+    "description": "React useMemo() hook"
+  },
+
+  "react-useCallback": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["uch", "ucbh"],
+    "body": [
+      "const ${1:memoizedCallback} = useCallback(",
+      "\t() => {",
+      "\t\t${2:doSomething}(${3:a}, ${4:b})",
+      "\t},",
+      "\t[${5:a}, ${6:b}],",
+      ");$0"
+    ],
+    "description": "React useCallback() hook"
+  },
+
+  "react-useRef": {
+    "prefix": "urh",
+    "body": ["const $1 = useRef($2);$0"],
+    "description": "React useRef() hook"
+  }
+}
