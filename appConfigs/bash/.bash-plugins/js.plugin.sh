@@ -45,42 +45,50 @@ function rmnode_modules {
     rm -rf ./node_modules
     rm -f package-lock.json
     rm -f yarn.lock
+    rm -f pnpm-lock.yaml
     dirName=$(basename "$PWD")
     echo "Removed node_modules & lock files in $dirName"
 }
+
+function rmnode_modulesrecursive {
+    # TODO: Depth limit for recursion?
+    traverse() {
+        # https://stackoverflow.com/questions/18897264/bash-writing-a-script-to-recursively-travel-a-directory-of-n-levels
+        # https://stackoverflow.com/questions/8426077/how-to-define-a-function-inside-another-function-in-bash
+        rm -rf "$1"/node_modules
+        for file in "$1"/*; do
+            if [ -d "${file}" ]; then
+                echo "entering recursion with: ${file}"
+                traverse "${file}"
+            # else echo "${file} is not a directory"
+            fi
+        done
+    }
+    traverse "$(pwd)"
+}
+
+# Pnpm docs:
+# https://pnpm.io/cli/add
+
+alias pn="pnpm"
+alias pni="pnpm i"
+alias pnadd="pnpm add"
+
+# Yarn docs:
+# https://yarnpkg.com/cli/add
 
 alias y="yarn"
 alias ys="yarn start"
 alias yt="yarn test"
 alias yr="yarn run"
-alias yip="yarn install --prod"
 alias yga="sudo yarn global add"
-alias yaddD="yarn add -D" # add dev dep
+alias yadd="yarn add"     # add "prod" dep
 alias yaddP="yarn add"    # add "prod" dep
+alias yaddD="yarn add -D" # add dev dep
 alias ycleancache="yarn cache clean"
 
-alias npmcl="npm config list"
-alias npmcll="npm config list -l" # Long (Verbose)
-alias yc="yarn config"
-function ycl {
-    # The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
-    # On Yarn 1.x use "yarn config list"
-    # https://classic.yarnpkg.com/en/docs/cli/config
-    # On Yarn >= 2.x use "yarn config"
-    # https://yarnpkg.com/cli/config
-
-    # https://stackoverflow.com/questions/4651437/how-do-i-set-a-variable-to-the-output-of-a-command-in-bash
-    local _yarn_version=$(yarn --version)
-
-    # https://www.cyberciti.biz/faq/bash-check-if-string-starts-with-character-such-as/
-    if [[ $_yarn_version = 1* ]]; then
-        yarn config list $@
-    else
-        yarn config $@
-    fi
-}
-alias yclv="ycl --verbose"
-alias yinfo="yarn info"
+# Npm docs:
+# https://docs.npmjs.com/
 
 alias nr="npm run"
 alias ni="npm i"
@@ -92,11 +100,32 @@ alias nia="npm i && npm i -D" # "all" (prod & dev)
 alias nui="npm uninstall"
 alias nrt="npm run test"
 
-alias tst="ts-node -T"
+# Debugging npm/yarn/pnpm config files
+alias npmcl="npm config list"
+alias npmcll="npm config list -l" # Long (Verbose)
+alias yc="yarn config"
+function ycl {
+    # The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
+
+    # https://www.cyberciti.biz/faq/bash-check-if-string-starts-with-character-such-as/
+    if [[ $(yarn --version) = 1* ]]; then
+        # On Yarn 1.x use "yarn config list"
+        # https://classic.yarnpkg.com/en/docs/cli/config
+        yarn config list $@
+    else
+        # On Yarn >= 2.x use "yarn config"
+        # https://yarnpkg.com/cli/config
+        yarn config $@
+    fi
+}
+alias yclv="ycl --verbose"
+alias yinfo="yarn info"
 
 # List globally installed packages:
 alias npmls="npm list -g --depth=0"
 alias yarnls="yarn global list"
+
+alias tst="ts-node -T"
 
 function init_ts_project {
     # https://www.digitalocean.com/community/tutorials/typescript-new-project
