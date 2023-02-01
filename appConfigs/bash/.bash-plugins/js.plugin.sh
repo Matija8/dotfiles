@@ -33,6 +33,10 @@ export NODE_PATH
 # https://github.com/yarnpkg/yarn/issues/648#issuecomment-253162900
 export PATH="$(yarn global bin):$PATH"
 
+# https://pnpm.io/installation
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # https://deno.land/
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
@@ -70,9 +74,9 @@ function rmnode_modulesrecursive {
 # Pnpm docs:
 # https://pnpm.io/cli/add
 
-alias pn="pnpm"
-alias pni="pnpm i"
-alias pnadd="pnpm add"
+function p {
+    if [ "$#" -ne 0 ]; then pnpm $@; else pnpm i; fi
+}
 
 # Yarn docs:
 # https://yarnpkg.com/cli/add
@@ -83,7 +87,6 @@ alias yt="yarn test"
 alias yr="yarn run"
 alias yga="sudo yarn global add"
 alias yadd="yarn add"     # add "prod" dep
-alias yaddP="yarn add"    # add "prod" dep
 alias yaddD="yarn add -D" # add dev dep
 alias ycleancache="yarn cache clean"
 
