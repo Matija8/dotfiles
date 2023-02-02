@@ -31,7 +31,12 @@ export NODE_PATH
 
 # Add yarn global binaries to PATH
 # https://github.com/yarnpkg/yarn/issues/648#issuecomment-253162900
-export PATH="$(yarn global bin):$PATH"
+# export PATH="$(yarn global bin):$PATH"
+#
+# "yarn global bin" can throw in some situations
+# "error An unexpected error occurred: "Failed to replace env in config: ${CODEARTIFACT_AUTH_TOKEN}"."
+# Also it's a slow command. TODO: Cache the response of "yarn global bin" on the file system?!
+export PATH="$HOME/.yarn/bin:$PATH"
 
 # https://pnpm.io/installation
 export PNPM_HOME="$HOME/.local/share/pnpm"
