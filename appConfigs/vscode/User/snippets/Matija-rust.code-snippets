@@ -1,0 +1,17 @@
+{
+  // *** Log ***
+
+  "println": {
+    "scope": "rust",
+    "prefix": ["log", "lg", "println"],
+    "body": ["println!(\"$0\");"],
+    "description": "Print"
+  },
+
+  "Matija-log-x1": {
+    "scope": "rust",
+    "prefix": ["lx1", "lx2"],
+    "body": ["println!(\"$*$ log $0\");"],
+    "description": "Print/console.log for debugging"
+  }
+}
