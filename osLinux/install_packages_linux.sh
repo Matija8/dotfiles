@@ -12,6 +12,8 @@ source "$dotfiles_root_dir/scripts/lib/colors.sh"
 function main {
     trap "exit" INT
     printf "${PURPLE}Starting package installation...${NC}\n"
+
+    # Activating sudo
     sudo printf "${PURPLE}Sudo mode success\n\n"
 
     # Add single installation function here to test it
@@ -33,9 +35,9 @@ function main {
     install_python
     install_js
 
+    check_go_lang_installation
+    check_rust_installation
     # install_java
-    # install_rust
-    # install_go_lang
 
     # install_docker
     # install_docker_compose
@@ -246,29 +248,31 @@ function install_java {
     aptInstall openjfx
 }
 
-function install_rust {
-    printf "\n\n${GREEN}Rust:${NC}\n\n"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+function check_go_lang_installation {
+    printf "\n\n${GREEN}Go-lang:${NC}\n\n"
+    go version
+    if [ $? -ne 0 ]; then
+        "${RED}Go-lang *not* installed ❌${NC}\n\n"
+        # To install follow the website:
+        # https://go.dev/doc/install
+        return
+    fi
+    printf "\n${GREEN}Go-lang installed 👍${NC}\n\n"
+    return
 }
 
-function install_go_lang {
-    printf "\n\n${GREEN}Go:${NC}\n\n"
-    aptInstall golang
-
-    # VSCode will propmt you to install useful go packages.
-    # You don't have to install them yourself.
-
-    # printf "\n\n${BLUE}Go get *packages* starting...${NC}\n\n"
-    # go get -v \
-    #     golang.org/x/lint/golint \
-    #     golang.org/x/tools/cmd/gorename \
-    #     github.com/ramya-rao-a/go-outline \
-    #     github.com/mdempsky/gocode \
-    #     github.com/stamblerre/gocode \
-    #     github.com/uudashr/gopkgs/v2/cmd/gopkgs \
-    #     github.com/sqs/goreturns \
-    #     github.com/rogpeppe/godef
-    # printf "\n${BLUE}Go get *packages* done!${NC}\n"
+function check_rust_installation {
+    printf "\n\n${GREEN}Rust:${NC}\n\n"
+    rustc -V && cargo -V && rustup -V
+    if [ $? -ne 0 ]; then
+        printf "\n${RED}Rust *not* installed! ❌${NC}\n\n"
+        # To install follow the website:
+        # https://www.rust-lang.org/tools/install
+        # https://doc.rust-lang.org/cargo/getting-started/installation.html
+        return
+    fi
+    printf "\n${GREEN}Rust installed 👍${NC}\n\n"
+    return
 }
 
 function install_c_sharp {
