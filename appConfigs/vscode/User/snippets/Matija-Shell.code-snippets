@@ -29,5 +29,12 @@
       "cd \"\\$script_dir/..\""
     ],
     "description": "Get path to the parent directory of the script file."
+  },
+
+  "dev null redirect": {
+    "prefix": ["devnull"],
+    "body": "&>/dev/null",
+    // https://www.cyberciti.biz/faq/how-to-redirect-output-and-errors-to-devnull/
+    "description": "Redirect STDOUT and STDERR to /dev/null."
   }
 }

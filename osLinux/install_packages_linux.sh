@@ -26,14 +26,14 @@ function main {
 
     remove_ubuntu_ctrl_alt_LR_keybindings
     install_APT_packages
-    install_snaps
 
     if [ -z "${WSL_DISTRO_NAME+x}" ]; then
         install_vscode
+        install_snaps
     fi
 
-    install_python
     install_js
+    install_python
 
     check_go_lang_installation
     check_rust_installation
@@ -67,11 +67,10 @@ function install_APT_packages {
     #
     # smartd, smartctl
     # https://www.smartmontools.org/
-    aptInstall smartmontools
+    whichOrAptInstall smartctl smartmontools
     #
-    # gnome-disks
     # https://askubuntu.com/questions/59064/how-to-run-a-checkdisk
-    aptInstall gnome-disk-utility
+    whichOrAptInstall gnome-disks gnome-disk-utility
 
     # Android/React-Native?
     # aptInstall android-tools-adb
@@ -84,14 +83,14 @@ function install_APT_packages {
     aptInstall libnotify-bin
     aptInstall notify-osd
 
-    # aptInstall i3
-    # aptInstall dmenu
+    # whichOrAptInstall i3
+    # whichOrAptInstall dmenu
 
     install_kde_stuff
     printf "\n"
 
     # Text Editors
-    nvim -v
+    nvim -v &>/dev/null
     if [ $? -ne 0 ]; then aptInstall neovim; fi
     versionOrAptInstall gedit -V
     aptInstall fonts-cascadia-code
@@ -100,7 +99,7 @@ function install_APT_packages {
     # Web
     versionOrAptInstall curl -V
     versionOrAptInstall wget -V
-    aptInstallMaybe nmap
+    whichOrAptInstall nmap
     versionOrAptInstall qbittorrent -v
 
     # Fun
@@ -117,15 +116,15 @@ function install_media_apps {
     versionOrAptInstall audacious -v
     versionOrAptInstall viewnior --version
     versionOrAptInstall qpdfview --help
-    aptInstallMaybe mupdf
+    whichOrAptInstall mupdf
     versionOrAptInstall gimp -v
     # aptInstall calibre
     versionOrAptInstall kolourpaint -v
 
-    obs -V
+    obs -V &>/dev/null
     if [ $? -ne 0 ]; then aptInstall obs-studio; fi
 
-    qview -v
+    qview -v &>/dev/null
     if [ $? -ne 0 ]; then
         sudo add-apt-repository -y ppa:jurplel/qview
         aptInstall qview
@@ -155,7 +154,7 @@ function install_kde_stuff {
     versionOrAptInstall dolphin -v
     versionOrAptInstall konsole -v
     aptInstall kde-cli-tools
-    versionOrAptInstall ark -v
+    whichOrAptInstall ark
     printf "${GREEN}KDE stuff done...\n${NC}"
 }
 
@@ -169,7 +168,9 @@ function install_office_apps {
 
 function install_snaps {
     printf "\n${GREEN}Installing Snaps...${NC}\n"
-    aptInstall snapd
+    snap version &>/dev/null
+    if [ $? -ne 0 ]; then aptInstall snapd; fi
+
     snapInstall postman
     # snapInstall foliate # Mobi reader
     # snapInstall shotcut --classic # Video editing
@@ -238,7 +239,7 @@ function install_python {
 
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
-    node -v
+    node -v &>/dev/null
     if [ $? -ne 0 ]; then
         printf "${RED}Node.js *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://nodejs.org/en/download/ -> click on link "Installing Node.js via package manager" ->
@@ -249,13 +250,14 @@ function install_js {
         aptInstall npm
     fi
 
-    npm -v
+    npm -v &>/dev/null
     if [ $? -eq 0 ]; then
         # Update npm
-        sudo npm install -g --loglevel=error npm@latest
+        # https://docs.npmjs.com/cli/v8/using-npm/config#shorthands-and-other-cli-niceties
+        sudo npm install -g --loglevel=silent npm@latest
     fi
 
-    yarn -v
+    yarn -v &>/dev/null
     if [ $? -ne 0 ]; then
         printf "${RED}Yarn *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://yarnpkg.com/getting-started/install
@@ -415,21 +417,40 @@ function wrap_up_installing {
     sudo apt autoremove -y
 }
 
+function versionOrAptInstall {
+    printCheckingMsg $1
+    $@ &>/dev/null
+    if [ $? -eq 0 ]; then
+        printAptInstalledMsg $1
+        return
+    fi
+    printf "${GREEN}$1 is not yet installed...\n\n${NC}"
+    aptInstall $1
+
+}
+
+function whichOrAptInstall {
+    printCheckingMsg $1
+    which $1 &>/dev/null
+    if [ $? -eq 0 ]; then
+        printAptInstalledMsg $1
+        return
+    fi
+    printf "${GREEN}$1 is not yet installed...\n\n${NC}"
+    if [ "$#" -eq 1 ]; then aptInstall $1; else aptInstall $2; fi
+}
+
+function printCheckingMsg {
+    printf "\n${BLUE}Checking is ${PURPLE}$1${BLUE} apt installed\n${NC}"
+}
+
+function printAptInstalledMsg {
+    printf "${PURPLE}$1${GREEN} is installed 👍\n\n${NC}"
+}
+
 function aptInstall {
     printf "${GREEN}Apt-Installing: $@\n${NC}"
     sudo apt install -y $@
-}
-
-function versionOrAptInstall {
-    printf "${BLUE}Printing version for: ${GREEN}$1\n${NC}"
-    $@
-    if [ $? -ne 0 ]; then aptInstall $1; fi
-}
-
-function aptInstallMaybe {
-    # TODO: Print message.
-    which $1
-    if [ "$#" -eq 1 ]; then aptInstall $1; else aptInstall $2; fi
 }
 
 function snapInstall {

@@ -9,34 +9,64 @@ function install_js_global {
 }
 
 function install_js_globals {
-    install_js_global nodemon
-    # https://www.npmjs.com/package/node-fetch/v/2.6.1
-    install_js_global node-fetch@2
-    install_js_global prettier
-    install_js_global eslint
-    install_js_global vite
-    install_js_global http-server
-    install_js_global npkill
-    install_js_global kill-port
 
-    # TODO
-    depcheck --version
-    if [ $? -ne 0 ]; then install_js_global depcheck; fi
+    versionOrNpmInstall depcheck --version
+    versionOrNpmInstall eslint -v
+    versionOrNpmInstall http-server -v
+    versionOrNpmInstall kill-port -v
+    versionOrNpmInstall nodemon -v
+    versionOrNpmInstall npkill -v
+    versionOrNpmInstall prettier -v
+    versionOrNpmInstall vite -v
 
-    install_js_global glob
-    install_js_global typescript
-    install_js_global ts-node
+    whichOrNpmInstall tsc typescript
+
+    npmListOrNpmInstall glob
+    npmListOrNpmInstall node-fetch@2
+    npmListOrNpmInstall ts-node
 }
 
 function install_js_globals_unix {
-    install_js_global n
+    npmListOrNpmInstall n
 }
 
 function install_js_globals_extra {
-    install_js_global create-react-app
-    install_js_global @angular/cli
-    install_js_global expo-cli
-    install_js_global pm2
-    install_js_global axios
-    install_js_global node-fetch
+    npmListOrNpmInstall @angular/cli
+    npmListOrNpmInstall axios
+    npmListOrNpmInstall create-react-app
+    npmListOrNpmInstall expo-cli
+    npmListOrNpmInstall node-fetch
+    npmListOrNpmInstall pm2
+}
+
+function versionOrNpmInstall {
+    $@ &>/dev/null
+    if [ $? -eq 0 ]; then
+        printIsNpmInstalled $1
+        return
+    fi
+    install_js_global $1
+}
+
+function whichOrNpmInstall {
+    which $1 &>/dev/null
+    if [ $? -eq 0 ]; then
+        printIsNpmInstalled $1
+        return
+    fi
+    if [ "$#" -eq 1 ]; then install_js_global $1; else aptInstall $2; fi
+}
+
+function npmListOrNpmInstall {
+    # https://stackoverflow.com/questions/26104276/how-to-tell-if-an-npm-package-was-installed-globally-or-locally
+    npm list --depth 1 --global $1 &>/dev/null
+    if [ $? -eq 0 ]; then
+        printIsNpmInstalled $1
+        return
+    fi
+    install_js_global $1
+}
+
+function printIsNpmInstalled {
+    printf "${PURPLE}$1${GREEN} is NPM installed 👍\n\n${NC}"
 }
