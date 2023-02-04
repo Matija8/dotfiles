@@ -18,7 +18,11 @@ function install_js_globals {
     install_js_global http-server
     install_js_global npkill
     install_js_global kill-port
-    install_js_global depcheck
+
+    # TODO
+    depcheck --version
+    if [ $? -ne 0 ]; then install_js_global depcheck; fi
+
     install_js_global glob
     install_js_global typescript
     install_js_global ts-node

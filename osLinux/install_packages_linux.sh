@@ -78,7 +78,7 @@ function install_APT_packages {
     # aptInstall android-tools-fastboot
 
     # Security
-    aptInstall keepassxc
+    aptInstallMaybe keepassxc -v
 
     # Alerts -> notify-send
     aptInstall libnotify-bin
@@ -91,20 +91,21 @@ function install_APT_packages {
     printf "\n"
 
     # Text Editors
-    aptInstall neovim
-    aptInstall gedit
+    nvim -v
+    if [ $? -ne 0 ]; then aptInstall neovim; fi
+    aptInstallMaybe gedit -V
     aptInstall fonts-cascadia-code
     aptInstall fonts-firacode
 
     # Web
-    aptInstall curl
-    aptInstall wget
+    aptInstallMaybe curl -V
+    aptInstallMaybe wget -V
     aptInstall nmap
-    aptInstall qbittorrent
+    aptInstallMaybe qbittorrent -v
 
     # Fun
-    aptInstall cowsay
-    aptInstall fortune
+    # aptInstall cowsay
+    # aptInstall fortune
 
     install_office_apps
 }
@@ -116,21 +117,34 @@ function install_media_apps {
     aptInstallMaybe audacious -v
     aptInstallMaybe viewnior --version
     aptInstallMaybe qpdfview --help
-    aptInstall mupdf
+    aptInstallMaybe mupdf -v
     aptInstallMaybe gimp -v
     # aptInstall calibre
-    aptInstall obs-studio
     aptInstallMaybe kolourpaint -v
 
-    sudo add-apt-repository -y ppa:jurplel/qview
-    aptInstallMaybe qview -v
+    obs -V
+    if [ $? -ne 0 ]; then aptInstall obs-studio; fi
+
+    qview -v
+    if [ $? -ne 0 ]; then
+        sudo add-apt-repository -y ppa:jurplel/qview
+        aptInstall qview
+        exit 1
+    fi
+
     aptInstall qt5-image-formats-plugins
 
-    sudo apt-add-repository -y ppa:audio-recorder/ppa
-    aptInstall audio-recorder
+    audio-recorder -v
+    if [ $? -ne 0 ]; then
+        sudo apt-add-repository -y ppa:audio-recorder/ppa
+        aptInstall audio-recorder
+    fi
 
-    sudo apt-add-repository ppa:marin-m/songrec -y -u
-    aptInstall songrec
+    songrec -V
+    if [ $? -ne 0 ]; then
+        sudo apt-add-repository ppa:marin-m/songrec -y -u
+        aptInstall songrec
+    fi
 
     printf "${GREEN}Media apps done...\n${NC}"
 }
@@ -138,10 +152,10 @@ function install_media_apps {
 function install_kde_stuff {
     printf "\n${GREEN}Installing KDE stuff...${NC}\n"
 
-    aptInstall dolphin
-    aptInstall konsole
+    aptInstallMaybe dolphin -v
+    aptInstallMaybe konsole -v
     aptInstall kde-cli-tools
-    aptInstall ark
+    aptInstallMaybe ark -v
     printf "${GREEN}KDE stuff done...\n${NC}"
 }
 
@@ -225,7 +239,7 @@ function install_python {
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
     node -v
-    if [ $? -eq 1 ]; then
+    if [ $? -ne 0 ]; then
         printf "${RED}Node.js *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://nodejs.org/en/download/ -> click on link "Installing Node.js via package manager" ->
         # -> https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions ->
@@ -235,11 +249,14 @@ function install_js {
         aptInstall npm
     fi
 
-    # Update npm
-    sudo npm install -g --loglevel=error npm@latest
+    npm -v
+    if [ $? -eq 0 ]; then
+        # Update npm
+        sudo npm install -g --loglevel=error npm@latest
+    fi
 
     yarn -v
-    if [ $? -eq 1 ]; then
+    if [ $? -ne 0 ]; then
         printf "${RED}Yarn *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://yarnpkg.com/getting-started/install
         corepack enable
