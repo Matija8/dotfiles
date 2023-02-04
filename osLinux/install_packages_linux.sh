@@ -59,7 +59,7 @@ function install_APT_packages {
 
     versionOrAptInstall rclone version
     versionOrAptInstall tmux -V
-    versionOrAptInstall htop -v
+    versionOrAptInstall htop -V
 
     versionOrAptInstall xclip -version
 
@@ -207,17 +207,25 @@ function install_brightness_controller {
 }
 
 function install_vscode {
+    printCheckingMsg "vscode"
+    which code &>/dev/null
+    if [ $? -eq 0 ]; then
+        printAptInstalledMsg "vscode"
+        return
+    fi
+
     printf "\n${GREEN}Installing VSCode...${NC}\n"
     # https://code.visualstudio.com/docs/setup/linux#_debian-and-ubuntu-based-distributions
-    sudo apt-get install wget gpg
+    whichOrAptInstall wget
+    whichOrAptInstall gpg
     wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
     sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
     sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
     rm -f packages.microsoft.gpg
 
-    sudo apt install apt-transport-https
+    aptInstall apt-transport-https
     sudo apt update
-    sudo apt install code # or code-insiders
+    aptInstall code # or code-insiders
 
     if ! command -v code &>/dev/null; then
         printf "VSCode ('code') could not be found\n"
@@ -229,8 +237,11 @@ function install_vscode {
 
 function install_python {
     printf "\n\n${GREEN}Python3:${NC}\n\n"
-    aptInstall python3-pip
-    aptInstall python3.8-venv
+    pip -V
+    if [ $? -ne 0 ]; then aptInstall python3-pip; fi
+
+    # https://docs.python.org/3/library/venv.html
+    # aptInstall python3.8-venv
 
     source "$dotfiles_root_dir/osCommon/common_lib_py.sh"
     __py_install_global_packages="sudo python3 -m pip install"
@@ -431,7 +442,8 @@ function versionOrAptInstall {
 
 function whichOrAptInstall {
     printCheckingMsg $1
-    which $1 &>/dev/null
+    # https://stackoverflow.com/questions/37056192/which-vs-command-v-in-bash
+    command -v $1 &>/dev/null
     if [ $? -eq 0 ]; then
         printAptInstalledMsg $1
         return
@@ -449,8 +461,9 @@ function printAptInstalledMsg {
 }
 
 function aptInstall {
-    printf "${GREEN}Apt-Installing: $@\n${NC}"
+    printf "${GREEN}Apt-Installing: ${PURPLE}$@\n${NC}"
     sudo apt install -y $@
+    printf "\n"
 }
 
 function snapInstall {

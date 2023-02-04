@@ -19,15 +19,15 @@ function install_js_globals {
     versionOrNpmInstall prettier -v
     versionOrNpmInstall vite -v
 
+    whichOrNpmInstall ts-node
     whichOrNpmInstall tsc typescript
 
     npmListOrNpmInstall glob
     npmListOrNpmInstall node-fetch@2
-    npmListOrNpmInstall ts-node
 }
 
 function install_js_globals_unix {
-    npmListOrNpmInstall n
+    whichOrNpmInstall n
 }
 
 function install_js_globals_extra {
