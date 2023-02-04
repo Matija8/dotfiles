@@ -21,6 +21,7 @@ if [ -d "/usr/local/go" ]; then
             return
         fi
         mkdir $1
+        if [ $? -ne 0 ]; then exit 1; fi
         cd $1
         go mod init $@
     }
