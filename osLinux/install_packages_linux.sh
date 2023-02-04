@@ -14,15 +14,15 @@ function main {
     printf "${PURPLE}Starting package installation...${NC}\n"
 
     # Activating sudo
-    sudo printf "${PURPLE}Sudo mode success\n\n"
+    sudo printf "${PURPLE}Sudo mode success${NC}\n\n"
 
     # Add single installation function here to test it
     # and uncomment the `exit` below
     # install_XXX
     # exit
 
-    sudo apt update
-    sudo apt upgrade -y
+    # sudo apt update
+    # sudo apt upgrade -y
 
     remove_ubuntu_ctrl_alt_LR_keybindings
     install_APT_packages
@@ -54,12 +54,14 @@ function install_APT_packages {
     printf "\n"
 
     # Linux
-    aptInstall git
-    aptInstall make
-    aptInstall rclone
-    aptInstall tmux
-    aptInstall htop
-    aptInstall xclip
+    aptInstallMaybe git --version
+    aptInstallMaybe make -v
+
+    aptInstallMaybe rclone version
+    aptInstallMaybe tmux -V
+    aptInstallMaybe htop -v
+
+    aptInstallMaybe xclip -version
 
     # Hard disk tools:
     #
@@ -110,18 +112,18 @@ function install_APT_packages {
 function install_media_apps {
     printf "\n${GREEN}Installing media apps...${NC}\n"
 
-    aptInstall mpv
-    aptInstall audacious
-    aptInstall viewnior
-    aptInstall qpdfview
+    aptInstallMaybe mpv -V
+    aptInstallMaybe audacious -v
+    aptInstallMaybe viewnior --version
+    aptInstallMaybe qpdfview --help
     aptInstall mupdf
-    aptInstall gimp
+    aptInstallMaybe gimp -v
     # aptInstall calibre
     aptInstall obs-studio
-    aptInstall kolourpaint
+    aptInstallMaybe kolourpaint -v
 
     sudo add-apt-repository -y ppa:jurplel/qview
-    aptInstall qview
+    aptInstallMaybe qview -v
     aptInstall qt5-image-formats-plugins
 
     sudo apt-add-repository -y ppa:audio-recorder/ppa
@@ -222,18 +224,26 @@ function install_python {
 
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
-    # Installing Node.js & npm
-    curl -s https://deb.nodesource.com/setup_16.x | sudo bash
-    aptInstall nodejs
-    aptInstall npm
+    node -v
+    if [ $? -eq 1 ]; then
+        printf "${RED}Node.js *not* installed ❌... ${GREEN}yet!${NC}\n\n"
+        # https://nodejs.org/en/download/ -> click on link "Installing Node.js via package manager" ->
+        # -> https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions ->
+        # -> https://github.com/nodesource/distributions/blob/master/README.md#using-ubuntu
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash
+        aptInstall nodejs
+        aptInstall npm
+    fi
+
     # Update npm
     sudo npm install -g --loglevel=error npm@latest
 
-    # Installing yarn
-    sudo apt remove -y cmdtest
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt update && sudo apt install -y yarn
+    yarn -v
+    if [ $? -eq 1 ]; then
+        printf "${RED}Yarn *not* installed ❌... ${GREEN}yet!${NC}\n\n"
+        # https://yarnpkg.com/getting-started/install
+        corepack enable
+    fi
 
     source "$dotfiles_root_dir/osCommon/common_lib_js.sh"
     __js_install_global_package="sudo $__js_install_global_package"
@@ -244,6 +254,12 @@ function install_js {
 
 function install_java {
     printf "\n\n${GREEN}Java:${NC}\n\n"
+    java --version
+    if [ $? -eq 0 ]; then
+        printf "\n${GREEN} Java installed 👍${NC}\n\n"
+        return
+    fi
+    # https://dev.java/learn/getting-started/#setting-up-jdk
     aptInstall openjdk-11-jdk
     aptInstall openjfx
 }
@@ -385,6 +401,12 @@ function wrap_up_installing {
 function aptInstall {
     printf "${GREEN}Apt-Installing: $@\n${NC}"
     sudo apt install -y $@
+}
+
+function aptInstallMaybe {
+    printf "${BLUE}Printing version for: ${GREEN}$1\n${NC}"
+    $@
+    if [ $? -ne 0 ]; then aptInstall $1; fi
 }
 
 function snapInstall {
