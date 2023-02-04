@@ -54,14 +54,14 @@ function install_APT_packages {
     printf "\n"
 
     # Linux
-    aptInstallMaybe git --version
-    aptInstallMaybe make -v
+    versionOrAptInstall git --version
+    versionOrAptInstall make -v
 
-    aptInstallMaybe rclone version
-    aptInstallMaybe tmux -V
-    aptInstallMaybe htop -v
+    versionOrAptInstall rclone version
+    versionOrAptInstall tmux -V
+    versionOrAptInstall htop -v
 
-    aptInstallMaybe xclip -version
+    versionOrAptInstall xclip -version
 
     # Hard disk tools:
     #
@@ -78,7 +78,7 @@ function install_APT_packages {
     # aptInstall android-tools-fastboot
 
     # Security
-    aptInstallMaybe keepassxc -v
+    versionOrAptInstall keepassxc -v
 
     # Alerts -> notify-send
     aptInstall libnotify-bin
@@ -93,15 +93,15 @@ function install_APT_packages {
     # Text Editors
     nvim -v
     if [ $? -ne 0 ]; then aptInstall neovim; fi
-    aptInstallMaybe gedit -V
+    versionOrAptInstall gedit -V
     aptInstall fonts-cascadia-code
     aptInstall fonts-firacode
 
     # Web
-    aptInstallMaybe curl -V
-    aptInstallMaybe wget -V
-    aptInstall nmap
-    aptInstallMaybe qbittorrent -v
+    versionOrAptInstall curl -V
+    versionOrAptInstall wget -V
+    aptInstallMaybe nmap
+    versionOrAptInstall qbittorrent -v
 
     # Fun
     # aptInstall cowsay
@@ -113,14 +113,14 @@ function install_APT_packages {
 function install_media_apps {
     printf "\n${GREEN}Installing media apps...${NC}\n"
 
-    aptInstallMaybe mpv -V
-    aptInstallMaybe audacious -v
-    aptInstallMaybe viewnior --version
-    aptInstallMaybe qpdfview --help
-    aptInstallMaybe mupdf -v
-    aptInstallMaybe gimp -v
+    versionOrAptInstall mpv -V
+    versionOrAptInstall audacious -v
+    versionOrAptInstall viewnior --version
+    versionOrAptInstall qpdfview --help
+    aptInstallMaybe mupdf
+    versionOrAptInstall gimp -v
     # aptInstall calibre
-    aptInstallMaybe kolourpaint -v
+    versionOrAptInstall kolourpaint -v
 
     obs -V
     if [ $? -ne 0 ]; then aptInstall obs-studio; fi
@@ -152,10 +152,10 @@ function install_media_apps {
 function install_kde_stuff {
     printf "\n${GREEN}Installing KDE stuff...${NC}\n"
 
-    aptInstallMaybe dolphin -v
-    aptInstallMaybe konsole -v
+    versionOrAptInstall dolphin -v
+    versionOrAptInstall konsole -v
     aptInstall kde-cli-tools
-    aptInstallMaybe ark -v
+    versionOrAptInstall ark -v
     printf "${GREEN}KDE stuff done...\n${NC}"
 }
 
@@ -420,10 +420,16 @@ function aptInstall {
     sudo apt install -y $@
 }
 
-function aptInstallMaybe {
+function versionOrAptInstall {
     printf "${BLUE}Printing version for: ${GREEN}$1\n${NC}"
     $@
     if [ $? -ne 0 ]; then aptInstall $1; fi
+}
+
+function aptInstallMaybe {
+    # TODO: Print message.
+    which $1
+    if [ "$#" -eq 1 ]; then aptInstall $1; else aptInstall $2; fi
 }
 
 function snapInstall {
