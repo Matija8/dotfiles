@@ -257,13 +257,15 @@ function install_js {
         # https://nodejs.org/en/download/ -> click on link "Installing Node.js via package manager" ->
         # -> https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions ->
         # -> https://github.com/nodesource/distributions/blob/master/README.md#using-ubuntu
-        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
         aptInstall nodejs
         aptInstall npm
     fi
 
     npm -v &>/dev/null
-    if [ $? -eq 0 ]; then
+    if [ $? -ne 0 ]; then
+        printf "${RED}Npm *not* installed!? ❌ ${NC}\n\n"
+    else
         # Update npm
         # https://docs.npmjs.com/cli/v8/using-npm/config#shorthands-and-other-cli-niceties
         sudo npm install -g --loglevel=silent npm@latest
