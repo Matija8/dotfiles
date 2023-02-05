@@ -17,10 +17,10 @@ function _set_NODE_PATH_system_wide_linux {
     printf "\nDon't forget to logout to apply changes to /etc/environment!\n\n"
 }
 
-# https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
 if [ -z "${NODE_PATH+x}" ]; then
+    # https://stackoverflow.com/questions/3601515/how-to-check-if-a-variable-is-set-in-bash
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        NODE_PATH="/usr/local/lib/node_modules:/home/matija/.config/yarn/global"
+        NODE_PATH="/usr/local/lib/node_modules:$HOME/.config/yarn/global"
     elif [[ "$OSTYPE" == "msys" ]]; then
         NODE_PATH="C:\Program Files\nodejs\node_modules:$HOME\AppData\Local\Yarn\Data\global"
     fi
@@ -42,7 +42,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
-# https://deno.land/
+# https://deno.land/manual/getting_started/installation
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
@@ -76,62 +76,70 @@ function rmnode_modulesrecursive {
     traverse "$(pwd)"
 }
 
-# Pnpm docs:
-# https://pnpm.io/cli/add
+if command -v pnpm &>/dev/null; then
+    # Pnpm docs:
+    # https://pnpm.io/cli/add
 
-function p {
-    if [ "$#" -ne 0 ]; then pnpm $@; else pnpm i; fi
-}
+    function p {
+        if [ "$#" -ne 0 ]; then pnpm $@; else pnpm i; fi
+    }
+fi
 
-# Yarn docs:
-# https://yarnpkg.com/cli/add
+if command -v yarn &>/dev/null; then
+    # Yarn docs:
+    # https://yarnpkg.com/cli/add
 
-alias y="yarn"
-alias ys="yarn start"
-alias yt="yarn test"
-alias yr="yarn run"
-alias yga="sudo yarn global add"
-alias yadd="yarn add"     # add "prod" dep
-alias yaddD="yarn add -D" # add dev dep
-alias ycleancache="yarn cache clean"
+    alias y="yarn"
+    alias ys="yarn start"
+    alias yt="yarn test"
+    alias yr="yarn run"
+    alias yga="sudo yarn global add"
+    alias yadd="yarn add"     # add "prod" dep
+    alias yaddD="yarn add -D" # add dev dep
+    alias ycleancache="yarn cache clean"
 
-# Npm docs:
-# https://docs.npmjs.com/
+    alias yc="yarn config"
+    function ycl {
+        # The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
 
-alias nr="npm run"
-alias ni="npm i"
-# https://stackoverflow.com/questions/52499617/what-is-the-difference-between-npm-install-and-npm-ci
-alias nci="npm ci"
-alias nig="sudo npm i -g"     # global
-alias nid="npm i -D"          # dev
-alias nia="npm i && npm i -D" # "all" (prod & dev)
-alias nui="npm uninstall"
-alias nrt="npm run test"
+        # https://www.cyberciti.biz/faq/bash-check-if-string-starts-with-character-such-as/
+        if [[ $(yarn --version) = 1* ]]; then
+            # On Yarn 1.x use "yarn config list"
+            # https://classic.yarnpkg.com/en/docs/cli/config
+            yarn config list $@
+        else
+            # On Yarn >= 2.x use "yarn config"
+            # https://yarnpkg.com/cli/config
+            yarn config $@
+        fi
+    }
+    alias yclv="ycl --verbose"
+    alias yinfo="yarn info"
 
-# Debugging npm/yarn/pnpm config files
-alias npmcl="npm config list"
-alias npmcll="npm config list -l" # Long (Verbose)
-alias yc="yarn config"
-function ycl {
-    # The "yarn config (list)" command is super useful for debugging CodeArtifact/Nexus!
+    alias yarnls="yarn global list"
+fi
 
-    # https://www.cyberciti.biz/faq/bash-check-if-string-starts-with-character-such-as/
-    if [[ $(yarn --version) = 1* ]]; then
-        # On Yarn 1.x use "yarn config list"
-        # https://classic.yarnpkg.com/en/docs/cli/config
-        yarn config list $@
-    else
-        # On Yarn >= 2.x use "yarn config"
-        # https://yarnpkg.com/cli/config
-        yarn config $@
-    fi
-}
-alias yclv="ycl --verbose"
-alias yinfo="yarn info"
+if command -v yarn &>/dev/null; then
+    # Npm docs:
+    # https://docs.npmjs.com/
 
-# List globally installed packages:
-alias npmls="npm list -g --depth=0"
-alias yarnls="yarn global list"
+    alias nr="npm run"
+    alias ni="npm i"
+    # https://stackoverflow.com/questions/52499617/what-is-the-difference-between-npm-install-and-npm-ci
+    alias nci="npm ci"
+    alias nig="sudo npm i -g"     # global
+    alias nid="npm i -D"          # dev
+    alias nia="npm i && npm i -D" # "all" (prod & dev)
+    alias nui="npm uninstall"
+    alias nrt="npm run test"
+
+    # Debugging npm/yarn/pnpm config files
+    alias npmcl="npm config list"
+    alias npmcll="npm config list -l" # Long (Verbose)
+
+    # List globally installed packages:
+    alias npmls="npm list -g --depth=0"
+fi
 
 alias tst="ts-node -T"
 
