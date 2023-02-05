@@ -1,4 +1,7 @@
 {
+  // No sensible shebang option:
+  // https://stackoverflow.com/questions/41322300/how-to-execute-rust-code-directly-on-unix-systems-using-the-shebang
+
   // *** Log ***
 
   "println": {
