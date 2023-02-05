@@ -1,10 +1,11 @@
 function cdq {
-    # cd quiet* on dir not existing
+    # cd [Q]uiet on dir not existing
     cd "$1" &>/dev/null
 }
 
 function cdf {
     # cd to the parent dir of file path argument
+    # Mnemonic: cd [F]older
     cd $(dirname "$1")
 }
 
@@ -48,6 +49,8 @@ alias rsyncavp="rsync -avP"
 alias rsyncavn="rsync -avun"
 
 # https://stackoverflow.com/questions/592620/how-can-i-check-if-a-program-exists-from-a-bash-script
+# Prefer "command -v" to "which" in scripts
+# https://stackoverflow.com/questions/37056192/which-vs-command-v-in-bash
 alias commandv="command -v"
 
 # https://unix.stackexchange.com/questions/185764/how-do-i-get-the-size-of-a-directory-on-the-command-line
