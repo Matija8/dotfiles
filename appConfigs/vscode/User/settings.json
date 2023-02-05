@@ -49,7 +49,7 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.accessibilitySupport": "off",
   "editor.cursorBlinking": "phase",
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.detectIndentation": true,
   "editor.fastScrollSensitivity": 2,
   "editor.folding": true,
@@ -183,9 +183,15 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "react-native-tools.showUserTips": false,
+  "svg.preview.mode": "svg",
 
   // Matlab/Octave
-  "octave-formatter.pythonPath": "/usr/bin/python",
+  // "octave-formatter.pythonPath": "/usr/bin/python",
+  "octave-formatter.pythonPath": "/usr/bin/python3",
+
+  // Go lang
+  "go.toolsManagement.autoUpdate": true,
 
   // Languages
   "[html]": {
