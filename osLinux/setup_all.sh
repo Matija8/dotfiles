@@ -9,11 +9,28 @@
 projects_dir="$HOME/Projects"
 dotfiles_dir="$projects_dir/dotfiles"
 
-if [ -d "$dotfiles_dir" ]; then
-    printf "\nDotfiles directory already exists!\n\n"
-    read -p "Are you sure you want to continue? [y/N] " -r
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 1; fi
-else
+function main {
+    if [ -d "$dotfiles_dir" ]; then
+        printf "\nDotfiles directory already exists!\n\n"
+        read -p "Are you sure you want to continue? [y/N] " -r
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then exit 1; fi
+    else
+        curlDotfilesDir
+        # gitCloneDotfilesDir
+    fi
+
+    # Install packages
+    "$dotfiles_dir/osLinux/install_packages_linux.sh"
+
+    # Copy configs
+    "$dotfiles_dir/copy_configs.py"
+}
+
+function breakOnError {
+    if [ $? -ne 0 ]; then printf "\nAn error occured!?" exit 1; fi
+}
+
+function curlDotfilesDir {
     mkdir -p "$projects_dir"
     cd "$projects_dir"
 
@@ -28,14 +45,17 @@ else
     unzip "$zipFilename" && rm "$zipFilename"
     breakOnError
     mv dotfiles-main dotfiles
-fi
-
-# Install packages
-"$dotfiles_dir/osLinux/install_packages_linux.sh"
-
-# Copy configs
-"$dotfiles_dir/copy_configs.py"
-
-function breakOnError {
-    if [ $? -ne 0 ]; then printf "\nAn error occured!?" exit 1; fi
 }
+
+function gitCloneDotfilesDir {
+    mkdir -p "$projects_dir"
+    cd "$projects_dir"
+
+    sudo apt install -y git
+    breakOnError
+    hash -r
+    git clone git@github.com:Matija8/dotfiles.git
+    breakOnError
+}
+
+main
