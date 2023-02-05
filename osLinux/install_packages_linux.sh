@@ -80,8 +80,8 @@ function install_APT_packages {
     versionOrAptInstall keepassxc -v
 
     # Alerts -> notify-send
-    aptInstall libnotify-bin
-    aptInstall notify-osd
+    aptListOrAptInstall libnotify-bin
+    aptListOrAptInstall notify-osd
 
     # whichOrAptInstall i3
     # whichOrAptInstall dmenu
@@ -93,8 +93,8 @@ function install_APT_packages {
     nvim -v &>/dev/null
     if [ $? -ne 0 ]; then aptInstall neovim; fi
     versionOrAptInstall gedit -V
-    aptInstall fonts-cascadia-code
-    aptInstall fonts-firacode
+    aptListOrAptInstall fonts-cascadia-code
+    aptListOrAptInstall fonts-firacode
 
     # Web
     versionOrAptInstall curl -V
@@ -131,15 +131,15 @@ function install_media_apps {
         exit 1
     fi
 
-    aptInstall qt5-image-formats-plugins
+    aptListOrAptInstall qt5-image-formats-plugins
 
-    audio-recorder -v
+    audio-recorder -v &>/dev/null
     if [ $? -ne 0 ]; then
         sudo apt-add-repository -y ppa:audio-recorder/ppa
         aptInstall audio-recorder
     fi
 
-    songrec -V
+    songrec -V &>/dev/null
     if [ $? -ne 0 ]; then
         sudo apt-add-repository ppa:marin-m/songrec -y -u
         aptInstall songrec
@@ -153,16 +153,16 @@ function install_kde_stuff {
 
     versionOrAptInstall dolphin -v
     versionOrAptInstall konsole -v
-    aptInstall kde-cli-tools
+    aptListOrAptInstall kde-cli-tools
     whichOrAptInstall ark
     printf "${GREEN}KDE stuff done...\n${NC}"
 }
 
 function install_office_apps {
     printf "\n${GREEN}Installing Office stuff...${NC}\n"
-    aptInstall libreoffice-writer
-    aptInstall libreoffice-calc
-    aptInstall libreoffice-impress
+    aptListOrAptInstall libreoffice-writer
+    aptListOrAptInstall libreoffice-calc
+    aptListOrAptInstall libreoffice-impress
     printf "${GREEN}Office stuff done...\n${NC}"
 }
 
@@ -250,6 +250,7 @@ function install_python {
 
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
+
     node -v &>/dev/null
     if [ $? -ne 0 ]; then
         printf "${RED}Node.js *not* installed ❌... ${GREEN}yet!${NC}\n\n"
@@ -266,6 +267,13 @@ function install_js {
         # Update npm
         # https://docs.npmjs.com/cli/v8/using-npm/config#shorthands-and-other-cli-niceties
         sudo npm install -g --loglevel=silent npm@latest
+    fi
+
+    deno -V &>/dev/null
+    if [ $? -ne 0 ]; then
+        printf "${RED}Deno *not* installed ❌... ${GREEN}yet!${NC}\n\n"
+        # https://deno.land/manual/getting_started/installation
+        curl -fsSL https://deno.land/x/install/install.sh | sh
     fi
 
     yarn -v &>/dev/null
@@ -450,6 +458,18 @@ function whichOrAptInstall {
     fi
     printf "${GREEN}$1 is not yet installed...\n\n${NC}"
     if [ "$#" -eq 1 ]; then aptInstall $1; else aptInstall $2; fi
+}
+
+function aptListOrAptInstall {
+    # https://askubuntu.com/questions/423355/how-do-i-check-if-a-package-is-installed-on-my-server
+    printCheckingMsg $1
+    dpkg -l $@ &>/dev/null
+    if [ $? -eq 0 ]; then
+        printAptInstalledMsg $1
+        return
+    fi
+    printf "${GREEN}$1 is not yet installed...\n\n${NC}"
+    aptInstall $1
 }
 
 function printCheckingMsg {
