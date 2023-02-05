@@ -90,8 +90,7 @@ function install_APT_packages {
     printf "\n"
 
     # Text Editors
-    nvim -v &>/dev/null
-    if [ $? -ne 0 ]; then aptInstall neovim; fi
+    if nvim -v &>/dev/null; then printAptInstalledMsg neovim; else aptInstall neovim; fi
     versionOrAptInstall gedit -V
     aptListOrAptInstall fonts-cascadia-code
     aptListOrAptInstall fonts-firacode
@@ -121,28 +120,30 @@ function install_media_apps {
     # aptInstall calibre
     versionOrAptInstall kolourpaint -v
 
-    obs -V &>/dev/null
-    if [ $? -ne 0 ]; then aptInstall obs-studio; fi
+    if ! obs -V &>/dev/null; then aptInstall obs-studio; else printAptInstalledMsg obs; fi
 
-    qview -v &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! qview -v &>/dev/null; then
         sudo add-apt-repository -y ppa:jurplel/qview
         aptInstall qview
         exit 1
+    else
+        printAptInstalledMsg qview
     fi
 
     aptListOrAptInstall qt5-image-formats-plugins
 
-    audio-recorder -v &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! audio-recorder -v &>/dev/null; then
         sudo apt-add-repository -y ppa:audio-recorder/ppa
         aptInstall audio-recorder
+    else
+        printAptInstalledMsg audio-recorder
     fi
 
-    songrec -V &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! songrec -V &>/dev/null; then
         sudo apt-add-repository ppa:marin-m/songrec -y -u
         aptInstall songrec
+    else
+        printAptInstalledMsg songrec
     fi
 
     printf "${GREEN}Media apps done...\n${NC}"
@@ -168,8 +169,8 @@ function install_office_apps {
 
 function install_snaps {
     printf "\n${GREEN}Installing Snaps...${NC}\n"
-    snap version &>/dev/null
-    if [ $? -ne 0 ]; then aptInstall snapd; fi
+
+    if ! snap version &>/dev/null; then aptInstall snapd; fi
 
     snapInstall postman
     # snapInstall foliate # Mobi reader
@@ -208,8 +209,7 @@ function install_brightness_controller {
 
 function install_vscode {
     printCheckingMsg "vscode"
-    which code &>/dev/null
-    if [ $? -eq 0 ]; then
+    if command -v code &>/dev/null; then
         printAptInstalledMsg "vscode"
         return
     fi
@@ -237,8 +237,8 @@ function install_vscode {
 
 function install_python {
     printf "\n\n${GREEN}Python3:${NC}\n\n"
-    pip -V
-    if [ $? -ne 0 ]; then aptInstall python3-pip; fi
+
+    if ! pip -V; then aptInstall python3-pip; fi
 
     # https://docs.python.org/3/library/venv.html
     # aptInstall python3.8-venv
@@ -251,8 +251,7 @@ function install_python {
 function install_js {
     printf "\n\n${GREEN}JavaScript:${NC}\n\n"
 
-    node -v &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! node -v &>/dev/null; then
         printf "${RED}Node.js *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://nodejs.org/en/download/ -> click on link "Installing Node.js via package manager" ->
         # -> https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions ->
@@ -262,8 +261,7 @@ function install_js {
         aptInstall npm
     fi
 
-    npm -v &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! npm -v &>/dev/null; then
         printf "${RED}Npm *not* installed!? ❌ ${NC}\n\n"
     else
         # Update npm
@@ -271,15 +269,13 @@ function install_js {
         sudo npm install -g --loglevel=silent npm@latest
     fi
 
-    deno -V &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! deno -V &>/dev/null; then
         printf "${RED}Deno *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://deno.land/manual/getting_started/installation
         curl -fsSL https://deno.land/x/install/install.sh | sh
     fi
 
-    yarn -v &>/dev/null
-    if [ $? -ne 0 ]; then
+    if ! yarn -v &>/dev/null; then
         printf "${RED}Yarn *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://yarnpkg.com/getting-started/install
         corepack enable
@@ -294,8 +290,7 @@ function install_js {
 
 function install_java {
     printf "\n\n${GREEN}Java:${NC}\n\n"
-    java --version
-    if [ $? -eq 0 ]; then
+    if java --version; then
         printf "\n${GREEN} Java installed 👍${NC}\n\n"
         return
     fi
@@ -306,8 +301,8 @@ function install_java {
 
 function check_go_lang_installation {
     printf "\n\n${GREEN}Go-lang:${NC}\n\n"
-    go version
-    if [ $? -ne 0 ]; then
+
+    if ! go version; then
         "${RED}Go-lang *not* installed ❌${NC}\n\n"
         # To install follow the website:
         # https://go.dev/doc/install
@@ -440,8 +435,7 @@ function wrap_up_installing {
 
 function versionOrAptInstall {
     printCheckingMsg $1
-    $@ &>/dev/null
-    if [ $? -eq 0 ]; then
+    if $@ &>/dev/null; then
         printAptInstalledMsg $1
         return
     fi
@@ -453,8 +447,7 @@ function versionOrAptInstall {
 function whichOrAptInstall {
     printCheckingMsg $1
     # https://stackoverflow.com/questions/37056192/which-vs-command-v-in-bash
-    command -v $1 &>/dev/null
-    if [ $? -eq 0 ]; then
+    if command -v $1 &>/dev/null; then
         printAptInstalledMsg $1
         return
     fi
@@ -465,8 +458,7 @@ function whichOrAptInstall {
 function aptListOrAptInstall {
     # https://askubuntu.com/questions/423355/how-do-i-check-if-a-package-is-installed-on-my-server
     printCheckingMsg $1
-    dpkg -l $@ &>/dev/null
-    if [ $? -eq 0 ]; then
+    if dpkg -l $@ &>/dev/null; then
         printAptInstalledMsg $1
         return
     fi

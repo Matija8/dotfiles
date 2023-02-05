@@ -175,8 +175,7 @@ function create-next-app {
     # Dot "." is a valid project name.
     ls -1
     local project_name="$1"
-    yarn create next-app --typescript "$project_name"
-    if [ $? -ne 0 ]; then return 1; fi
+    yarn create next-app --typescript "$project_name" || return 1
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
 
@@ -184,8 +183,7 @@ function create-t3-app {
     # https://beta.create.t3.gg/en/installation#yarn
     ls -1
     local project_name="$1"
-    yarn create t3-app "$project_name"
-    if [ $? -ne 0 ]; then return 1; fi
+    yarn create t3-app "$project_name" || return 1
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
 
@@ -193,8 +191,7 @@ function create-redwood-app {
     # https://redwoodjs.com/docs/tutorial/chapter1/installation
     ls -1
     local project_name="$1"
-    yarn create redwood-app --ts "$project_name"
-    if [ $? -ne 0 ]; then return 1; fi
+    yarn create redwood-app --ts "$project_name" || return 1
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
 
