@@ -2,7 +2,22 @@
   "Python3 shebang": {
     "scope": "python",
     "prefix": "#!",
-    "body": ["#!/usr/bin/env python3\n# coding: UTF-8"],
+    // https://stackoverflow.com/questions/6908143/should-i-put-shebang-in-python-scripts-and-what-form-should-it-take
+    // https://stackoverflow.com/questions/2429511/why-do-people-write-usr-bin-env-python-on-the-first-line-of-a-python-script
+    // https://stackoverflow.com/questions/43793040/how-does-usr-bin-env-work-in-a-linux-shebang-line
+    // https://docs.python.org/3/using/windows.html#shebang-lines
+    // https://docs.python.org/3/using/windows.html#launcher-ini
+    // %LOCALAPPDATA%
+    //
+    // TLDR: "python3" is better than "python" to avoid running "python2".
+    //
+    // To make python3 work on windows:
+    // ln -sfn "$(which python)" "$(dirname $(which python))/python3"
+    //
+    // To validate it worked: which python3
+    // The output should be the same as: which python
+    //
+    "body": ["#!/usr/bin/env python3", "# coding: UTF-8"],
     "description": "python3 shebang"
   },
   "__main__": {
