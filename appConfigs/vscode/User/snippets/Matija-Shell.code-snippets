@@ -7,6 +7,15 @@
   },
 
   "Last command returned non-zero": {
+    // https://stackoverflow.com/questions/26675681/how-to-check-the-exit-status-using-an-if-statement
+    // Avoid using "$?", prefer the forms:
+    //
+    // if commandThatShouldReturn0; then do_stuff; fi
+    // if ! commandThatShouldReturn0; then handleError; else handleSuccess; fi
+    // returnIfThisCommandReturnsNon0 || return 1;
+    // returnIfThisCommandReturns0 && return 0;
+    // which code && echo "good" || echo "failed"
+    //
     "scope": "shellscript",
     "prefix": "lcnz",
     "body": "if [ $? -ne 0 ]; then exit 1$0; fi",
@@ -32,9 +41,11 @@
   },
 
   "dev null redirect": {
+    // https://www.cyberciti.biz/faq/how-to-redirect-output-and-errors-to-devnull/
+    // On new shells use: command &>/dev/null
+    // On old shells use: command > /dev/null 2>&1
     "prefix": ["devnull"],
     "body": "&>/dev/null",
-    // https://www.cyberciti.biz/faq/how-to-redirect-output-and-errors-to-devnull/
     "description": "Redirect STDOUT and STDERR to /dev/null."
   }
 }
