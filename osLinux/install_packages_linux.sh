@@ -37,6 +37,7 @@ function main {
 
     check_go_lang_installation
     check_rust_installation
+    check_scala_installation
     # install_java
 
     # install_docker
@@ -172,13 +173,13 @@ function install_snaps {
 
     if ! snap version &>/dev/null; then aptInstall snapd; fi
 
-    snapInstall postman
-    # snapInstall foliate # Mobi reader
-    # snapInstall shotcut --classic # Video editing
-    # snapInstall slack --classic
-    # snapInstall robo3t-snap
-    # snapInstall android-studio --classic
-    # snapInstall lxd
+    snapListOrsnapInstall postman
+    # snapListOrsnapInstall foliate # Mobi reader
+    # snapListOrsnapInstall shotcut --classic # Video editing
+    # snapListOrsnapInstall slack --classic
+    # snapListOrsnapInstall robo3t-snap
+    # snapListOrsnapInstall android-studio --classic
+    # snapListOrsnapInstall lxd
     printf "${GREEN}Snaps done...\n${NC}"
 }
 
@@ -297,6 +298,17 @@ function install_java {
     # https://dev.java/learn/getting-started/#setting-up-jdk
     aptInstall openjdk-11-jdk
     aptInstall openjfx
+}
+
+function check_scala_installation {
+    # https://docs.scala-lang.org/getting-started/
+    # sbt -V # slow
+    if scala -version && scalac -version; then
+        printf "\n${GREEN}Scala installed 👍${NC}\n\n"
+        return
+    else
+        printf "\n${RED}Scala not installed ❌${NC}\n\n"
+    fi
 }
 
 function check_go_lang_installation {
@@ -478,6 +490,14 @@ function aptInstall {
     printf "${GREEN}Apt-Installing: ${PURPLE}$@\n${NC}"
     sudo apt install -y $@
     printf "\n"
+}
+
+function snapListOrsnapInstall {
+    if snap list $1; then
+        printf "${PURPLE}$1${GREEN} snap is installed 👍\n\n${NC}"
+    else
+        snapInstall $@
+    fi
 }
 
 function snapInstall {
