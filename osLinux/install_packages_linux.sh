@@ -35,10 +35,10 @@ function main {
     install_js
     install_python
 
+    check_java_installation
+    check_scala_installation
     check_go_lang_installation
     check_rust_installation
-    check_scala_installation
-    # install_java
 
     # install_docker
     # install_docker_compose
@@ -51,8 +51,40 @@ function main {
 function install_APT_packages {
     printf "\n\n${GREEN}Apt packages:${NC}\n\n"
 
-    install_media_apps
-    printf "\n"
+    versionOrAptInstall mpv -V
+    versionOrAptInstall audacious -v
+    versionOrAptInstall viewnior --version
+    whichOrAptInstall qpdfview
+    whichOrAptInstall mupdf
+    versionOrAptInstall gimp -v
+    dontAptInstall calibre
+    versionOrAptInstall kolourpaint -v
+
+    if ! obs -V &>/dev/null; then aptInstall obs-studio; else printInstalledMsg obs; fi
+
+    if ! qview -v &>/dev/null; then
+        sudo add-apt-repository -y ppa:jurplel/qview
+        aptInstall qview
+        exit 1
+    else
+        printInstalledMsg qview
+    fi
+
+    aptListOrAptInstall qt5-image-formats-plugins
+
+    if ! audio-recorder -v &>/dev/null; then
+        sudo apt-add-repository -y ppa:audio-recorder/ppa
+        aptInstall audio-recorder
+    else
+        printInstalledMsg audio-recorder
+    fi
+
+    if ! songrec -V &>/dev/null; then
+        sudo apt-add-repository ppa:marin-m/songrec -y -u
+        aptInstall songrec
+    else
+        printInstalledMsg songrec
+    fi
 
     # Linux
     versionOrAptInstall git --version
@@ -74,8 +106,8 @@ function install_APT_packages {
     whichOrAptInstall gnome-disks gnome-disk-utility
 
     # Android/React-Native?
-    # aptInstall android-tools-adb
-    # aptInstall android-tools-fastboot
+    dontAptInstall android-tools-adb
+    dontAptInstall android-tools-fastboot
 
     # Security
     versionOrAptInstall keepassxc -v
@@ -84,14 +116,17 @@ function install_APT_packages {
     aptListOrAptInstall libnotify-bin
     aptListOrAptInstall notify-osd
 
-    # whichOrAptInstall i3
-    # whichOrAptInstall dmenu
+    dontAptInstall i3
+    dontAptInstall dmenu
 
-    install_kde_stuff
-    printf "\n"
+    # KDE stuff
+    versionOrAptInstall dolphin -v
+    versionOrAptInstall konsole -v
+    aptListOrAptInstall kde-cli-tools
+    whichOrAptInstall ark
 
     # Text Editors
-    if nvim -v &>/dev/null; then printAptInstalledMsg neovim; else aptInstall neovim; fi
+    if nvim -v &>/dev/null; then printInstalledMsg neovim; else aptInstall neovim; fi
     versionOrAptInstall gedit -V
     aptListOrAptInstall fonts-cascadia-code
     aptListOrAptInstall fonts-firacode
@@ -103,69 +138,13 @@ function install_APT_packages {
     versionOrAptInstall qbittorrent -v
 
     # Fun
-    # aptInstall cowsay
-    # aptInstall fortune
+    aptListOrAptInstall cowsay
+    aptListOrAptInstall fortune
 
-    install_office_apps
-}
-
-function install_media_apps {
-    printf "\n${GREEN}Installing media apps...${NC}\n"
-
-    versionOrAptInstall mpv -V
-    versionOrAptInstall audacious -v
-    versionOrAptInstall viewnior --version
-    versionOrAptInstall qpdfview --help
-    whichOrAptInstall mupdf
-    versionOrAptInstall gimp -v
-    # aptInstall calibre
-    versionOrAptInstall kolourpaint -v
-
-    if ! obs -V &>/dev/null; then aptInstall obs-studio; else printAptInstalledMsg obs; fi
-
-    if ! qview -v &>/dev/null; then
-        sudo add-apt-repository -y ppa:jurplel/qview
-        aptInstall qview
-        exit 1
-    else
-        printAptInstalledMsg qview
-    fi
-
-    aptListOrAptInstall qt5-image-formats-plugins
-
-    if ! audio-recorder -v &>/dev/null; then
-        sudo apt-add-repository -y ppa:audio-recorder/ppa
-        aptInstall audio-recorder
-    else
-        printAptInstalledMsg audio-recorder
-    fi
-
-    if ! songrec -V &>/dev/null; then
-        sudo apt-add-repository ppa:marin-m/songrec -y -u
-        aptInstall songrec
-    else
-        printAptInstalledMsg songrec
-    fi
-
-    printf "${GREEN}Media apps done...\n${NC}"
-}
-
-function install_kde_stuff {
-    printf "\n${GREEN}Installing KDE stuff...${NC}\n"
-
-    versionOrAptInstall dolphin -v
-    versionOrAptInstall konsole -v
-    aptListOrAptInstall kde-cli-tools
-    whichOrAptInstall ark
-    printf "${GREEN}KDE stuff done...\n${NC}"
-}
-
-function install_office_apps {
-    printf "\n${GREEN}Installing Office stuff...${NC}\n"
+    # Office
     aptListOrAptInstall libreoffice-writer
     aptListOrAptInstall libreoffice-calc
     aptListOrAptInstall libreoffice-impress
-    printf "${GREEN}Office stuff done...\n${NC}"
 }
 
 function install_snaps {
@@ -209,9 +188,8 @@ function install_brightness_controller {
 }
 
 function install_vscode {
-    printCheckingMsg "vscode"
     if command -v code &>/dev/null; then
-        printAptInstalledMsg "vscode"
+        printInstalledMsg "vscode"
         return
     fi
 
@@ -237,7 +215,7 @@ function install_vscode {
 }
 
 function install_python {
-    printf "\n\n${GREEN}Python3:${NC}\n\n"
+    printGreenHeader "Python"
 
     if ! pip -V; then aptInstall python3-pip; fi
 
@@ -250,7 +228,7 @@ function install_python {
 }
 
 function install_js {
-    printf "\n\n${GREEN}JavaScript:${NC}\n\n"
+    printGreenHeader "JavaScript"
 
     if ! node -v &>/dev/null; then
         printf "${RED}Node.js *not* installed ❌... ${GREEN}yet!${NC}\n\n"
@@ -289,53 +267,47 @@ function install_js {
     # install_js_globals_extra
 }
 
-function install_java {
-    printf "\n\n${GREEN}Java:${NC}\n\n"
+function check_java_installation {
+    printGreenHeader "Java"
     if java --version; then
-        printf "\n${GREEN} Java installed 👍${NC}\n\n"
+        printInstalledMsg "Java"
         return
     fi
+    printNotInstalledMsg "Java"
     # https://dev.java/learn/getting-started/#setting-up-jdk
-    aptInstall openjdk-11-jdk
-    aptInstall openjfx
 }
 
 function check_scala_installation {
-    # https://docs.scala-lang.org/getting-started/
+    printGreenHeader "Scala"
     # sbt -V # slow
-    if scala -version && scalac -version; then
-        printf "\n${GREEN}Scala installed 👍${NC}\n\n"
+    if scala -version && scalac -version && cs version; then
+        printInstalledMsg "Scala"
         return
-    else
-        printf "\n${RED}Scala not installed ❌${NC}\n\n"
     fi
+    printNotInstalledMsg "Scala"
+    # https://docs.scala-lang.org/getting-started/
 }
 
 function check_go_lang_installation {
-    printf "\n\n${GREEN}Go-lang:${NC}\n\n"
-
-    if ! go version; then
-        "${RED}Go-lang *not* installed ❌${NC}\n\n"
-        # To install follow the website:
-        # https://go.dev/doc/install
+    printGreenHeader "Go-lang"
+    if go version; then
+        printInstalledMsg "Go-lang"
         return
     fi
-    printf "\n${GREEN}Go-lang installed 👍${NC}\n\n"
-    return
+    printNotInstalledMsg "Go-lang"
+    # https://go.dev/doc/install
 }
 
 function check_rust_installation {
-    printf "\n\n${GREEN}Rust:${NC}\n\n"
-    rustc -V && cargo -V && rustup -V
-    if [ $? -ne 0 ]; then
-        printf "\n${RED}Rust *not* installed! ❌${NC}\n\n"
-        # To install follow the website:
-        # https://www.rust-lang.org/tools/install
-        # https://doc.rust-lang.org/cargo/getting-started/installation.html
+    printGreenHeader "Rust"
+    # printf "\n\n${GREEN}Rust:${NC}\n\n"
+    if rustc -V && cargo -V && rustup -V; then
+        printInstalledMsg "Rust"
         return
     fi
-    printf "\n${GREEN}Rust installed 👍${NC}\n\n"
-    return
+    printNotInstalledMsg "Rust"
+    # https://www.rust-lang.org/tools/install
+    # https://doc.rust-lang.org/cargo/getting-started/installation.html
 }
 
 function install_c_sharp {
@@ -446,44 +418,49 @@ function wrap_up_installing {
 }
 
 function versionOrAptInstall {
-    printCheckingMsg $1
     if $@ &>/dev/null; then
-        printAptInstalledMsg $1
+        printInstalledMsg $1
         return
     fi
-    printf "${GREEN}$1 is not yet installed...\n\n${NC}"
+    printNotInstalledMsg $1
     aptInstall $1
-
 }
 
 function whichOrAptInstall {
-    printCheckingMsg $1
     # https://stackoverflow.com/questions/37056192/which-vs-command-v-in-bash
     if command -v $1 &>/dev/null; then
-        printAptInstalledMsg $1
+        printInstalledMsg $1
         return
     fi
-    printf "${GREEN}$1 is not yet installed...\n\n${NC}"
+    printNotInstalledMsg $1
     if [ "$#" -eq 1 ]; then aptInstall $1; else aptInstall $2; fi
 }
 
 function aptListOrAptInstall {
     # https://askubuntu.com/questions/423355/how-do-i-check-if-a-package-is-installed-on-my-server
-    printCheckingMsg $1
     if dpkg -l $@ &>/dev/null; then
-        printAptInstalledMsg $1
+        printInstalledMsg $1
         return
     fi
-    printf "${GREEN}$1 is not yet installed...\n\n${NC}"
+    printNotInstalledMsg $1
     aptInstall $1
 }
 
-function printCheckingMsg {
-    printf "\n${BLUE}Checking is ${PURPLE}$1${BLUE} apt installed\n${NC}"
+function dontAptInstall {
+    return
+    printf "\n${PURPLE}$1${NC} skipped.\n\n${NC}"
 }
 
-function printAptInstalledMsg {
-    printf "${PURPLE}$1${GREEN} is installed 👍\n\n${NC}"
+function printGreenHeader {
+    printf "\n\n${PURPLE}$1:${NC}\n\n"
+}
+
+function printInstalledMsg {
+    printf "\n${PURPLE}$1${GREEN} is installed 👍\n\n${NC}"
+}
+
+function printNotInstalledMsg {
+    printf "\n${PURPLE}$1${RED} is *not* installed ❌${NC}\n\n"
 }
 
 function aptInstall {
