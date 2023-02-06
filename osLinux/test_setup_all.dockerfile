@@ -12,11 +12,15 @@ FROM ubuntu
 SHELL ["/bin/bash", "-c"]
 
 # https://stackoverflow.com/questions/34571711/cant-run-curl-command-inside-my-docker-container
-RUN apt -y update; apt -y install curl zip vim
+RUN apt -y update; apt -y install curl zip
+# RUN apt -y install vim
 
 # https://unix.stackexchange.com/questions/711574/ignore-sudo-for-each-command
-# RUN alias sudo=""
-RUN printf '#!/bin/bash\n$@' >/bin/sudo; chmod +x /bin/sudo
+# RUN alias sudo="" # Doesn't work for scripts
+RUN if ! command -v sudo; then printf '#!/bin/bash\n$@\n' >/bin/sudo; chmod +x /bin/sudo; fi
+# To test *sudo overwrite*:
+# if ! command -v xyz; then printf '#!/bin/bash\n$@\n' >./xyz.sh; chmod +x ./xyz.sh; fi
+# echo $?
 
 RUN source <(curl -sL https://raw.githubusercontent.com/Matija8/dotfiles/main/osLinux/setup_all.sh)
 
@@ -28,5 +32,3 @@ RUN source <(curl -sL https://raw.githubusercontent.com/Matija8/dotfiles/main/os
 
 # To run image as container interactively 👍:
 # docker run -it --entrypoint ./bin/bash dotfiles_setup
-
-# TODO: Attach to container and debug
