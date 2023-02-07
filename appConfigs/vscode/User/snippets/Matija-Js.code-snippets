@@ -8,20 +8,20 @@
     "description": "node shebang"
   },
 
-  "ts-node shebang": {
-    // https://github.com/TypeStrong/ts-node/issues/73
-    "scope": "typescript",
-    "prefix": "#!",
-    "body": ["#!/usr/bin/env -S ts-node -T\n"],
-    "description": "ts-node shebang"
-  },
-
   "deno shebang": {
     // https://deno.land/manual@v1.26.0/examples/shebang
     "scope": "typescript",
-    "prefix": "#!",
+    "prefix": ["#!", "#!deno"],
     "body": ["#!/usr/bin/env -S deno run --allow-env\n"],
     "description": "deno shebang"
+  },
+
+  "ts-node shebang": {
+    // https://github.com/TypeStrong/ts-node/issues/73
+    "scope": "typescript",
+    "prefix": "#!ts-node",
+    "body": ["#!/usr/bin/env -S ts-node -T\n"],
+    "description": "ts-node shebang"
   },
 
   // *** Log ***
