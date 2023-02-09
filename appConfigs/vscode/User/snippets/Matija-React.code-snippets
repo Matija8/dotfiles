@@ -51,8 +51,26 @@
   },
 
   "react-useRef": {
+    "scope": "javascriptreact, typescriptreact",
     "prefix": "urh",
     "body": ["const $1 = useRef($2);$0"],
     "description": "React useRef() hook"
+  },
+
+  // *** Components ***
+
+  "react-component": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["component1", "cmpnt1", "cmpn1", "cmp1"],
+    "body": [
+      "function Component1$1(props) {",
+      "\t$0return (",
+      "\t\t<div style={{ outline: 'solid red' }}>",
+      "\t\t\t<h2>Component1$1</h2>",
+      "\t\t</div>",
+      "\t);",
+      "}"
+    ],
+    "description": "React functional component"
   }
 }

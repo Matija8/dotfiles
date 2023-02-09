@@ -28,16 +28,23 @@
 
   "Matija-log": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["lg", "log"],
-    "body": ["console.log($0);"],
-    "description": "Quick console.log(_)"
+    "prefix": ["lg", "log", "log1"],
+    "body": ["console.log($1);$0"],
+    "description": "Quick console.log"
+  },
+
+  "Matija-error": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["error1", "err1"],
+    "body": ["console.error($1);$0"],
+    "description": "Quick console.error"
   },
 
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
-    "body": ["console.log(`$*$ log `,{$0 }); //T*DO"],
-    "description": "Quick console.log(_) for debugging"
+    "body": ["console.log(`$*$ log $1`,{$0 }); //T*DO"],
+    "description": "Quick console.log for debugging"
   },
 
   "Matija-log-x2-eslint": {
@@ -46,9 +53,9 @@
     // https://stackoverflow.com/questions/41856706/whats-the-best-way-to-write-multi-line-code-snippets-in-vs-code
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.log(`$*$ log `,{$0 }); //T*DO"
+      "console.log(`$*$ log $1`,{$0 }); //T*DO"
     ],
-    "description": "Quick console.log(_) that doesn't trigger eslint error"
+    "description": "Quick console.log that doesn't trigger eslint error"
   },
 
   "Matija-log-x3-winston": {
@@ -57,7 +64,7 @@
     "body": [
       "// eslint-disable-next-line no-console",
       "console.log(`VVVVV\\n\\n`,",
-      "{ ts: new Date(), msg: `log `,$0 }, //T*DO",
+      "{ ts: new Date(), msg: `log $1`,$0 }, //T*DO",
       "`\\n\\nΛΛΛΛΛ`);"
     ],
     "description": "Insert console.log() between noisy winston logs"
@@ -70,7 +77,7 @@
     "prefix": ["tr1"],
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.trace(`$*$ trace `,{$0 }); //T*DO"
+      "console.trace(`$*$ trace $1`,{$0 }); //T*DO"
     ],
     "description": "Quick console.trace(_) that doesn't trigger eslint error"
   },
@@ -79,12 +86,12 @@
 
   "Matija-time-1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["tm1"],
+    "prefix": ["tm1", "time1"],
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.time('$*$ time $0'); //T*DO",
+      "console.time('$*$ time $1'); //T*DO$0",
       "// eslint-disable-next-line no-console",
-      "console.timeEnd('$*$ time $0'); //T*DO"
+      "console.timeEnd('$*$ time $1'); //T*DO"
     ],
     "description": "Quick time command that doesn't trigger eslint error"
   },
