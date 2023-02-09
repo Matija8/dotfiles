@@ -72,5 +72,12 @@
       "}"
     ],
     "description": "React functional component"
+  },
+
+  "react-button": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["btn1"],
+    "body": ["<button onClick={() => {$0}}>debugClick</button>"],
+    "description": "React button for debugging"
   }
 }
