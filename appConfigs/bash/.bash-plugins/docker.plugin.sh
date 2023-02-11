@@ -48,8 +48,13 @@ if command -v docker &>/dev/null; then
     }
 
     # Container ops:
+    # https://docs.docker.com/engine/reference/commandline/ps/
     alias dpsa="docker ps -a" # List containers
     alias docker-psa="docker ps -a"
+    # https://docs.docker.com/engine/reference/commandline/ps/#format
+    # https://stackoverflow.com/questions/46807924/bash-split-long-string-argument-to-multiple-lines
+    alias dpsf='printf "\n" && docker ps -a --format "{{.Names}}\
+  -  ID: {{.ID}}  -  Image:{{.Image}}  -  {{.Status}}\n"'
     alias drmf="docker rm -f" # Remove containers
 
     # Image ops:

@@ -1,6 +1,0 @@
-
-Install on Ubuntu
-    https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition-on-ubuntu
-
-Run on Ubuntu
-    https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/#run-mongodb-community-edition
