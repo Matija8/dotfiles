@@ -65,19 +65,18 @@ function install_APT_packages {
     if ! qview -v &>/dev/null; then
         sudo add-apt-repository -y ppa:jurplel/qview
         aptInstall qview
-        exit 1
     else
         printInstalledMsg qview
     fi
 
     aptListOrAptInstall qt5-image-formats-plugins
 
-    if ! audio-recorder -v &>/dev/null; then
-        sudo apt-add-repository -y ppa:audio-recorder/ppa
-        aptInstall audio-recorder
-    else
-        printInstalledMsg audio-recorder
-    fi
+    # if ! audio-recorder -v &>/dev/null; then
+    #     sudo apt-add-repository -y ppa:audio-recorder/ppa
+    #     aptInstall audio-recorder
+    # else
+    #     printInstalledMsg audio-recorder
+    # fi
 
     if ! songrec -V &>/dev/null; then
         sudo apt-add-repository ppa:marin-m/songrec -y -u

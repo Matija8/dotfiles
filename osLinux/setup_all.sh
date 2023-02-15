@@ -31,6 +31,8 @@ function breakOnError {
 }
 
 function curlDotfilesDir {
+    curl -V &>/dev/null || sudo apt install curl
+
     mkdir -p "$projects_dir"
     cd "$projects_dir"
 
