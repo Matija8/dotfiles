@@ -21,8 +21,14 @@ Python
 Node.js/NVM
     NVM
     https://github.com/coreybutler/nvm-windows/releases
-        Download "nvm-setup.exe"?! (TODO verify this)
-    Use cmd as admin! -> https://stackoverflow.com/a/52566499
+        Download "nvm-setup.exe"
+        Run nvm-setup.exe
+    Run cmd as admin! -> https://stackoverflow.com/a/52566499
+        (optional) nvm version
+        nvm install latest
+        (optional) nvm list
+        nvm use 19
+    Restart your PC for bash to be able to access nodejs
 
     Node.js (Prefer NVM if possible)
     https://nodejs.org/en/download/
