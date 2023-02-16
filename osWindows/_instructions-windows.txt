@@ -16,11 +16,17 @@ Python
 Node.js/NVM
     NVM
     https://github.com/coreybutler/nvm-windows/releases
+        Download "nvm-setup.exe"?! (TODO verify this)
     Use cmd as admin! -> https://stackoverflow.com/a/52566499
 
     Node.js (Prefer NVM if possible)
     https://nodejs.org/en/download/
     Yes to all, chocolaty too
+
+
+Deno.js
+    https://deno.land/manual/getting_started/installation
+    Pick the "Using PowerShell (Windows)" option ("irm ... iex")
 
 
 VScode
@@ -36,8 +42,11 @@ Notepad++
 
 Nvim
     https://github.com/neovim/neovim/releases
-    Zip is at the bottom of the releases page
-    Copy to `Program Files`
+    Zip file is at the bottom of the releases page, download it
+    Unzip the "nvim-win64" file ("Extract all...")
+    (Make sure /bin folder is inside "nvim-win64" as a direct child)
+    Rename "nvim-win64" folder to "Neovim"
+    Move "Neovim" folder to "Program Files/Neovim"
     Add to PATH (ENV)
         C:\Program Files\Neovim\bin
 
@@ -56,11 +65,13 @@ Mpv
     https://mpv.io/installation/
         Open sourceforge (Windows builds by shinchiro (releases and git))
         Download bootstrapper.zip
-        Extract both updater.bat & updater.ps1 to a Mpv folder
-        Run updater.bat
-        Copy the 'Mpv' folder to /Program Files
-        Add shortcut for mpv to 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'
-    or vlc
+        Unzip in the Downloads folder ("Extract all...")
+        You should get a "bootstrapper" folder with files "updater.bat" & "updater.ps1"
+        Rename folder "bootstrapper" -> "Mpv"
+        Run "updater.bat" with powershell (.\updater.bat)
+        Move the 'Mpv' folder to /Program Files
+        (Optional) Add shortcut for mpv to 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs'
+    or use Vlc
     https://www.videolan.org/vlc/
 
 
