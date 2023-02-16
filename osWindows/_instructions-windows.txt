@@ -45,6 +45,13 @@ VScode
     Vscode extensions
         cd vscode
         ./install_listed_extensions
+    Fonts - Cascadia Code
+        https://github.com/microsoft/cascadia-code/releases
+        Search for "fonts" and drag-n-drop ttf files from the zip file.
+        Reopen vscode to load fonts.
+        Test by typing "!=". Ligatures should now work.
+        You can maybe install windows terminal? - Cascadia Code should be bundled in?
+        https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701
 
 
 Notepad++
