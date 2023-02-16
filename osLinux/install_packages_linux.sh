@@ -10,6 +10,11 @@ source "$dotfiles_root_dir/scripts/lib/colors.sh"
 # ((EUID != 0)) && exec sudo -- "$0" "$@"
 
 function main {
+    if [[ "$OSTYPE" != "linux-gnu"* ]]; then
+        echo -e "Your os type isn't linux?!"
+        read -p "Are you sure you want to continue? (Ctrl+c to cancel)"
+    fi
+
     trap "exit" INT
     printf "${PURPLE}Starting package installation...${NC}\n"
 
