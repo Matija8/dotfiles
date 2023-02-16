@@ -18,3 +18,9 @@ source <(curl -sL https://raw.githubusercontent.com/Matija8/dotfiles/main/osLinu
 ```shell
 source <(curl -sL https://raw.githubusercontent.com/Matija8/dotfiles/main/osCommon/generate_new_ssh_key.sh)
 ```
+
+### To clone all "must have" repos
+
+```shell
+source <(curl -sL https://raw.githubusercontent.com/Matija8/dotfiles/main/osCommon/clone_repos.sh)
+```
