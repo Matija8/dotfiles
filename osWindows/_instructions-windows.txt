@@ -7,6 +7,9 @@ Git(bash)
     Add ssh keys
         https://docs.github.com/en/enterprise-server@3.4/authentication/connecting-to-github-with-ssh
         https://github.com/settings/keys
+        source <(curl -sL https://raw.githubusercontent.com/Matija8/dotfiles/main/osCommon/generate_new_ssh_key.sh)
+    Don't allow "Git GUI Here" (You'll need to restart), only "Git Bash Here"
+        https://www.reddit.com/r/git/comments/a8lk83/how_do_i_remove_git_gui_here_and_git_bash_here/
 
 Python
     https://www.python.org/downloads/windows/
