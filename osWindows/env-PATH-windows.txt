@@ -1,0 +1,9 @@
+Search for "path"
+Click on "Edit the system environment variables"
+Click on "Environment Variables" near the bottom
+Double-Click on "Path"
+Add the env variables and click "OK"
+Restart your computer
+
+C:\Program Files\Git
+C:\Program Files\Neovim\bin
