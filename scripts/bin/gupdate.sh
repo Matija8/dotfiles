@@ -19,6 +19,8 @@ function main {
     gpull "$_projects_dir/Random-Projects/"
     gpull "$_projects_dir/FE-Widget-Experiments/"
 
+    gpull "$HOME/Documents/Private-Docs/"
+
     "$_projects_dir/dotfiles/copy_configs.py"
 
     # The x in gupdate'x' stands for 'extended'
