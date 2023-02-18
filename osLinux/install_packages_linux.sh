@@ -328,18 +328,16 @@ function install_c_sharp {
 function install_docker {
     printf "\n\n${GREEN}Docker:${NC}\n\n"
     # https://docs.docker.com/engine/install/ubuntu/#installation-methods
+    # https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
     # https://docs.docker.com/engine/install/linux-postinstall
 
     # Remove old docker
-    sudo apt remove docker docker-engine docker.io containerd runc
+    sudo apt remove docker docker.io containerd runc
+    sudo apt remove docker-engine # This might error in apt, that is why it's seperate
 
     # Set up the repository
     sudo apt update
-    sudo apt install \
-        ca-certificates \
-        curl \
-        gnupg \
-        lsb-release
+    sudo apt install ca-certificates curl gnupg lsb-release
 
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg |
         sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -373,6 +371,8 @@ function docker_allow_no_sudo {
     sudo usermod -aG docker $USER
     # https://linux.die.net/man/1/newgrp
     newgrp docker
+
+    # You might need to restart your computer now to use docker without sudo.
 
     # To sanity check that docker now works without sudo, run:
     # docker run hello-world
