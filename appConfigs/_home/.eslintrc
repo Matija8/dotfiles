@@ -9,6 +9,10 @@
 // To print config for specific file run:
 // eslint --print-config <PATH_TO_FILE>
 {
+  // Personal Configuration Files are deprecated!
+  // https://eslint.org/docs/latest/use/configure/configuration-files#personal-configuration-files-deprecated
+  // "root": true,
+
   "parserOptions": {
     // https://stackoverflow.com/questions/57378411/eslint-fails-to-parse-and-red-highlights-optional-chaining-and-nullish-coal
     "ecmaVersion": 2020
