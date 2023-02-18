@@ -31,6 +31,7 @@ alias lnsf="ln -sf"
 
 alias hist="history"
 alias chx="chmod +x"
+alias cpr="cp -r" # https://stackoverflow.com/questions/8055501/how-to-copy-in-bash-all-directory-and-files-recursive
 alias rmrf="rm -rf"
 
 # https://stackoverflow.com/questions/3915040/how-to-obtain-the-absolute-path-of-a-file-via-shell-bash-zsh-sh
