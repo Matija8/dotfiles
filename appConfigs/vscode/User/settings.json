@@ -11,7 +11,7 @@
   "window.newWindowDimensions": "maximized",
   "window.title": "${rootName}${separator}${dirty}${activeEditorShort}",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
 
   // Workbench
   "workbench.activityBar.iconClickBehavior": "focus",
