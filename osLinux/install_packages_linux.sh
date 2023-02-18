@@ -387,10 +387,11 @@ function install_docker_compose {
     # is the same as:
     # linux-x86_64
 
+    # https://docs.docker.com/compose/install/other/
     local docker_compose_bin_path="/usr/local/bin/docker-compose"
 
     sudo curl -SL \
-        "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" \
+        "https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-$(uname -s)-$(uname -m)" \
         -o "$docker_compose_bin_path"
 
     sudo chmod +x "$docker_compose_bin_path"
