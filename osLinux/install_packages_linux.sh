@@ -100,6 +100,9 @@ function install_APT_packages {
 
     versionOrAptInstall xclip -version
 
+    dontAptInstall mc     # https://midnight-commander.org/
+    dontAptInstall ranger # https://github.com/ranger/ranger
+
     # Hard disk tools:
     #
     # smartd, smartctl
