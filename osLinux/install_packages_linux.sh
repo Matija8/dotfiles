@@ -100,8 +100,11 @@ function install_APT_packages {
 
     versionOrAptInstall xclip -version
 
+    # Hardcore
     dontAptInstall mc     # https://midnight-commander.org/
     dontAptInstall ranger # https://github.com/ranger/ranger
+    dontAptInstall i3     # https://i3wm.org/
+    dontAptInstall dmenu  # https://tools.suckless.org/dmenu/
 
     # Hard disk tools:
     #
@@ -122,9 +125,6 @@ function install_APT_packages {
     # Alerts -> notify-send
     aptListOrAptInstall libnotify-bin
     aptListOrAptInstall notify-osd
-
-    dontAptInstall i3
-    dontAptInstall dmenu
 
     # KDE stuff
     versionOrAptInstall dolphin -v
