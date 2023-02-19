@@ -113,10 +113,10 @@
     "default": false,
     "MD001": false,
     "MD007": false,
-    "MD013": { "line_length": 80 },
     "MD036": false,
     "MD041": false,
     "no-hard-tabs": true
+    // "MD013": { "line_length": 80 },
   },
   "reflowMarkdown.preferredLineLength": 80,
 
@@ -162,7 +162,7 @@
   // C++
   "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
   "C_Cpp.default.includePath": ["/usr/local/include"],
-  "C_Cpp.intelliSenseEngine": "Default",
+  "C_Cpp.intelliSenseEngine": "default",
   "[cpp]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
