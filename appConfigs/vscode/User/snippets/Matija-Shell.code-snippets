@@ -43,9 +43,12 @@
 
   "script_dir": {
     "scope": "shellscript",
-    "prefix": ["rp", "dirname", "cd dirname"],
+    "prefix": ["scriptdir", "script_dir"],
+    // https://stackoverflow.com/questions/3915040/how-to-obtain-the-absolute-path-of-a-file-via-shell-bash-zsh-sh
+    // https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
     "body": [
       "script_dir=$(realpath $(dirname \"\\$0\"))",
+      // "script_dir=$(realpath $(dirname \"$BASH_SOURCE\"))",
       "cd \"\\$script_dir/..\""
     ],
     "description": "Get path to the parent directory of the script file."
