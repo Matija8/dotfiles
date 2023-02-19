@@ -38,7 +38,7 @@
   "terminal.integrated.defaultProfile.linux": "bash",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.fontFamily": "Cascadia Code, DejaVu Sans Mono, Menlo",
-  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.fontSize": 17,
   "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.toggleSidebarVisibility",
@@ -55,7 +55,7 @@
   "editor.folding": true,
   "editor.fontFamily": "Cascadia Code, DejaVu Sans Mono, Menlo",
   "editor.fontLigatures": "true",
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.guides.bracketPairs": "active",
   "editor.lineHeight": 22,
   "editor.lineNumbers": "on",
