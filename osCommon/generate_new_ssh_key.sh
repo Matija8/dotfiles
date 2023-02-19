@@ -6,6 +6,8 @@
 
 function main {
 
+    mkdir -p ~/.ssh
+
     # First check if you already have an ssh key
     if ls -a ~/.ssh/*.pub &>/dev/null; then
         echo -e "Existing public ssh key files:\n"
@@ -15,22 +17,29 @@ function main {
     fi
 
     # Generate public/private ed25519 key pair.
-    ssh-keygen -t ed25519 -C "matijanme@gmail.com"
+    ssh-keygen -f ~/.ssh/github -t ed25519 -C "matijanme@gmail.com"
 
     # Start the ssh-agent in the background
     eval $(ssh-agent -s)
 
     # Add new key to the ssh agent.
-    ssh-add ~/.ssh/id_ed25519
+    ssh-add ~/.ssh/github
+
+    # https://unix.stackexchange.com/questions/58969/how-to-list-keys-added-to-ssh-agent-with-ssh-add
+    echo -e "\nThese are all the ssh keys you have in ssh-agent currently:"
+    ssh-add -l
+    echo -e ""
 
     displaySshKey
+
+    # How to delete keys:
+    # https://stackoverflow.com/questions/25464930/how-can-i-remove-an-ssh-key
 }
 
 function displaySshKey {
-    gh_ssh_key_file="$HOME/.ssh/id_ed25519.pub"
-    if [ -f "$gh_ssh_key_file" ]; then
+    if [ -f ~/.ssh/github.pub ]; then
         echo -e "Here is the ssh key. Paste it into GitHub:\n"
-        cat "$gh_ssh_key_file"
+        cat ~/.ssh/github.pub
         echo -e ""
     fi
 }
