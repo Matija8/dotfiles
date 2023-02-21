@@ -15,3 +15,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # https://stackoverflow.com/questions/17583578/what-command-means-do-nothing-in-a-conditional-in-bash
     :
 fi
+
+function open_localhost_port {
+    xdg-open http://localhost:$1/
+}
