@@ -195,5 +195,13 @@
     "scope": "typescript, typescriptreact",
     "prefix": ["ts-expect-error"],
     "body": "// @ts-expect-error $0"
+  },
+
+  "region": {
+    // https://dev.to/hurricaneinteractive/vs-code-define-a-region-1cd1
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["//region", "//#region", "// #region", "#region"],
+    "body": ["// #region$1", "// #endregion"],
+    "description": "#Region comments for IDE code folding"
   }
 }
