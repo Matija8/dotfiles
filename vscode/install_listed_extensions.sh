@@ -23,6 +23,7 @@ code --install-extension jock.svg
 code --install-extension kaiwood.center-editor-window
 code --install-extension MariusAlchimavicius.json-to-ts
 code --install-extension marvhen.reflow-markdown
+code --install-extension mechatroner.rainbow-csv
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.isort
 code --install-extension ms-python.python
@@ -36,9 +37,8 @@ code --install-extension quicktype.quicktype
 code --install-extension rust-lang.rust-analyzer
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension stringham.move-ts
-code --install-extension toasty-technologies.octave
+code --install-extension tamasfe.even-better-toml
 code --install-extension tomoki1207.pdf
-code --install-extension tusindfryd.octave-formatter
 code --install-extension yandeu.five-server
 code --install-extension yzane.markdown-pdf
 code --install-extension yzhang.markdown-all-in-one
