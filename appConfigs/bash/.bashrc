@@ -11,21 +11,20 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 NC='\033[0m'
 
-# Old prompt
-# TODO: Delete after verifying new prompt works on windows
-# export PS1="\[\e[32m\][\[\e[m\]\[\e[32m\]\w\[\e[m\]\[\e[32m\]]\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
+prompt_iife() {
+    local prompt_time_hhmm="\A"
+    local prompt_pwd="\w"
 
-prompt_time_hhmm="\A"
-prompt_pwd="\w"
+    local PRMPT_CLR_NC="\[\e[m\]"
+    local PRMPT_CLR_RED="\[\e[31m\]"
+    local PRMPT_CLR_GREEN="\[\e[32m\]"
+    local PRMPT_CLR_BLUE="\[\e[34m\]"
+    local prompt_matija_1="$PRMPT_CLR_BLUE$prompt_time_hhmm $PRMPT_CLR_GREEN[$prompt_pwd]$PRMPT_CLR_RED\$ $PRMPT_CLR_NC"
 
-PRMPT_CLR_NC="\[\e[m\]"
-PRMPT_CLR_RED="\[\e[31m\]"
-PRMPT_CLR_GREEN="\[\e[32m\]"
-PRMPT_CLR_BLUE="\[\e[34m\]"
-prompt_matija_1="$PRMPT_CLR_BLUE$prompt_time_hhmm $PRMPT_CLR_GREEN[$prompt_pwd]$PRMPT_CLR_RED\$ $PRMPT_CLR_NC"
-
-# Prompt.
-export PS1="$prompt_matija_1"
+    # Prompt.
+    export PS1="$prompt_matija_1"
+} && prompt_iife "$@"
+unset -f prompt_iife
 
 # ***Bash specific aliases (vs Zsh)***
 alias rehash="hash -r"

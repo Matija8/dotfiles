@@ -61,5 +61,16 @@
     "prefix": ["devnull"],
     "body": "&>/dev/null",
     "description": "Redirect STDOUT and STDERR to /dev/null."
+  },
+
+  "iife": {
+    // https://stackoverflow.com/questions/12299676/is-it-feasible-to-implement-anonymous-functions-in-bash-even-using-eval-if-nec
+    "prefix": ["iife"],
+    "body": [
+      "iife() {",
+      "$0", //
+      "} && iife \"\\$@\"",
+      "unset -f iife"
+    ]
   }
 }
