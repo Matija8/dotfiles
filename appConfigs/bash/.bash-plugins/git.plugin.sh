@@ -25,15 +25,25 @@ function gfpa {
 }
 
 function gbs {
-    # *** Git branch case sensitive ***
-    # https://stackoverflow.com/questions/41716025/how-do-i-list-branches-having-a-common-prefix
+    # *** Git branch list case sensitive ***
     git branch -a | grep "$1"
 }
 
 function gbi {
-    # *** Git branch case insensitive  ***
+    # *** Git branch list case insensitive  ***
     # https://stackoverflow.com/questions/48492422/how-to-grep-for-case-insensitive-string-in-a-file
     git branch -a | grep -i "$1"
+}
+
+function gbps {
+    # *** Git branch list with prefix case sensitive (ignores remotes) ***
+    # https://stackoverflow.com/questions/41716025/how-do-i-list-branches-having-a-common-prefix
+    git branch -al "$1*"
+}
+
+function gbpi {
+    # *** Git branch list with prefix case insensitive (ignores remotes) ***
+    git branch -ali "$1*"
 }
 
 function gpa {
@@ -98,6 +108,9 @@ alias gbv="git branch -vv" # Show local branches info
 # Branches mutable
 alias gbd='git branch -d' # Delete a local branch that has a remote
 alias gbD='git branch -D' # Delete a local branch
+# Delete local branches with prefix XXX that have a remote
+alias gbdp='git branch -d $(git branch -l | grep "$1")'
+alias gbDp='git branch -d' # Delete local branches with prefix XXX
 
 alias gc="git commit -v"
 alias gcnv="git commit -v --no-verify"
