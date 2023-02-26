@@ -47,6 +47,10 @@ function gbpi {
     git branch -ali "$1*"
 }
 
+# TODO: gbdp, gbDp
+# https://stackoverflow.com/questions/3670355/can-you-delete-multiple-branches-in-one-command-with-git
+# git branch -d $(git branch -la '$1*')
+
 function gbdp {
     # Mnemonic: Git Branch Delete Prefix
     # Delete local branches with prefix $1 that have a remote
