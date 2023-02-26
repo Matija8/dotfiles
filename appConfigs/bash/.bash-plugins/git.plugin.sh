@@ -13,10 +13,11 @@ function gs {
     printf "\n${GREEN}Last commit:${NC}\n${last_commit_msg}\n\n"
 }
 
+# region git branch
+
 function gfpa {
-    # *** Git fetch prune `all` ***
-    # Git fetch prune and
-    # remove all local branches with `gone` remote!
+    # Mnemonic: Git Fetch Prune "All"
+    # Git fetch prune and remove all local branches with "gone" remote!
     # https://stackoverflow.com/a/33548037
     git fetch -p &&
         for branch in \
@@ -25,26 +26,52 @@ function gfpa {
 }
 
 function gbs {
-    # *** Git branch list case sensitive ***
+    # Mnemonic: Git Branch list case Sensitive
     git branch -a | grep "$1"
 }
 
 function gbi {
-    # *** Git branch list case insensitive  ***
+    # Mnemonic: Git Branch list case Insensitive
     # https://stackoverflow.com/questions/48492422/how-to-grep-for-case-insensitive-string-in-a-file
     git branch -a | grep -i "$1"
 }
 
 function gbps {
-    # *** Git branch list with prefix case sensitive (ignores remotes) ***
+    # Mnemonic: Git Branch list with prefix case sensitive (ignores remotes)
     # https://stackoverflow.com/questions/41716025/how-do-i-list-branches-having-a-common-prefix
     git branch -al "$1*"
 }
 
 function gbpi {
-    # *** Git branch list with prefix case insensitive (ignores remotes) ***
+    # Mnemonic: Git Branch list with prefix case insensitive (ignores remotes)
     git branch -ali "$1*"
 }
+
+function gbdp {
+    # Mnemonic: Git Branch Delete Prefix
+    # Delete local branches with prefix $1 that have a remote
+    local branches=$(git branch -la "$1*")
+    echo -e "$branches" | while read branch; do
+        echo "deleting branch: $branch"
+        git branch -d "$branch"
+        echo ""
+    done
+}
+
+function gbDp {
+    # Mnemonic: Git Branch Delete Prefix
+    # Delete local branches with prefix $1
+    local branches=$(git branch -la "$1*")
+    echo -e "$branches" | while read branch; do
+        echo "deleting branch: $branch"
+        git branch -D "$branch"
+        echo ""
+    done
+}
+
+# endregion git branch
+
+# region git push
 
 function gpa {
     # *** Git push to *all* remotes ***
@@ -66,6 +93,8 @@ function gpup {
     local current_branch=$(git rev-parse --abbrev-ref HEAD)
     git push --set-upstream origin $current_branch
 }
+
+# endregion git push
 
 function gDeleteRemoteBranch {
     # https://www.educative.io/answers/how-to-delete-remote-branches-in-git
@@ -108,9 +137,6 @@ alias gbv="git branch -vv" # Show local branches info
 # Branches mutable
 alias gbd='git branch -d' # Delete a local branch that has a remote
 alias gbD='git branch -D' # Delete a local branch
-# Delete local branches with prefix XXX that have a remote
-alias gbdp='git branch -d $(git branch -l | grep "$1")'
-alias gbDp='git branch -d' # Delete local branches with prefix XXX
 
 alias gc="git commit -v"
 alias gcnv="git commit -v --no-verify"
