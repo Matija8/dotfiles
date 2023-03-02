@@ -155,6 +155,10 @@ alias gcob="git checkout -b"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gdiff="git diff"
+# https://stackoverflow.com/questions/4350678/git-diff-w-ignore-whitespace-only-at-start-end-of-lines
+alias gdw="git diff --ignore-space-change" # same as git diff -b, not -w!
+alias gdcw="git diff --cached --ignore-space-change"
+alias gdiffw="git diff --ignore-space-change"
 
 # Fetch
 alias gf="git fetch"
