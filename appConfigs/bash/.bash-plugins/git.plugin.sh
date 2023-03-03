@@ -187,6 +187,7 @@ alias grst="git restore"
 alias grm="git rm"
 
 alias gl="git pull"
+alias glpa="git pull && gfpa"
 alias gp="git push"
 # "git push -f" # Force* push!
 # Setting the default remote for push:
