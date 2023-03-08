@@ -28,6 +28,7 @@ alias la="ls -1a --color"
 # https://superuser.com/questions/81164/why-create-a-link-like-this-ln-nsf
 alias lns="ln -s"
 alias lnsf="ln -sf"
+alias lnsfn="ln -sfn"
 
 alias hist="history"
 alias chx="chmod +x"
