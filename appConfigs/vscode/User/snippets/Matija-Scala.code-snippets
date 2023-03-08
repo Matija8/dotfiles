@@ -1,0 +1,9 @@
+{
+  "Matija-log-x1": {
+    "scope": "scala",
+    "prefix": ["log", "lx1", "lx2"],
+    // https://stackoverflow.com/questions/29743009/in-scala-are-semicolons-necessary-in-some-situations
+    "body": ["println(\"\n\n $*$ log $0 \n\n\"); //T*DO"],
+    "description": "Log to console"
+  }
+}
