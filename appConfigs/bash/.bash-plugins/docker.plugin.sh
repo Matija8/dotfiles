@@ -44,7 +44,9 @@ if command -v docker &>/dev/null; then
         # docker exec -it <mycontainer> bash
         # docker exec --help
         local container_name="$1"
-        docker exec -it "$container_name" ./bin/sh
+        # https://serverfault.com/questions/7503/how-to-determine-if-a-bash-variable-is-empty
+        local command=${2:-"sh"}
+        docker exec -it "$container_name" "$command"
     }
 
     # Container ops:
