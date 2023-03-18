@@ -107,6 +107,16 @@
     "description": "Perf timing"
   },
 
+  "Matija-wait-3sec": {
+    // https://stackoverflow.com/questions/42529476/let-promise-wait-a-couple-of-seconds-before-return
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["wait3", "pause3"],
+    "body": [
+      "new Promise((resolve) => setTimeout(() => {alert('3secs')$1; resolve();}, 3000))"
+    ],
+    "description": "Simulate fetch (3seconds)"
+  },
+
   // *** Debugger ***
 
   "Matija-debug-1": {
