@@ -52,11 +52,9 @@ if command -v docker &>/dev/null; then
     # Container ops:
     # https://docs.docker.com/engine/reference/commandline/ps/
     alias dpsa="docker ps -a" # List containers
-    alias docker-psa="docker ps -a"
     # https://docs.docker.com/engine/reference/commandline/ps/#format
-    # https://stackoverflow.com/questions/46807924/bash-split-long-string-argument-to-multiple-lines
-    alias dpsf='printf "\n" && docker ps -a --format "{{.Names}}\
-  -  ID: {{.ID}}  -  Image:{{.Image}}  -  {{.Status}}\n"'
+    # https://github.com/moby/moby/issues/7477
+    alias dpsf='printf "\n" && docker ps -a --format "table {{.Image}}\t{{.Names}}\t{{.Status}}"'
     alias drmf="docker rm -f" # Remove containers
 
     # Image ops:
@@ -78,23 +76,12 @@ if command -v docker &>/dev/null; then
     # TODO: Don't require sudo on linux?
     alias docker-rm-allsu='sudo docker rm -f $(sudo docker ps -aq)'
 
+    # Volume ops:
+    # https://docs.docker.com/storage/volumes/
+    alias dvls="docker volume ls"
+    alias dvoli="docker volume inspect"
+
     # If you get any errors, checkout:
     # https://docs.docker.com/engine/install/linux-postinstall
-
-    # WSL2 Start Docker
-    #
-    # https://stackoverflow.com/questions/44678725/cannot-connect-to-the-docker-daemon-at-unix-var-run-docker-sock-is-the-docker
-    #
-    # Detach the dockerd process?
-    # https://unix.stackexchange.com/questions/269805/how-can-i-detach-a-process-from-a-bash-script
-    # Seems that this works:
-    # sudo su
-    # dockerd & disown
-    #
-    # alias docker-wsl2-start="sudo dockerd & disown" # This doesn't work?!
-    alias docker-wsl2-start="sudo dockerd"
-    #
-    # Init.d startup script for WSL2?
-    # https://unix.stackexchange.com/questions/20357/how-can-i-make-a-script-in-etc-init-d-start-at-boot
 
 fi
