@@ -9,4 +9,12 @@ if [ -d "$HOME/.cargo" ]; then
 
     alias cargonew="cargo new"
     alias cargorun="cargo run"
+
+    function rustr {
+        # Mnemonic: Rust run
+        # Build and run in 1 step.
+        # http://blog.joncairns.com/2015/10/a-single-command-to-compile-and-run-rust-programs/
+        local name=$(basename $1 .rs)
+        rustc $@ && ./$name && rm $name
+    }
 fi
