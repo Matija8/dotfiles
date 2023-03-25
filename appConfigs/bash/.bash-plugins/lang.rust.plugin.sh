@@ -4,6 +4,7 @@
 
 if [ -d "$HOME/.cargo" ]; then
     . "$HOME/.cargo/env"
+
     # To check rust installation was successful:
     # rustc -V && cargo -V && rustup -V
 
