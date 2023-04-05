@@ -165,7 +165,7 @@ alias gf="git fetch"
 alias gfp="git fetch -p" # Prune!
 
 # Commits graph
-alias glo="git log --oneline --decorate --graph"
+alias glo="git log --oneline" # https://stackoverflow.com/questions/4479225/how-to-output-git-log-with-the-first-line-only
 alias glog="git log --oneline --decorate --graph"
 alias gloga="git log --oneline --decorate --graph --all"
 
