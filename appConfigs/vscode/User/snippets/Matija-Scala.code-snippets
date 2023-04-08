@@ -1,9 +1,17 @@
 {
   "Matija-log-x1": {
     "scope": "scala",
-    "prefix": ["log", "lx1", "lx2"],
+    "prefix": ["lx", "lx1"],
     // https://stackoverflow.com/questions/29743009/in-scala-are-semicolons-necessary-in-some-situations
-    "body": ["println(\"*\\n *\\n $*$ log $0 \\n *\\n*\"); //T*DO"],
+    // https://docs.scala-lang.org/overviews/core/string-interpolation.html
+    "body": ["println(s\"$$*$$ log $0\"); // T*DO"],
+    "description": "Log to console"
+  },
+  "Matija-log-x2": {
+    "scope": "scala",
+    "prefix": ["lx2"],
+    // For logging between noisy server logs.
+    "body": ["println(s\"V\\n $$*$$ log $0 \\nɅ\"); // T*DO"],
     "description": "Log to console"
   }
 }
