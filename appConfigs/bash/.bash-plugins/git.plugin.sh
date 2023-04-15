@@ -78,7 +78,7 @@ function gbDp {
 # region git push
 
 function gpa {
-    # *** Git push to *all* remotes ***
+    # *** Git Push to *All* remotes ***
     # https://stackoverflow.com/questions/14290113/git-pushing-code-to-two-remotes
     # https://stackoverflow.com/questions/5785549/able-to-push-to-all-git-remotes-with-the-one-command
     local git_remotes_arr=$(git remote)
@@ -93,9 +93,16 @@ function gpa {
 }
 
 function gpup {
-    # *** Git push - set upstream ***
+    # *** Git Push UPstream ***
     local current_branch=$(git rev-parse --abbrev-ref HEAD)
     git push --set-upstream origin $current_branch
+
+    # Examples:
+    # git push --set-upstream origin some-branch-1234
+    # git push --set-upstream some-remote some-branch-1234
+    # git push --set-upstream gitlab-origin main
+
+    # To see origins: git remote
 }
 
 # endregion git push
@@ -166,9 +173,9 @@ alias gfp="git fetch -p" # Prune!
 
 # Commits graph
 # https://stackoverflow.com/questions/4479225/how-to-output-git-log-with-the-first-line-only
-alias glo="git log --oneline"                            # Mnmnc: git log
-alias glog="git log --oneline --decorate --graph"        # Mnmnc: git log graph
-alias gloga="git log --oneline --decorate --graph --all" # Mnmnc: git log graph all
+alias glo="git log --oneline"                            # Mnmc: git log
+alias glog="git log --oneline --decorate --graph"        # Mnmc: git log graph
+alias gloga="git log --oneline --decorate --graph --all" # Mnmc: git log graph all
 
 # Restore/Reset/Revert/Clean
 #
