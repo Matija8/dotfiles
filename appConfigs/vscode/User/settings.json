@@ -133,29 +133,23 @@
     {
       "tag": "T*DO",
       "color": "#FF2D00",
-      "strikethrough": false,
-      "underline": false,
       "backgroundColor": "transparent",
       "bold": true,
+      "strikethrough": false,
+      "underline": false,
       "italic": false
     },
     {
       "tag": "TODO",
-      "color": "#FF8C00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
+      "color": "#FF8C00"
     },
     {
       "tag": "*",
-      "color": "#98C379",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
+      "color": "#98C379"
+    },
+    {
+      "tag": "NOTE:",
+      "color": "#98C379"
     }
   ],
 
