@@ -32,7 +32,7 @@ if command -v docker &>/dev/null; then
         # By default opens "sh". When inside you can switch to bash, if your image has it.
         #
         # docker run --help
-        docker run -it --entrypoint ./bin/sh $@
+        docker run -it --entrypoint sh $@
     }
 
     function dexecit {
