@@ -13,6 +13,9 @@ if command -v docker &>/dev/null; then
     # https://stackoverflow.com/questions/36075525/how-do-i-run-a-docker-instance-from-a-dockerfile
     # You can add -t TAG_NAME to add a tag to the image
     #
+    # --progress=plain --no-cache <- use this for debugging
+    # https://stackoverflow.com/questions/64804749/why-is-docker-build-not-showing-any-output-from-commands
+    #
     # "docker build from pipe" mnemonic. Don't forget -t at the end!
     alias dbfp="docker build - <"
     # "docker build from current dir" mnemonic. Requires tag name at the end.
