@@ -98,7 +98,7 @@
   "Matija-time-2": {
     // https://stackoverflow.com/questions/313893/how-to-measure-time-taken-by-a-function-to-execute
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["tm2"],
+    "prefix": ["tm2", "time2-perf"],
     "body": [
       "let startTime = performance.now();",
       "let endTime = performance.now();",
