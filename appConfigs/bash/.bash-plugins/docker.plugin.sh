@@ -59,6 +59,9 @@ if command -v docker &>/dev/null; then
     # https://github.com/moby/moby/issues/7477
     alias dpsf='printf "\n" && docker ps -a --format "table {{.Image}}\t{{.Names}}\t{{.Status}}"'
     alias drmf="docker rm -f" # Remove containers
+    # Copy files to container
+    # https://stackoverflow.com/questions/22907231/how-to-copy-files-from-host-to-docker-container
+    # docker cp foo.txt container_id:/foo.txt
 
     # Image ops:
     alias dim="docker image"
