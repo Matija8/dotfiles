@@ -1,6 +1,8 @@
 # Temporary files/folders
 .directory
-/.vscode
+.vscode
+# https://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
+!.vscode/settings.json
 /.mypy_cache
 /__pycache__
 
