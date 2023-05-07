@@ -18,7 +18,6 @@ function main() {
     if ! command -v brew &>/dev/null; then
         install_brew
     fi
-    # install_oh_my_zsh
 
     printf "\nInstalling Neovim...\n\n"
     brew install neovim
@@ -29,10 +28,6 @@ function main() {
 
 function install_brew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-}
-
-function install_oh_my_zsh {
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 main
