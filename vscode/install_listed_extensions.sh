@@ -5,15 +5,12 @@ code --install-extension adpyke.vscode-sql-formatter
 code --install-extension alefragnani.Bookmarks
 code --install-extension arcanis.vscode-zipfs
 code --install-extension azemoh.one-monokai
-code --install-extension blanu.vscode-styled-jsx
 code --install-extension bradlc.vscode-tailwindcss
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension clinyong.vscode-css-modules
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension denoland.vscode-deno
-code --install-extension diegolincoln.vscode-styled-components
-code --install-extension donjayamanne.githistory
 code --install-extension DotJoshJohnson.xml
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
@@ -23,7 +20,6 @@ code --install-extension jock.svg
 code --install-extension kaiwood.center-editor-window
 code --install-extension MariusAlchimavicius.json-to-ts
 code --install-extension marvhen.reflow-markdown
-code --install-extension mechatroner.rainbow-csv
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.isort
 code --install-extension ms-python.python
@@ -32,11 +28,10 @@ code --install-extension ms-vscode.cpptools
 code --install-extension msjsdiag.vscode-react-native
 code --install-extension nhoizey.gremlins
 code --install-extension PKief.material-icon-theme
-code --install-extension Prisma.prisma
 code --install-extension quicktype.quicktype
 code --install-extension rust-lang.rust-analyzer
-code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension stringham.move-ts
+code --install-extension styled-components.vscode-styled-components
 code --install-extension tamasfe.even-better-toml
 code --install-extension tomoki1207.pdf
 code --install-extension yandeu.five-server

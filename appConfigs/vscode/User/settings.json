@@ -100,13 +100,6 @@
 
   // SpellCheck
   "cSpell.enabled": false,
-  "cSpell.userWords": [
-    "browserslist",
-    "Cheatsheet",
-    "numpad",
-    "Readonly",
-    "webfonts"
-  ],
 
   // Markdown
   "markdownlint.config": {

@@ -468,11 +468,7 @@
 
   // *** Other ***
 
-  // Shift + Alt + s: Toggle spell check.
-  {
-    "key": "shift+alt+s",
-    "command": "cSpell.toggleEnableForGlobal"
-  },
+  // Shift + Alt + r: Find symbol references.
   {
     "key": "shift+alt+r",
     "command": "references-view.findReferences",
