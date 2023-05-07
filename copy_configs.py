@@ -300,11 +300,6 @@ class WindowsUpdater(Updater):
             f'{mintty_target_dir}/config'
         )
 
-    def update_vs_vim(self) -> None:
-        self._update_file(
-            f'{self.win_fldr}/Visual Studio/.vsvimrc', f'{get_home()}/.vsvimrc'
-        )
-
     def update_home_from_windir(self, path: str) -> None:
         self._update_file(f'{self.win_fldr}/{path}', f'{get_home()}/{path}')
 
