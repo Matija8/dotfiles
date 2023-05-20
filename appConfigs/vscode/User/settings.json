@@ -171,11 +171,8 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
   "react-native-tools.showUserTips": false,
+  "svelte.enable-ts-plugin": true,
   "svg.preview.mode": "svg",
-
-  // Matlab/Octave
-  // "octave-formatter.pythonPath": "/usr/bin/python",
-  "octave-formatter.pythonPath": "/usr/bin/python3",
 
   // Go lang
   "go.toolsManagement.autoUpdate": true,
@@ -207,6 +204,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[svelte]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
