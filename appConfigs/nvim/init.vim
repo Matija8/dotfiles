@@ -367,10 +367,16 @@
     " Leader "
 
 
-        " Leader + d: Select word.
-            nnoremap <Leader>d      viw
-            vnoremap <Leader>d      <Esc>viw
+        " Leader + f: File System Explore
+        " https://stackoverflow.com/questions/9160499/go-to-back-directory-browsing-after-opening-file-in-vim
+            noremap <Leader>f       <Esc>:Ex<cr>
 
+        " Leader + n: New buffer
+        " https://stackoverflow.com/questions/4478111/vim-how-do-you-open-another-no-name-buffer-like-the-one-on-startup
+            noremap <Leader>n       <Esc>:tabnew<cr>
+
+        " Leader + t: New buffer (new tab)
+            noremap <Leader>t       <Esc>:tabnew<cr>
 
         " Leader + v: Vertical split.
             noremap <Leader>v       <Esc>:vs<cr>
@@ -395,8 +401,9 @@
             noremap <Leader>Q       <Esc>:qa!<cr>
 
 
-        " Leader + t: Trim whitespace.
-            noremap  <Leader>t  :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+        " Unassigned: Trim whitespace.
+            "noremap  <Leader>t  :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+            " Trim command doesn't work?
             "noremap  <Leader>t      :trim<cr>
 
 
