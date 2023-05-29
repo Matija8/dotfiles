@@ -16,6 +16,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     :
 fi
 
+# https://superuser.com/questions/365847/where-should-the-xdg-config-home-variable-be-defined
+export XDG_CONFIG_HOME="$HOME/.config"
+
 function open_localhost_port {
     xdg-open http://localhost:$1/
 }

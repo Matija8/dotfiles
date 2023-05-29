@@ -133,7 +133,12 @@ function install_APT_packages {
     whichOrAptInstall ark
 
     # Text Editors
-    if nvim -v &>/dev/null; then printInstalledMsg neovim; else aptInstall neovim; fi
+    if nvim -v &>/dev/null; then printInstalledMsg neovim; else
+        # Need version > 0.5 for init.lua to work
+        # https://github.com/neovim/neovim/wiki/Installing-Neovim#ubuntu
+        sudo add-apt-repository ppa:neovim-ppa/stable -y
+        aptInstall neovim
+    fi
     versionOrAptInstall gedit -V
     aptListOrAptInstall fonts-cascadia-code
     aptListOrAptInstall fonts-firacode
