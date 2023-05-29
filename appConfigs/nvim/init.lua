@@ -29,6 +29,13 @@ vim.g.mapleader = ' '
 -- https://neovim.io/doc/user/lua-guide.html#lua-guide-mappings-set
 
 vim.keymap.set('n', '<Leader>f', '<Esc>:Ex<cr>')
-vim.keymap.set('n', '<space>w', '<cmd>write<cr>', {
-    desc = 'Save'
-})
+
+-- Leader + w: Close tab.
+vim.keymap.set('n', '<Leader>w', '<Esc>:q<cr>')
+-- Leader + W: Force close tab.
+vim.keymap.set('n', '<Leader>W', '<Esc>:q!<cr>')
+
+-- Ctrl + s: Save file.
+vim.keymap.set('n', '<C-s>', ':w<cr>')
+vim.keymap.set('v', '<C-s>', ':w<cr>')
+vim.keymap.set('i', '<C-s>', '<C-o>:w<cr>')
