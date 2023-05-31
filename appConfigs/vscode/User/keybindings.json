@@ -473,6 +473,12 @@
     "key": "shift+alt+r",
     "command": "references-view.findReferences",
     "when": "editorHasReferenceProvider"
+  },
+  // Remove copilot generate shortcut.
+  {
+    "key": "ctrl+enter",
+    "command": "-github.copilot.generate",
+    "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
   }
 
   // *** Defaults (Cheatsheet) ***
