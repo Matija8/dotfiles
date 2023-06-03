@@ -4,6 +4,7 @@
 // https://code.visualstudio.com/api/references/when-clause-contexts
 [
   // *** Movement Up/Down ***
+  // #region
 
   // Ctrl + Up/Down: Cursor up/down by 4.
   {
@@ -62,7 +63,10 @@
 
   // Ctrl + Alt + Shift + Up/Down: Unset.
 
+  // #endregion
+
   // *** Movement Left/Right ***
+  //#region
 
   // Ctrl + Left/Right: Move left/right by word (default).
   {
@@ -137,7 +141,10 @@
     "when": "editorTextFocus"
   },
 
+  // #endregion
+
   // *** Deleting ***
+  // #region
 
   // Alt + Backspace/Delete: Delete until line start/end.
   {
@@ -163,13 +170,10 @@
     "when": "isMac && textInputFocus && !editorReadonly"
   },
 
-  // Shift + Alt + j: Join lines.
-  {
-    "key": "shift+alt+j",
-    "command": "editor.action.joinLines"
-  },
+  // #endregion
 
   // *** Navigation ***
+  // #region
 
   // Ctrl + Alt + -/=: Navigate backward/forward.
   {
@@ -200,38 +204,28 @@
     "command": "cursorRedo"
   },
 
-  // Ctrl+k Ctrl+k: Toggle bookmark.
-  {
-    "key": "ctrl+k ctrl+k",
-    "command": "bookmarks.toggle"
-  },
-  // Ctrl+Shift+k / Ctrl+k Ctrl+b: Show bookmarks explorer.
-  {
-    "key": "ctrl+shift+k",
-    "command": "bookmarksExplorer.focus"
-  },
-  {
-    "key": "ctrl+k ctrl+b",
-    "command": "bookmarksExplorer.focus"
-  },
-
   // Ctrl + Home/End: Go to start/end of file (default).
   // Ctrl + Shift + \: Jump bracket (default).
 
+  // #endregion
+
+  // *** Search ***
+  // #region
+
+  // Shift + Alt + r: Find symbol (r)eferences.
+  {
+    "key": "shift+alt+r",
+    "command": "references-view.findReferences",
+    "when": "editorHasReferenceProvider"
+  },
+
+  // #endregion
+
   // *** Editors / Groups ***
+  // #region
 
   // Ctrl + PageUp/PageDown: Previous/next editor (default).
   // Ctrl + Shift + PageUp/PageDown: Move editor left/right (default).
-
-  // Alt + '/\: Move editor to previous/next group.
-  {
-    "key": "alt+'",
-    "command": "workbench.action.moveEditorToPreviousGroup"
-  },
-  {
-    "key": "alt+\\",
-    "command": "workbench.action.moveEditorToNextGroup"
-  },
 
   // Ctrl + m: Reset group sizes.
   {
@@ -239,30 +233,10 @@
     "command": "workbench.action.evenEditorWidths"
   },
 
-  // Shift + Alt + f / Ctrl + Shift + i: Format document.
-  {
-    "key": "shift+alt+f",
-    "command": "editor.action.formatDocument"
-  },
-  {
-    "key": "ctrl+shift+i",
-    "command": "editor.action.formatDocument"
-  },
-
-  // Alt + Shift + a: Toggle block comment.
-  {
-    "key": "alt+shift+a",
-    "command": "editor.action.blockComment",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-
-  // Alt + s: Save without formatting.
-  {
-    "key": "alt+s",
-    "command": "workbench.action.files.saveWithoutFormatting"
-  },
+  // #endregion
 
   // *** Terminal ***
+  // #region
 
   // Alt + q: Toggle maximized terminal.
   {
@@ -318,7 +292,7 @@
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported"
   },
-  // Ctrl + 5: Split terminal vertically.
+  // Ctrl + 5: Split terminal vertically (like tmux %).
   {
     "key": "ctrl+5",
     "command": "workbench.action.terminal.split",
@@ -356,7 +330,10 @@
     "when": "terminalFocus"
   },
 
+  // #endregion
+
   // *** Font/Ui Zoom ***
+  // #region
 
   // Ctrl + [=/- | numpad+/-]: Change editor font size.
   {
@@ -404,7 +381,10 @@
     "command": "editor.action.fontZoomReset"
   },
 
+  // #endregion
+
   // *** Explorer (Side Bar) ***
+  // #region
 
   // Ctrl+k Ctrl+e: Show files explorer.
   {
@@ -445,7 +425,10 @@
     "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
   },
 
+  // #endregion
+
   // *** Closing ***
+  // #region
 
   // Don't close window on ctrl+shift+w/alt+f4. Prevent accidental key presses.
   {
@@ -466,22 +449,67 @@
     "command": "workbench.action.quit"
   },
 
-  // *** Other ***
+  // #endregion
 
-  // Shift + Alt + r: Find symbol references.
+  // *** Copilot ***
+  // #region
+
+  // Shift + Alt + c: Copilot (c)ompletion shortcut.
   {
-    "key": "shift+alt+r",
-    "command": "references-view.findReferences",
-    "when": "editorHasReferenceProvider"
+    "key": "shift+alt+c",
+    "command": "editor.action.inlineSuggest.trigger",
+    "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
   },
-  // Remove copilot generate shortcut.
+  // Shift + Alt + g: Copilot (g)enerate shortcut.
+  {
+    "key": "shift+alt+g",
+    "command": "github.copilot.generate"
+  },
   {
     "key": "ctrl+enter",
     "command": "-github.copilot.generate",
     "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
+  },
+  // Shift + Alt + [/]: Copilot next/previous.
+  {
+    "key": "shift+alt+[",
+    "command": "github.copilot.previousPanelSolution",
+    "when": "github.copilot.activated && github.copilot.panelVisible"
+  },
+  {
+    "key": "shift+alt+]",
+    "command": "github.copilot.nextPanelSolution",
+    "when": "github.copilot.activated && github.copilot.panelVisible"
+  },
+
+  // #endregion
+
+  // *** Other ***
+  // #region
+
+  // Shift + Alt + f: Format document.
+  {
+    "key": "shift+alt+f",
+    "command": "editor.action.formatDocument"
+  },
+
+  // Alt + s: Save without formatting.
+  {
+    "key": "alt+s",
+    "command": "workbench.action.files.saveWithoutFormatting"
+  },
+
+  // Alt + Shift + a: Toggle block comment.
+  {
+    "key": "alt+shift+a",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
   }
 
+  // #endregion
+
   // *** Defaults (Cheatsheet) ***
+  // #region
 
   // Formatting:
   // Ctrl+k Ctrl+Shift+s:   Save without formatting.
@@ -496,7 +524,7 @@
   // Ctrl+o:                Open file.
   // Ctrl+k Ctrl+o:         Open folder.
   // Ctrl+k o:              Open active file in new window.
-  // Ctrl + \:              Split editor (open same file right)
+  // Ctrl+\:              Split editor (open same file right)
   // Ctrl+Shift+t:          Reopen last closed editor.
   // Ctrl+e(p):             Search files by name.
   // Ctrl+r:                Recent files and folders.
@@ -515,6 +543,12 @@
   // Ctrl+Space:            Toggle autocomplete.
   // Ctrl+Shift+Space:      Toggle parameter list.
 
+  // Search:
+  // Ctrl+f:                Find.
+  // Alt+c:                 Find (c)ase sensitive.
+  // Alt+w:                 Find whole (w)ord.
+  // Alt+r:                 Find (r)egex.
+
   // Misc:
   // Ctrl+k Ctrl+1:         Fold level 1 !!!
   // Ctrl+k Ctrl+2:         Fold level 2
@@ -532,4 +566,6 @@
   // Alt+k:                 Keyboard shortcuts - search by typing.
   // Ctrl+,:                Settings.
   // Ctrl+k Ctrl+t:         Pick color theme.
+
+  // #endregion
 ]

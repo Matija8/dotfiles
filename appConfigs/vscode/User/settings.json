@@ -179,9 +179,13 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
-  "react-native-tools.showUserTips": false,
-  "svelte.enable-ts-plugin": true,
   "svg.preview.mode": "svg",
+
+  // Js Svelte
+  "svelte.enable-ts-plugin": true,
+
+  // Js React Native
+  "react-native-tools.showUserTips": false,
 
   // Go lang
   "go.toolsManagement.autoUpdate": true,
@@ -219,6 +223,9 @@
   "[svelte]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
   },
   "[json]": {
     "editor.tabSize": 2,
