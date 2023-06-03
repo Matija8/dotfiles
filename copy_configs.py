@@ -133,7 +133,7 @@ class Updater():
         stitched_bashrc_contents = self._get_bashrc_with_plugins_appended()
         with open(f'{get_home()}/.bashrc', 'w') as f:
             f.write(stitched_bashrc_contents)
-        self._updated_apps.append('bashrc')
+        self._updated_apps.append('Bashrc')
 
     def _get_bashrc_with_plugins_appended(self) -> str:
         '''Append plugins onto base .bashrc'''
@@ -191,17 +191,19 @@ class LinuxUpdater(Updater):
 
     def _update_configs(self) -> None:
         self._update_vscode()
-        self._update_mpv()
         self._update_nvim()
+        self._update_mpv()
         self._update_qpdfview()
         self._update_gtk3()
         self._update_home('/.tmux.conf')
+        self._updated_apps.append('Tmux')
         self._update_home('/.hidden')
         self._add_templates()
 
     def _update_vscode(self) -> None:
         vsc_user_dir = f'{get_home()}/.config/Code/User'
         self._update_vscode_user_dir(vsc_user_dir)
+        self._updated_apps.append('VsCode')
 
     def _update_nvim(self) -> None:
         if not validate_program_is_on_path('nvim'):
@@ -209,12 +211,14 @@ class LinuxUpdater(Updater):
         nvim_target_dir = f'{get_home()}/.config/nvim'
         try_remove_dir(nvim_target_dir)
         self._update_folder_r(self._config_dirs.nvim, nvim_target_dir)
+        self._updated_apps.append('Nvim')
 
     def _update_mpv(self) -> None:
         if not validate_program_is_on_path('mpv'):
             return
         mpv_target_dir = f'{get_home()}/.config/mpv'
         self._update_folder_r(self._config_dirs.mpv, mpv_target_dir)
+        self._updated_apps.append('Mpv')
 
     def _update_qpdfview(self) -> None:
         if not validate_program_is_on_path('qpdfview'):
@@ -224,6 +228,7 @@ class LinuxUpdater(Updater):
         self._update_folder_r(
             f'{self._app_configs_dir}/qpdfview', qpdf_view_dir
         )
+        self._updated_apps.append('QpdfView')
 
     def _add_templates(self) -> None:
         templates_dir = f'{get_home()}/Templates'
