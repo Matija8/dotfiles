@@ -2,7 +2,6 @@
 
 code --install-extension aaron-bond.better-comments
 code --install-extension adpyke.vscode-sql-formatter
-code --install-extension alefragnani.Bookmarks
 code --install-extension arcanis.vscode-zipfs
 code --install-extension azemoh.one-monokai
 code --install-extension bradlc.vscode-tailwindcss
