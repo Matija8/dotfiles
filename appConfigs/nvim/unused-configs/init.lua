@@ -22,9 +22,18 @@ vim.opt.cursorline = true
 vim.opt.lazyredraw = true
 vim.opt.showtabline = 2
 
+vim.opt.smarttab = true
+
 vim.opt.mouse = 'a'
 
 vim.g.mapleader = ' '
+
+vertCount = 4
+horzCount = 8
+scrollCount = 5
+
+vim.keymap.set({'n', 'v'}, '<S-k>', string.rep('<C-y>', scrollCount))
+vim.keymap.set({'n', 'v'}, '<S-j>', string.rep('<C-e>', scrollCount))
 
 -- https://neovim.io/doc/user/lua-guide.html#lua-guide-mappings-set
 

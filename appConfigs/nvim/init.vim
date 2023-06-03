@@ -3,8 +3,8 @@
     " Ui "
     syntax on                           " Syntax highlighting.
     set number                          " Show line numbers.
-    set rnu                             " Relative line numbers.
-    "set nornu                           " Normal line numbers.
+    " set rnu                           " Relative line numbers.
+    set nornu                           " Normal line numbers.
     set ruler                           " Always shows location in file (line #).
     set showcmd                         " Show commands. Useful for leader timeout.
     set showmatch                       " Shows matching brackets.
@@ -149,7 +149,7 @@
 
 
         " Ctrl + Alt + Left/Right: Move left/right by {horz}.
-            " (Nvim-qt only!)
+            " (Nvim-qt only)
             noremap  <expr> <C-A-Left>      "h" . string(horz-1) . "h"
             noremap  <expr> <C-A-Right>     "l" . string(horz-1) . "l"
             inoremap <expr> <C-A-Left>      "<C-o>" . string(horz) . "h"
@@ -248,7 +248,7 @@
 
 
         " Ctrl + backspace: Delete to the start of word.
-            " (Nvim-qt only!)
+            " (Nvim-qt only)
             nnoremap <C-BS>     "_db
             inoremap <C-BS>     <C-W>
 
@@ -302,7 +302,7 @@
 
 
         " Ctrl + [Shift +] Enter: New line below/above.
-            " (Nvim-qt only!)
+            " (Nvim-qt only)
             nnoremap <C-Enter>      o
             nnoremap <C-S-Enter>    O
             vnoremap <C-Enter>      <Esc>o
@@ -414,7 +414,7 @@
         " Ctrl + pageUp/pageDown: Next/Previous tab. Works by default.
 
         " Ctrl + Shift + pageUp/pageDown: Move active tab left/right.
-            " (Nvim-qt only!)
+            " (Nvim-qt only)
             noremap <C-S-pageUp>    :tabm -1<cr>
             noremap <C-S-pageDown>  :tabm +1<cr>
 

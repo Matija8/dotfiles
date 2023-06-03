@@ -42,7 +42,6 @@ class Updater():
         self._bash_configs_dir = f'{self._app_configs_dir}/bash'
         # TODO: use self._updated_apps instead of immediate print()-s
         self._updated_apps = set()  # type: Set[str]
-        # self._updated_err = set() # ?
 
     def update_configs(self) -> None:
         print(f'Starting {self._os_type} update...\n')
@@ -76,7 +75,6 @@ class Updater():
         else:
             copy_file(src, dst)
 
-    # TODO: Change all `folder`s to `dir`s?
     def _update_folder(self, src_folder: PathStr, dst_folder: PathStr) -> None:
         '''
         Copy files (or make links)
@@ -204,6 +202,7 @@ class LinuxUpdater(Updater):
         if not validate_program_is_on_path('nvim'):
             return
         nvim_target_dir = f'{get_home()}/.config/nvim'
+        try_remove_dir(nvim_target_dir)
         self._update_folder_r(self._config_dirs.nvim, nvim_target_dir)
 
     def _update_mpv(self) -> None:
