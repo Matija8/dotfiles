@@ -147,6 +147,14 @@
     }
   ],
 
+  // Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+
   // C++
   "C_Cpp.clang_format_fallbackStyle": "Visual Studio",
   "C_Cpp.default.includePath": ["/usr/local/include"],
