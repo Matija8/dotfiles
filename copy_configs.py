@@ -274,7 +274,6 @@ class WindowsUpdater(Updater):
         super().__init__('Windows', should_link)
         self.roaming = f'{get_home()}/AppData/Roaming'
         self.local = f'{get_home()}/AppData/Local'
-        self.win_fldr = './osWindows'
 
     def _update_configs(self) -> None:
         self._update_vscode()
@@ -308,9 +307,6 @@ class WindowsUpdater(Updater):
             f'{self._config_dirs.mintty}/config.txt',
             f'{mintty_target_dir}/config'
         )
-
-    def update_home_from_windir(self, path: str) -> None:
-        self._update_file(f'{self.win_fldr}/{path}', f'{get_home()}/{path}')
 
 
 class Main():
