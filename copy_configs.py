@@ -41,7 +41,7 @@ class Updater():
         self._should_link = should_link
         self._bash_configs_dir = f'{self._app_configs_dir}/bash'
         # TODO: use self._updated_apps instead of immediate print()-s
-        self._updated_apps = set()  # type: Set[str]
+        self._updated_apps = []  # type: List[str]
 
     def update_configs(self) -> None:
         print(f'Starting {self._os_type} update...\n')
@@ -60,7 +60,7 @@ class Updater():
     def _log_apps_updated(self) -> None:
         action = 'linked' if self._should_link else 'copied'
         for app_name in self._updated_apps:
-            print(f'{app_name} {action}!')
+            print(f'{app_name} {action}')
 
     def _update_home(self, path: PathStr) -> None:
         ''' Copy/link file (/path) from here i.e. ./path to ~/path '''
@@ -106,15 +106,18 @@ class Updater():
 
     def _update_git(self) -> None:
         self._update_home('/.gitconfig')
+        self._updated_apps.append('Git configs')
 
     def _update_linters(self) -> None:
         self._update_home('/.eslintrc')
+        self._updated_apps.append('Linters')
 
     def _update_formatters(self) -> None:
         self._update_home('/.prettierrc')
         self._update_home('/.clang-format')
         self._update_home('/.style.yapf')
         self._update_home('/.scalafmt.conf')
+        self._updated_apps.append('Formatters')
 
     def _update_scripts(self) -> None:
         scripts_dir = './scripts'
@@ -124,11 +127,13 @@ class Updater():
         self._update_folder_r(scripts_dir, scripts_dir_home)
         # link_dir - Permission issues on windows!?
         # link_dir(scripts_dir, scripts_dir_home)
+        self._updated_apps.append('Scripts')
 
     def _update_bash(self) -> None:
         stitched_bashrc_contents = self._get_bashrc_with_plugins_appended()
         with open(f'{get_home()}/.bashrc', 'w') as f:
             f.write(stitched_bashrc_contents)
+        self._updated_apps.append('bashrc')
 
     def _get_bashrc_with_plugins_appended(self) -> str:
         '''Append plugins onto base .bashrc'''
