@@ -119,7 +119,7 @@ if command -v yarn &>/dev/null; then
     alias yarnls="yarn global list"
 fi
 
-if command -v yarn &>/dev/null; then
+if command -v npm &>/dev/null; then
     # Npm docs:
     # https://docs.npmjs.com/
 
@@ -164,10 +164,14 @@ function create-vite-app-react {
     # https://github.com/vitejs/awesome-vite#templates
     ls -1
     local project_name="$1"
-    yarn create vite --template react-ts "$project_name"
+    pnpm create vite --template react-ts "$project_name"
     if [ $? -ne 0 ]; then return 1; fi
     if [ "$project_name" != "" ]; then code "$project_name"; fi
 }
+
+alias cvar="create-vite-app-react"
+alias cvav="pnpm create vite --template vue-ts"
+alias cvas="pnpm create vite --template svelte-ts"
 
 function create-next-app {
     # https://nextjs.org/docs/basic-features/typescript#create-next-app-support
