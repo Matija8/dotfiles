@@ -13,6 +13,7 @@ code --install-extension denoland.vscode-deno
 code --install-extension DotJoshJohnson.xml
 code --install-extension eamodio.gitlens
 code --install-extension esbenp.prettier-vscode
+code --install-extension formulahendry.auto-rename-tag
 code --install-extension foxundermoon.shell-format
 code --install-extension golang.go
 code --install-extension jock.svg
@@ -36,4 +37,3 @@ code --install-extension tomoki1207.pdf
 code --install-extension yandeu.five-server
 code --install-extension yzane.markdown-pdf
 code --install-extension yzhang.markdown-all-in-one
-code --install-extension zhuangtongfa.material-theme
