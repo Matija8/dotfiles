@@ -199,13 +199,21 @@
     "description": "Return of an h1 tag for debugging react component trees"
   },
 
-  // *** Other ***
+  // *** Ts errors ***
 
   "ts-expect-error": {
     "scope": "typescript, typescriptreact",
-    "prefix": ["ts-expect-error"],
+    "prefix": ["tsexpecterror", "// tsexpecterror"],
     "body": "// @ts-expect-error $0"
   },
+
+  "ts-ignore": {
+    "scope": "typescript, typescriptreact",
+    "prefix": ["tsignore", "// tsignore"],
+    "body": "// @ts-ignore"
+  },
+
+  // *** Other ***
 
   "region": {
     // https://dev.to/hurricaneinteractive/vs-code-define-a-region-1cd1
