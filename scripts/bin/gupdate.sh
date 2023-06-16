@@ -17,7 +17,7 @@ function main {
 
     gpull "$_projects_dir/dotfiles/"
     gpull "$_projects_dir/Random-Projects/"
-    gpull "$_projects_dir/FE-Widget-Experiments/"
+    gpull "$_projects_dir/experiments-fe-widgets/"
 
     gpull "$HOME/Documents/Private-Docs/"
 
