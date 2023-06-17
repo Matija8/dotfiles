@@ -94,6 +94,7 @@
 
   // Security
   "security.workspace.trust.enabled": false,
+  "security.allowedUNCHosts": ["wsl.localhost"],
 
   // Extensions
   "extensions.ignoreRecommendations": true,
@@ -234,6 +235,10 @@
   "[jsonc]": {
     "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scala]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "scalameta.metals"
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
