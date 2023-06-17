@@ -200,12 +200,6 @@
             noremap  <C-a>  <Esc>gg0vG$
 
 
-        " Ctrl + d: Select word.
-            nnoremap <C-d>  viw
-            vnoremap <C-d>  <Esc>viw
-            inoremap <C-d>  <C-o>viw
-
-
         " Ctrl + c: Copy.
             nnoremap <C-c>  "+Y
             vnoremap <C-c>  "+y
@@ -315,14 +309,6 @@
             nnoremap <C-s>      :w<cr>
             vnoremap <C-s>      :w<cr>
             inoremap <C-s>      <C-o>:w<cr>
-
-
-        " Ctrl + u: Cursor undo.
-            nnoremap <C-u>      <C-o>
-            vnoremap <C-u>      <Esc><C-o>
-
-        " Ctrl + i: Cursor redo.
-            vnoremap <C-i>      <Esc><C-i>
 
 
         " Ctrl + z: Undo.
@@ -442,3 +428,20 @@
             inoremap <A-8>      <Esc>8gta
             noremap  <A-9>      <Esc>9gt
             inoremap <A-9>      <Esc>9gta
+
+
+
+    " Disabled "
+
+
+        " Ctrl + d: Select word.
+        "    nnoremap <C-d>  viw
+        "    vnoremap <C-d>  <Esc>viw
+        "    inoremap <C-d>  <C-o>viw
+
+        " Ctrl + u: Cursor undo.
+        "    nnoremap <C-u>      <C-o>
+        "    vnoremap <C-u>      <Esc><C-o>
+
+        " Ctrl + i: Cursor redo.
+        "    vnoremap <C-i>      <Esc><C-i>
