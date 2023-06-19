@@ -12,7 +12,7 @@
     // https://deno.land/manual@v1.26.0/examples/shebang
     "scope": "typescript",
     "prefix": ["#!", "#!deno"],
-    "body": ["#!/usr/bin/env -S deno run --allow-env\n"],
+    "body": ["#!/usr/bin/env -S deno run --allow-env --allow-net\n"],
     "description": "deno shebang"
   },
 
