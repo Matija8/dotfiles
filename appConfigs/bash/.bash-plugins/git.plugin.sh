@@ -173,7 +173,10 @@ alias gfp="git fetch -p" # Prune!
 
 # Commits graph
 # https://stackoverflow.com/questions/4479225/how-to-output-git-log-with-the-first-line-only
-alias glo="git log --oneline"                            # Mnmc: git log
+alias glo="git log --oneline" # Mnmc: git log
+# https://stackoverflow.com/questions/1230084/how-to-have-git-log-show-filenames-like-svn-log-v
+alias glos="git log --name-status"                       # Mnmc: git log status
+alias gloso="git log --name-status --oneline"            # Mnmc: git log status oneline
 alias glog="git log --oneline --decorate --graph"        # Mnmc: git log graph
 alias gloga="git log --oneline --decorate --graph --all" # Mnmc: git log graph all
 
