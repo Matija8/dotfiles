@@ -70,6 +70,13 @@
     "description": "Insert console.log() between noisy winston logs"
   },
 
+  "Matija-throw-error-test": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["testerr", "errtest"],
+    "body": ["throw Error (`$*$ test error$1`,{ cause: {$0} }); //T*DO"],
+    "description": "Quick error throw for testing error handling"
+  },
+
   // *** Trace ***
 
   "Matija-trace-1": {
