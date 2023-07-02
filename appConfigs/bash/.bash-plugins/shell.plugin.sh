@@ -9,6 +9,12 @@ function cdf {
     cd $(dirname "$1")
 }
 
+function cdp {
+    mkdir -p $1 && cd $1
+}
+
+alias mkdirp="mkdir -p"
+
 # Alias "e" is "echo -e" to have the trailing newline,
 # but in scripts "printf" is just "a better version of echo".
 # Use "e" for printing env vars, like $HOME, $SHELL, $USER, etc...
