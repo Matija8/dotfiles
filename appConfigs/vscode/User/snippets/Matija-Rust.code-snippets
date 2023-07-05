@@ -14,7 +14,7 @@
   "Matija-log-x1": {
     "scope": "rust",
     "prefix": ["lx1", "lx2"],
-    "body": ["println!(\"$*$ log $0\");"],
+    "body": ["println!(\"$*$ log {:?}\", ($0)); //T*DO"],
     "description": "Print/console.log for debugging"
   }
 }
