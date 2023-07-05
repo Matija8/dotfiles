@@ -251,9 +251,9 @@ function decodeUri {
     node -e "'$1' && console.log('\n' + decodeURIComponent('$1'))"
 }
 
-function svgrCurrentdir {
+function svgrcurrentdir {
     # https://react-svgr.com/docs/cli/
-    # local svgdir=$1
+    # local svgdir=$1 # Specify dir?
     npx @svgr/cli --icon \
         --typescript \
         --replace-attr-values "#000=currentColor" \
