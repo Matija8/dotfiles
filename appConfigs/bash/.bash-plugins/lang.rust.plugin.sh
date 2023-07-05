@@ -8,8 +8,14 @@ if [ -d "$HOME/.cargo" ]; then
     # To check rust installation was successful:
     # rustc -V && cargo -V && rustup -V
 
-    alias cargonew="cargo new"
+    # https://doc.rust-lang.org/cargo/commands/cargo-new.html
+    alias cargonew="cargo new --vcs=none"
+
     alias cargorun="cargo run"
+    alias crr="cargo run"
+
+    alias cargocheck="cargo check"
+    alias crc="cargo check"
 
     function rustr {
         # Mnemonic: Rust run
