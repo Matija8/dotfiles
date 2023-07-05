@@ -30,6 +30,7 @@ code --install-extension nhoizey.gremlins
 code --install-extension PKief.material-icon-theme
 code --install-extension quicktype.quicktype
 code --install-extension rust-lang.rust-analyzer
+code --install-extension sdras.night-owl
 code --install-extension stringham.move-ts
 code --install-extension styled-components.vscode-styled-components
 code --install-extension tamasfe.even-better-toml
