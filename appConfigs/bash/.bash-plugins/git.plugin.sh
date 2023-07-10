@@ -180,7 +180,7 @@ alias gloso="git log --name-status --oneline"            # Mnmc: git log status 
 alias glog="git log --oneline --decorate --graph"        # Mnmc: git log graph
 alias gloga="git log --oneline --decorate --graph --all" # Mnmc: git log graph all
 
-# Restore/Reset/Revert/Clean
+# Restore/Reset/Revert/Clean/Remove(rm)
 #
 # https://git-scm.com/docs/git-restore
 # https://www.atlassian.com/git/tutorials/undoing-changes/git-reset
