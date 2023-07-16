@@ -43,7 +43,8 @@ function gpull {
     # https://stackoverflow.com/questions/17077973/how-to-make-git-diff-write-to-stdout
     # https://stackoverflow.com/questions/369758/how-to-trim-whitespace-from-a-bash-variable
 
-    printf "\n${GREEN}$1${NC}\n\n"
+    printf "\n${BLUE}$(basename $1)${NC}\n"
+    printf "$1\n\n"
 
     if [ ! -d "$1" ]; then
         # https://www.cyberciti.biz/faq/howto-check-if-a-directory-exists-in-a-bash-shellscript/
