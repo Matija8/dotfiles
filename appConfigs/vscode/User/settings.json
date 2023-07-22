@@ -116,7 +116,9 @@
   "reflowMarkdown.preferredLineLength": 80,
   "gremlins.characters": {
     // Ignored characters:
-    "2019": { "level": "none" } // ’
+    "2019": { "level": "none" }, // ’
+    "201c": { "level": "none" }, // “
+    "201d": { "level": "none" } // ”
   },
 
   // Git
