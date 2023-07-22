@@ -114,6 +114,10 @@
     // "MD013": { "line_length": 80 },
   },
   "reflowMarkdown.preferredLineLength": 80,
+  "gremlins.characters": {
+    // Ignored characters:
+    "2019": { "level": "none" } // ’
+  },
 
   // Git
   "gitlens.keymap": "none",
