@@ -2,8 +2,13 @@
 
 import { MongoClient } from 'https://deno.land/x/mongo/mod.ts';
 
+const PORT = Deno.args[0] || 27017;
+
+const url = `mongodb://localhost:${PORT}`;
+console.log(`Connecting to "${url}"...\n`);
+
 const client = new MongoClient();
-await client.connect('mongodb://localhost:27017');
+await client.connect(url);
 console.log('Connecting successful');
 const dbs = await client.listDatabases();
 console.log(
