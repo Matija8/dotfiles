@@ -2,7 +2,8 @@
   // *** Shebang ***
 
   "shebang": {
-    "prefix": "#!",
+    "scope": "go",
+    "prefix": ["#!"],
     // https://stackoverflow.com/questions/7707178/whats-the-appropriate-go-shebang-line
     "body": [
       "///usr/bin/true; exec /usr/bin/env go run \"\\$0\" \"$@\"",
