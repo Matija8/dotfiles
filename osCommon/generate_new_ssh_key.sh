@@ -11,6 +11,8 @@ function main {
 
     mkdir -p ~/.ssh
 
+    echo -e "* Starting script for key \"$SSH_KEY_NAME\""
+
     # First check if you already have an ssh key
     if ls -a ~/.ssh/*.pub &>/dev/null; then
         echo -e "Existing public ssh key files:\n"
@@ -30,7 +32,7 @@ function main {
 
     # Add new key to the ssh agent.
     echo -e "* Starting ssh-add operation"
-    ssh-add "~/.ssh/$SSH_KEY_NAME"
+    ssh-add "$HOME/.ssh/$SSH_KEY_NAME"
 
     # https://unix.stackexchange.com/questions/58969/how-to-list-keys-added-to-ssh-agent-with-ssh-add
     echo -e "\n* These are all the ssh keys you have in ssh-agent currently:"
@@ -44,9 +46,9 @@ function main {
 }
 
 function displaySshKey {
-    if [ -f "~/.ssh/$SSH_KEY_NAME.pub" ]; then
+    if [ -f "$HOME/.ssh/$SSH_KEY_NAME.pub" ]; then
         echo -e "Here is the ssh key. Paste it into GitHub/GitLab:\n"
-        cat "~/.ssh/$SSH_KEY_NAME.pub"
+        cat "$HOME/.ssh/$SSH_KEY_NAME.pub"
         echo -e ""
     fi
 }
