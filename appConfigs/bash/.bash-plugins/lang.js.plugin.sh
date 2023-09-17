@@ -143,6 +143,8 @@ fi
 
 alias tst="ts-node -T"
 
+alias tsprune="npx ts-prune" # https://www.npmjs.com/package/ts-prune
+
 function init_ts_project {
     # https://www.digitalocean.com/community/tutorials/typescript-new-project
 
