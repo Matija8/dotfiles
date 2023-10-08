@@ -181,6 +181,8 @@ alias glos="git log --name-status"                       # Mnmc: git log status
 alias gloso="git log --name-status --oneline"            # Mnmc: git log status oneline
 alias glog="git log --oneline --decorate --graph"        # Mnmc: git log graph
 alias gloga="git log --oneline --decorate --graph --all" # Mnmc: git log graph all
+# https://stackoverflow.com/questions/14243380/how-to-configure-git-log-to-show-commit-date
+alias glop="git log --graph --pretty=format:'%C(auto)%n%h%d%n%ci%n%an%n%s'" # Mnmc: git log pretty.
 
 # Restore/Reset/Revert/Clean/Remove(rm)
 #
