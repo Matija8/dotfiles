@@ -333,6 +333,15 @@ function install_c_sharp {
     aptInstall mono-complete
 }
 
+function install_postgres_psql {
+    if ! psql -V &>/dev/null; then
+        aptInstall postgresql
+        aptInstall postgresql-client-common
+    else
+        printInstalledMsg psql
+    fi
+}
+
 function install_docker {
     printf "\n\n${GREEN}Docker:${NC}\n\n"
     # https://docs.docker.com/engine/install/ubuntu/#installation-methods
