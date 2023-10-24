@@ -27,8 +27,8 @@ alias cls="clear"
 
 # https://linuxhint.com/ls_colors_bash/
 # https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls
-alias l="ls -1 --color"
-alias la="ls -1a --color"
+alias l="ls -1F --color"
+alias la="ls -1Fa --color"
 
 # https://stackoverflow.com/questions/185899/what-is-the-difference-between-a-symbolic-link-and-a-hard-link
 # https://superuser.com/questions/81164/why-create-a-link-like-this-ln-nsf
