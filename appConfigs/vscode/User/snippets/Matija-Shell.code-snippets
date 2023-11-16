@@ -6,6 +6,12 @@
     "description": "bash shebang"
   },
 
+  "lx1": {
+    "scope": "shellscript",
+    "prefix": "lx1",
+    "body": "printf \"$\\*$\\ $0\\n\"$1"
+  },
+
   "Last command returned non-zero": {
     // https://stackoverflow.com/questions/26675681/how-to-check-the-exit-status-using-an-if-statement
     // Avoid using "$?", prefer the forms:

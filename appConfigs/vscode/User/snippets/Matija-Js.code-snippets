@@ -33,13 +33,6 @@
     "description": "Quick console.log"
   },
 
-  "Matija-error": {
-    "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["error1", "err1"],
-    "body": ["console.error($1);$0"],
-    "description": "Quick console.error"
-  },
-
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
@@ -72,7 +65,7 @@
 
   "Matija-throw-error-test": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["testerr", "errtest"],
+    "prefix": ["throwerr"],
     "body": ["throw Error (`$*$ test error$1`,{ cause: {$0} }); //T*DO"],
     "description": "Quick error throw for testing error handling"
   },
