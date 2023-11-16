@@ -9,7 +9,8 @@
   "lx1": {
     "scope": "shellscript",
     "prefix": "lx1",
-    "body": "printf \"$\\*$\\ $0\\n\"$1"
+    // Result: printf "\$*\$ tag\n"
+    "body": "printf \"\\\\$*\\\\$ ${1:tag}\\n\"$0"
   },
 
   "Last command returned non-zero": {
