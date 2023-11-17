@@ -15,12 +15,12 @@
 
   // Workbench
   "workbench.activityBar.iconClickBehavior": "focus",
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.location": "top",
   "workbench.colorTheme": "Night Owl (No Italics)",
   "workbench.editor.centeredLayoutAutoResize": false,
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": false,
-  "workbench.editor.showTabs": true,
-  "workbench.editor.untitled.hint": "hidden",
+  "workbench.editor.showTabs": "multiple",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.openMode": "doubleClick",
   "workbench.settings.editor": "json",
@@ -122,12 +122,13 @@
   },
 
   // Git
-  "gitlens.keymap": "none",
   "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.enabled": false,
   "gitlens.defaultDateFormat": null,
   "gitlens.defaultDateShortFormat": "Do, MM, YYYY",
   "gitlens.defaultTimeFormat": "hh:mm",
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.keymap": "none",
+  "gitlens.views.stashes.files.layout": "list",
 
   "better-comments.multilineComments": true,
   "better-comments.tags": [
@@ -183,10 +184,11 @@
   "python.showStartPage": false,
 
   // Js
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "deno.enable": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
   "svg.preview.mode": "svg",
+  "typescript.updateImportsOnFileMove.enabled": "always",
 
   // Js Svelte
   "svelte.enable-ts-plugin": true,
