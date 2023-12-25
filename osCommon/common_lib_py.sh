@@ -13,5 +13,6 @@ function install_python_globals {
         scikit-learn \
         matplotlib \
         virtualenv \
+        visidata \
         youtube_dl
 }
