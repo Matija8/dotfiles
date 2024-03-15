@@ -92,6 +92,9 @@
     "**/.ammonite": true
   },
 
+  // Remote
+  "remote.autoForwardPortsSource": "hybrid",
+
   // Security
   "security.workspace.trust.enabled": false,
   "security.allowedUNCHosts": ["wsl.localhost"],
@@ -257,5 +260,8 @@
   },
   "[dockercompose]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[snippets]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

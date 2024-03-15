@@ -57,8 +57,57 @@
     "description": "React useRef() hook"
   },
 
-  // *** Components ***
+  // *** JSX ***
 
+  "Matija-h1-expression-html": {
+    "scope": "html",
+    "prefix": ["xh1"],
+    "body": "<h1 style=\"outline:solid red; z-index: 999999;\">$*$ h1 $0 </h1>",
+    "description": "An h1 tag for debugging component trees"
+  },
+
+  "Matija-jsx-h1-expression": {
+    // The "javascript" scope is for admin pages.
+    "scope": "javascript, javascriptreact, typescriptreact",
+    "prefix": ["xh1"],
+    "body": "<h1 style={{outline:'solid red', zIndex: 999999}}>$*$ h1 $0 </h1>",
+    "description": "An h1 tag for debugging react component trees"
+    // https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/
+    // style={{ outline: 'solid red', background: 'beige' }}
+  },
+
+  "Matija-jsx-h1-return": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["rh1"],
+    "body": "return <h1 style={{outline:'solid red'}}>$*$ h1 $0 </h1>; //T*DO",
+    "description": "Return of an h1 tag for debugging react component trees"
+  },
+
+  "Matija-jsx-pre-tag": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["pre1"],
+    "body": [
+      "<pre style={{ outline: 'solid red' }}>",
+      "  {(() => {",
+      "    try {",
+      "      return '$*$ $1 \\n' + JSON.stringify({$0}, null, 2); // T*DO",
+      "    } catch (_err) {",
+      "      return 'ERROR: Failed to stringify';",
+      "    }",
+      "  })()}",
+      "</pre>"
+    ],
+    "description": "Return of an h1 tag for debugging react component trees"
+  },
+
+  "react-button": {
+    "scope": "javascriptreact, typescriptreact",
+    "prefix": ["btn1"],
+    "body": ["<button onClick={() => {$0}}>debugClick</button>"],
+    "description": "React button for debugging"
+  },
+
+  // *** Components ***
   "react-component": {
     "scope": "javascriptreact, typescriptreact",
     "prefix": ["component1", "cmpnt1", "cmpn1", "cmp1"],
@@ -72,12 +121,5 @@
       "}"
     ],
     "description": "React functional component"
-  },
-
-  "react-button": {
-    "scope": "javascriptreact, typescriptreact",
-    "prefix": ["btn1"],
-    "body": ["<button onClick={() => {$0}}>debugClick</button>"],
-    "description": "React button for debugging"
   }
 }
