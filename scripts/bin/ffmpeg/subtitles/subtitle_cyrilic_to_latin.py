@@ -19,8 +19,11 @@ def main():
 
 
 def parse_file(file: str):
+    encoding='latin-1'
+    encoding='utf-8'
+    # TODO: Pass encoding as cli argument.
     try:
-        with open(file, "r", encoding='latin-1') as lines:
+        with open(file, "r", encoding=encoding) as lines:
             new_lines = []
             mapp = create_map()
             for line in lines:
