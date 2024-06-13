@@ -61,6 +61,14 @@
     "description": "Get path to the parent directory of the script file."
   },
 
+  "script_dir_sourced": {
+    "scope": "shellscript",
+    "prefix": ["scriptdirsourced", "script_dir_sourced"],
+    // https://stackoverflow.com/questions/59895/how-do-i-get-the-directory-where-a-bash-script-is-located-from-within-the-script
+    "body": ["script_dir=$(realpath \"$(dirname \"${BASH_SOURCE[0]}\")\")"],
+    "description": "Get path to the parent directory of the script file."
+  },
+
   "dev null redirect": {
     // https://www.cyberciti.biz/faq/how-to-redirect-output-and-errors-to-devnull/
     // On new shells use: command &>/dev/null
