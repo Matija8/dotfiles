@@ -178,13 +178,11 @@
   "python.analysis.typeCheckingMode": "basic",
   "python.defaultInterpreterPath": "/usr/bin/python3",
   // "python.defaultInterpreterPath": "C:\\Program Files\\Python39\\python.exe",
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfArgs": [],
   "python.languageServer": "Pylance",
-  "python.linting.enabled": true,
-  "python.linting.mypyEnabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.showStartPage": false,
+  "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultFormatter": "eeyore.yapf"
+  },
 
   // Js
   "debug.javascript.autoAttachFilter": "onlyWithFlag",
