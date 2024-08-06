@@ -36,7 +36,7 @@
   "Matija-log-x1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["lx1"],
-    "body": ["console.log(`$*$ log $1`,{$0 }); //T*DO"],
+    "body": ["console.log(`$*$ $1`,{$0 }); //T*DO"],
     "description": "Quick console.log for debugging"
   },
 
@@ -46,7 +46,7 @@
     // https://stackoverflow.com/questions/41856706/whats-the-best-way-to-write-multi-line-code-snippets-in-vs-code
     "body": [
       "// eslint-disable-next-line no-console",
-      "console.log(`$*$ log $1`,{$0 }); //T*DO"
+      "console.log(`$*$ $1`,{$0 }); //T*DO"
     ],
     "description": "Quick console.log that doesn't trigger eslint error"
   },
@@ -57,7 +57,7 @@
     "body": [
       "// eslint-disable-next-line no-console",
       "console.log(`VVVVV\\n\\n`,",
-      "{ ts: new Date(), msg: `log $1`,$0 }, //T*DO",
+      "{ ts: new Date(), msg: `$*$ $1`,$0 }, //T*DO",
       "`\\n\\nΛΛΛΛΛ`);"
     ],
     "description": "Insert console.log() between noisy winston logs"
