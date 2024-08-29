@@ -63,6 +63,13 @@
     "description": "Insert console.log() between noisy winston logs"
   },
 
+  "Matija-cdir-1": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["cdir1"],
+    "body": ["console.dir({ msg: `$*$ $1`, $0},{ depth: null }); //T*DO"],
+    "description": "Insert console.dir() for deep objects"
+  },
+
   "Matija-throw-error-test": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["throwerr"],
