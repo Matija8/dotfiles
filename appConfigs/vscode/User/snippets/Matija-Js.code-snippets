@@ -65,7 +65,7 @@
 
   "Matija-cdir-1": {
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
-    "prefix": ["cdir1"],
+    "prefix": ["cdir1", "logdeep"],
     // https://stackoverflow.com/questions/10729276/how-can-i-get-the-full-object-in-node-jss-console-log-rather-than-object
     "body": ["console.dir({ msg: `$*$ $1`, $0},{ depth: null }); //T*DO"],
     "description": "Insert console.dir() for deep objects, to avoid \"[Object]\" output"
