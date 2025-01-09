@@ -183,6 +183,13 @@ class Updater():
             f'{self._app_configs_dir}/vscode/User/', vscode_user_dir_path
         )
 
+    def _update_cursor_editor_user_dir(self, editor_dir_path: PathStr) -> None:
+        if not validate_program_is_on_path('cursor'):
+            return
+        self._update_folder_r(
+            f'{self._app_configs_dir}/vscode/User/', editor_dir_path
+        )
+
 
 class LinuxUpdater(Updater):
 
@@ -277,6 +284,7 @@ class WindowsUpdater(Updater):
 
     def _update_configs(self) -> None:
         self._update_vscode()
+        self._update_cursor_editor()
         self._update_npp()
         self._update_nvim()
         self._update_mpv()
@@ -285,6 +293,9 @@ class WindowsUpdater(Updater):
     def _update_vscode(self) -> None:
         vsc_user_dir = f'{self.roaming}/Code/User'
         self._update_vscode_user_dir(vsc_user_dir)
+
+    def _update_cursor_editor(self) -> None:
+        self._update_cursor_editor_user_dir(f'{self.roaming}/Cursor/User')
 
     def _update_npp(self) -> None:
         npad_target_dir = f'{self.roaming}/Notepad++'
