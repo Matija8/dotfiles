@@ -329,6 +329,12 @@
     "command": "ctrl+e",
     "when": "terminalFocus"
   },
+  // Allow Ctrl+l in terminal. Important for cursor.
+  {
+    "key": "ctrl+l",
+    "command": "ctrl+l",
+    "when": "terminalFocus"
+  },
 
   // #endregion
 
