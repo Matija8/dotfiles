@@ -50,6 +50,10 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+if [[ ! "$NODE_OPTIONS" =~ "max-old-space-size" ]]; then
+    export NODE_OPTIONS="$NODE_OPTIONS --max-old-space-size=8192"
+fi
+
 function rmnode_modules {
     rm -rf ./node_modules
     rm -f package-lock.json
