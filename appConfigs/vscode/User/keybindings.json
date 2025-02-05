@@ -273,7 +273,14 @@
   // #endregion
 
   // *** Terminal ***
-  // #region
+  // #region,
+
+  // Ctrl+ l: Clear terminal (important for cursor).
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus"
+  },
 
   // Alt + q: Toggle maximized terminal.
   {
