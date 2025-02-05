@@ -555,6 +555,12 @@
     "key": "alt+shift+a",
     "command": "editor.action.blockComment",
     "when": "editorTextFocus && !editorReadonly"
+  },
+
+  // Ctrl + k Ctrl + s: Open keyboard shortcuts (cursor).
+  {
+    "key": "ctrl+k ctrl+s",
+    "command": "workbench.action.openGlobalKeybindings"
   }
 
   // #endregion
