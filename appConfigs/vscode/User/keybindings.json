@@ -232,8 +232,13 @@
     "key": "ctrl+m",
     "command": "workbench.action.evenEditorWidths"
   },
+  // Ctrl + k Ctrl + w: Close all editors (cursor).
+  {
+    "key": "ctrl+k ctrl+w",
+    "command": "workbench.action.closeAllEditors"
+  },
 
-  // Fold/Unfold - not default in cursor
+  // Fold/Unfold - not default in cursor.
   {
     "key": "ctrl+k ctrl+1",
     "command": "editor.foldLevel1",
