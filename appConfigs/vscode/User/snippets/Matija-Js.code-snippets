@@ -120,7 +120,7 @@
     "scope": "javascript, typescript, javascriptreact, typescriptreact",
     "prefix": ["wait3", "pause3"],
     "body": [
-      "new Promise((resolve) => setTimeout(() => {alert('3secs')$1; resolve();}, 3000))"
+      "(new Promise((resolve) => setTimeout(() => {alert('3secs')$1; resolve(undefined);}, 3000)))"
     ],
     "description": "Simulate fetch (3seconds)"
   },
