@@ -73,6 +73,7 @@
     // https://www.cyberciti.biz/faq/how-to-redirect-output-and-errors-to-devnull/
     // On new shells use: command &>/dev/null
     // On old shells use: command > /dev/null 2>&1
+    "scope": "shellscript",
     "prefix": ["devnull"],
     "body": "&>/dev/null",
     "description": "Redirect STDOUT and STDERR to /dev/null."
@@ -80,6 +81,7 @@
 
   "iife": {
     // https://stackoverflow.com/questions/12299676/is-it-feasible-to-implement-anonymous-functions-in-bash-even-using-eval-if-nec
+    "scope": "shellscript",
     "prefix": ["iife"],
     "body": [
       "iife() {",

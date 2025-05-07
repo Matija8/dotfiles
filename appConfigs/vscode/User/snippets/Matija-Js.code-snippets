@@ -195,6 +195,14 @@
     "body": "// @ts-ignore"
   },
 
+  // *** IIFEs ***
+  "Matija-iife-1": {
+    "scope": "javascript, typescript, javascriptreact, typescriptreact",
+    "prefix": ["iife1"],
+    "body": ["(() => {$0})()"],
+    "description": "IIFE (Immediately Invoked Function Expression)"
+  },
+
   // *** Other ***
 
   "region": {
