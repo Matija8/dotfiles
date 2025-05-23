@@ -186,7 +186,7 @@
   "ts-expect-error": {
     "scope": "typescript, typescriptreact",
     "prefix": ["tsexpecterror", "// tsexpecterror"],
-    "body": "// @ts-expect-error $0"
+    "body": "// @ts-expect-error TODO$0"
   },
 
   "ts-ignore": {
