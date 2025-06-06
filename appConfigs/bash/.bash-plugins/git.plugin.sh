@@ -149,15 +149,17 @@ alias gbv="git branch -vv" # Show local branches info
 alias gbd='git branch -d' # Delete a local branch that has a remote
 alias gbD='git branch -D' # Delete a local branch
 
-alias gc="git commit -v"
-alias gcnv="git commit -v --no-verify"
-function gcd() { # Mnmc: [G]it [C]ommit [D]ot or message
+function gc() {
     if [ $# -eq 0 ]; then
-        git commit -v --no-verify -m "."
+        git commit -v --no-verify
+        # No verify is done to skip pre-commit hooks.
+        # This way cicd is run on the server asap, and not just locally.
     else
         git commit -v --no-verify -m "$*"
     fi
 }
+alias gcnv="git commit -v --no-verify"
+alias gcempt=" git commit -v --allow-empty"
 
 # Branch checkout
 alias gco="git checkout"
