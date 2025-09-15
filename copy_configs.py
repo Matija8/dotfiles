@@ -40,7 +40,6 @@ class Updater():
         )
         self._should_link = should_link
         self._bash_configs_dir = f'{self._app_configs_dir}/bash'
-        # TODO: use self._updated_apps instead of immediate print()-s
         self._updated_apps = []  # type: List[str]
 
     def update_configs(self) -> None:
@@ -182,6 +181,7 @@ class Updater():
         self._update_folder_r(
             f'{self._app_configs_dir}/vscode/User/', vscode_user_dir_path
         )
+        self._updated_apps.append('VsCode')
 
     def _update_cursor_editor_user_dir(self, editor_dir_path: PathStr) -> None:
         if not validate_program_is_on_path('cursor'):
@@ -189,6 +189,7 @@ class Updater():
         self._update_folder_r(
             f'{self._app_configs_dir}/vscode/User/', editor_dir_path
         )
+        self._updated_apps.append('Cursor Editor')
 
 
 class LinuxUpdater(Updater):
