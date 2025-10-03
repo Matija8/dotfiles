@@ -506,30 +506,30 @@
 
   // #endregion
 
-  // *** Copilot ***
+  // *** Copilot AI ***
   // #region
 
   // Shift + Alt + c: Copilot (c)ompletion shortcut.
   {
     "key": "shift+alt+c",
     "command": "editor.action.inlineSuggest.trigger",
-    "when": "config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+    "when": "github.copilot.activated && config.github.copilot.inlineSuggest.enable && editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
   },
   // Shift + Alt + g: Copilot (g)enerate shortcut.
   {
     "key": "shift+alt+g",
     "command": "github.copilot.generate",
-    "when": "editorTextFocus && github.copilot.activated"
+    "when": "github.copilot.activated && editorTextFocus"
   },
   {
     "key": "ctrl+enter",
     "command": "-github.copilot.generate",
-    "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused"
+    "when": "github.copilot.activated && editorTextFocus && !commentEditorFocused"
   },
   {
     "key": "ctrl+enter",
     "command": "-github.copilot.generate",
-    "when": "editorTextFocus && github.copilot.activated && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
+    "when": "github.copilot.activated && editorTextFocus && !commentEditorFocused && !inInteractiveInput && !interactiveEditorFocused"
   },
   // Shift + Alt + [/]: Copilot next/previous.
   {
@@ -541,6 +541,17 @@
     "key": "shift+alt+]",
     "command": "github.copilot.nextPanelSolution",
     "when": "github.copilot.activated && github.copilot.panelVisible"
+  },
+
+  // #endregion
+
+  // *** Cursor AI ***
+  // #region
+
+  {
+    "key": "ctrl+e",
+    "command": "-cursor.composer.openAgentWindow",
+    "when": "cursor.appLayoutEnabled && cursor.appLayout != 'agent'"
   },
 
   // #endregion
