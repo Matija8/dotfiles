@@ -384,6 +384,12 @@
     "command": "ctrl+l",
     "when": "terminalFocus"
   },
+  // Disable opening external terminal in windows
+  {
+    "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
 
   // #endregion
 
