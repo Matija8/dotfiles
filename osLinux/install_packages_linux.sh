@@ -279,6 +279,22 @@ function install_js {
     # install_js_globals_extra
 }
 
+# TODO
+# function install_java {
+#     printGreenHeader "Java"
+
+#     # Check if installed first
+
+#     # https://en.wikipedia.org/wiki/Java_version_history#Release_table
+#     sudo apt install -y openjdk-17-jdk
+#     # or
+#     # sudo apt install -y openjdk-11-jdk
+#     # sudo apt install -y openjdk-8-jdk
+#     # sudo apt install -y openjdk-21-jdk
+#     printNotInstalledMsg "Java"
+#     # https://dev.java/learn/getting-started/#setting-up-jdk
+# }
+
 function check_java_installation {
     printGreenHeader "Java"
     if java --version; then
