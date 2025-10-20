@@ -285,6 +285,10 @@ function check_java_installation {
         printInstalledMsg "Java"
         return
     fi
+    if javac --version; then
+        printInstalledMsg "Java JDK!"
+        return
+    fi
     printNotInstalledMsg "Java"
     # https://dev.java/learn/getting-started/#setting-up-jdk
 }
