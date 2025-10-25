@@ -1,4 +1,10 @@
 {
+  "Scala-shebang": {
+    "scope": "scala",
+    "prefix": ["#!", "shebang"],
+    "body": ["#!/usr/bin/env scala", ""],
+    "description": "Scala shebang"
+  },
   "Matija-log-x1": {
     "scope": "scala",
     "prefix": ["lx", "lx1"],
