@@ -559,6 +559,11 @@
     "command": "-cursor.composer.openAgentWindow",
     "when": "cursor.appLayoutEnabled && cursor.appLayout != 'agent'"
   },
+  {
+    "key": "ctrl+e",
+    "command": "-cursor.toggleAgentWindowIDEUnification",
+    "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
+  },
 
   // #endregion
 
