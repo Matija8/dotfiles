@@ -589,7 +589,13 @@
     "when": "editorTextFocus && !editorReadonly"
   },
 
-  // Ctrl + k Ctrl + s: Open keyboard shortcuts (cursor).
+  // Ctrl + k Ctrl + p: Copy active file path.
+  {
+    "key": "ctrl+k ctrl+p",
+    "command": "copyFilePath"
+  },
+
+  // Ctrl + k Ctrl + s: Open keyboard shortcuts.
   {
     "key": "ctrl+k ctrl+s",
     "command": "workbench.action.openGlobalKeybindings"
