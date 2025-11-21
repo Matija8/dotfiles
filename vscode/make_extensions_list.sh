@@ -14,6 +14,17 @@ printf "#!/usr/bin/env bash\n\n" >$install_listed_script
 printf "Getting extensions from vscode...\n\n"
 code --list-extensions | xargs -L 1 echo code --install-extension >>$install_listed_script
 
+# Comment out if prefix matches line:
+prefixes=(
+  "code --install-extension Extensions installed on WSL: Ubuntu:"
+  "code --install-extension github.copilot"
+)
+
+for prefix in "${prefixes[@]}"; do
+  sed -i "/^${prefix}/s/^/# /" "$install_listed_script"
+done
+
+
 printf "Making 'vscode_install_extensions.sh' an executable...\n\n"
 chmod +x $install_listed_script
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# code --install-extension Extensions installed on WSL: Ubuntu:
 code --install-extension aaron-bond.better-comments
 code --install-extension adpyke.vscode-sql-formatter
 code --install-extension arcanis.vscode-zipfs
@@ -16,16 +17,20 @@ code --install-extension eeyore.yapf
 code --install-extension esbenp.prettier-vscode
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension foxundermoon.shell-format
+# code --install-extension github.copilot
+# code --install-extension github.copilot-chat
 code --install-extension golang.go
 code --install-extension jock.svg
 code --install-extension kaiwood.center-editor-window
 code --install-extension mariusalchimavicius.json-to-ts
 code --install-extension marvhen.reflow-markdown
+code --install-extension ms-azuretools.vscode-containers
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.debugpy
 code --install-extension ms-python.isort
 code --install-extension ms-python.python
 code --install-extension ms-python.vscode-pylance
+code --install-extension ms-python.vscode-python-envs
 code --install-extension ms-vscode.cpptools
 code --install-extension msjsdiag.vscode-react-native
 code --install-extension nhoizey.gremlins
