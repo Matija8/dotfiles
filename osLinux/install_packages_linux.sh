@@ -260,6 +260,17 @@ function install_js {
         sudo npm install -g --loglevel=silent npm@latest
     fi
 
+    # ❗❗❗
+    # TODO:
+    # Apt installs old npm!
+    # Use:
+    #
+    # sudo n i 24
+    #
+    # This installs node24 (https://nodejs.org/en/about/previous-releases)
+    # Then you can do sudo sudo corepack enable
+    # ❗❗❗
+
     if ! deno -V &>/dev/null; then
         printf "${RED}Deno *not* installed ❌... ${GREEN}yet!${NC}\n\n"
         # https://deno.land/manual/getting_started/installation
@@ -268,8 +279,9 @@ function install_js {
 
     if ! yarn -v &>/dev/null; then
         printf "${RED}Yarn *not* installed ❌... ${GREEN}yet!${NC}\n\n"
+        # Check version of npm first! Corepack is not in old versions!
         # https://yarnpkg.com/getting-started/install
-        corepack enable
+        sudo corepack enable
     fi
 
     source "$dotfiles_root_dir/osCommon/common_lib_js.sh"
