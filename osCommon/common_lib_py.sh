@@ -15,4 +15,8 @@ function install_python_globals {
         virtualenv \
         visidata \
         youtube_dl
+
+    # TODO: pipx instead of pip
+    # yt-dlp instead of youtube-dl
+    sudo pipx install yt-dlp
 }
