@@ -11,6 +11,7 @@ code --install-extension clinyong.vscode-css-modules
 code --install-extension davidanson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension denoland.vscode-deno
+code --install-extension docker.docker
 code --install-extension dotjoshjohnson.xml
 code --install-extension eamodio.gitlens
 code --install-extension eeyore.yapf

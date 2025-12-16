@@ -16,7 +16,7 @@
   // Workbench
   "workbench.activityBar.iconClickBehavior": "focus",
   "workbench.activityBar.location": "top",
-  "workbench.colorTheme": "Night Owl (No Italics)",
+  "workbench.colorTheme": "Default Dark+",
   "workbench.editor.centeredLayoutAutoResize": false,
   "workbench.editor.empty.hint": "hidden",
   "workbench.editor.enablePreview": false,
