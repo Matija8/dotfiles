@@ -20,6 +20,14 @@ usage = '''Usage: Link/copy config files.
 -l, --link     Make links (default).
 -c, --copy     Copy files instead of making links.'''
 
+
+def main():
+    if (is_in_windows_fs_via_wsl()):
+        print('Running from WSL2, but in the Windows file system!')
+    flags = sys.argv[1:]
+    Main(flags).main()
+
+
 ConfigDirs = NamedTuple(
     'ConfigDirs',
     [('nvim', str), ('mpv', str), ('notepad_pp', str), ('mintty', str)]
@@ -181,7 +189,6 @@ class Updater():
         self._update_folder_r(
             f'{self._app_configs_dir}/vscode/User/', vscode_user_dir_path
         )
-        self._updated_apps.append('VsCode')
 
     def _update_cursor_editor_user_dir(self, editor_dir_path: PathStr) -> None:
         if not validate_program_is_on_path('cursor'):
@@ -268,6 +275,7 @@ class MacUpdater(Updater):
     def _update_vscode(self) -> None:
         vsc_user_dir = f'{get_home()}/Library/Application Support/Code/User'
         self._update_vscode_user_dir(vsc_user_dir)
+        self._updated_apps.append('VsCode')
 
     def _update_nvim(self) -> None:
         if not validate_program_is_on_path('nvim'):
@@ -294,6 +302,7 @@ class WindowsUpdater(Updater):
     def _update_vscode(self) -> None:
         vsc_user_dir = f'{self.roaming}/Code/User'
         self._update_vscode_user_dir(vsc_user_dir)
+        self._updated_apps.append('VsCode')
 
     def _update_cursor_editor(self) -> None:
         self._update_cursor_editor_user_dir(f'{self.roaming}/Cursor/User')
@@ -381,10 +390,6 @@ def set_cwd_to_script_dir() -> None:
     os.chdir(osp.dirname(osp.realpath(__file__)))
 
 
-def get_cwd() -> str:
-    return os.getcwd()
-
-
 def get_abs_script_path() -> str:
     return osp.abspath(__file__)
 
@@ -415,7 +420,4 @@ def is_program_on_path(program_name: str) -> bool:
 
 
 if __name__ == '__main__':
-    if (is_in_windows_fs_via_wsl()):
-        print('Running from WSL2, but in the Windows file system!')
-    flags = sys.argv[1:]
-    Main(flags).main()
+    main()

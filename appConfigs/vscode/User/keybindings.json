@@ -396,6 +396,12 @@
   // *** Font/Ui Zoom ***
   // #region
 
+  // Ctrl+k Ctrl+t: Choose color theme.
+  {
+    "key": "ctrl+k ctrl+t",
+    "command": "workbench.action.selectTheme"
+  },
+
   // Ctrl + [=/- | numpad+/-]: Change editor font size.
   {
     "key": "ctrl+=",
