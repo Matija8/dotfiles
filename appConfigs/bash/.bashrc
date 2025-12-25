@@ -1,8 +1,11 @@
 # By: Matija8
 # This rc file is for bash on linux & git-bash on windows.
 
-# printf "Loading bashrc started...\n"
-# bashrc_loading_start_time=$SECONDS
+# Uncomment to get full loading of .bashrc duration❗
+# bashrc_loading_start_time=$(date +%s%3N)
+if [ -n "$bashrc_loading_start_time" ]; then
+	printf "Loading bashrc started at $bashrc_loading_start_time...\n"
+fi
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -10,21 +13,6 @@ LGREEN='\033[1;32m'
 BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 NC='\033[0m'
-
-prompt_iife() {
-    local prompt_time_hhmm="\A"
-    local prompt_pwd="\w"
-
-    local PRMPT_CLR_NC="\[\e[m\]"
-    local PRMPT_CLR_RED="\[\e[31m\]"
-    local PRMPT_CLR_GREEN="\[\e[32m\]"
-    local PRMPT_CLR_BLUE="\[\e[34m\]"
-    local prompt_matija_1="$PRMPT_CLR_BLUE$prompt_time_hhmm $PRMPT_CLR_GREEN[$prompt_pwd]$PRMPT_CLR_RED\$ $PRMPT_CLR_NC"
-
-    # Prompt.
-    export PS1="$prompt_matija_1"
-} && prompt_iife "$@"
-unset -f prompt_iife
 
 # ***Bash specific aliases (vs Zsh)***
 alias rehash="hash -r"
@@ -41,4 +29,6 @@ alias rehash="hash -r"
 # https://stackoverflow.com/questions/342969/how-do-i-get-bash-completion-to-work-with-aliases
 # https://gist.github.com/JuggoPop/10706934
 
-# printf "Base .bashrc loading duration = $((SECONDS - bashrc_loading_start_time)) seconds.\n"
+if [ -n "$bashrc_loading_start_time" ]; then
+	printf "Base .bashrc loading duration = $(($(date +%s%3N) - bashrc_loading_start_time)) miliseconds.\n"
+fi

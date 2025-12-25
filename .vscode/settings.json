@@ -1,5 +1,6 @@
 {
   "deno.enable": true,
   "deno.enablePaths": ["./scripts/bin"],
-  "deno.lint": false
+  "deno.lint": false,
+  "python.languageServer": "Default"
 }

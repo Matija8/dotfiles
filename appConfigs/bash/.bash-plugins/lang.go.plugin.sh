@@ -8,6 +8,11 @@ if [ -d "/usr/local/go" ]; then
     # To check go-lang installation was successful:
     # go version
 
+	# Add go binaries to PATH
+	export PATH=$PATH:$(go env GOPATH)/bin
+	# For things like "shfmt"
+	# https://github.com/mvdan/sh#shfmt
+
     alias gorun="go run"
 
     function gomodinit {

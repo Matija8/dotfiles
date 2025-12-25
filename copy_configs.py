@@ -177,8 +177,10 @@ class Updater():
                 stitched_bashrc_contents += plugin_contents
 
         stitched_bashrc_contents += (
-            '\n# printf "Full .bashrc loading duration = ' +
-            '$((SECONDS - bashrc_loading_start_time)) seconds.\\n"\n'
+            '\nif [ -n "$bashrc_loading_start_time" ]; then' +
+            '\n\tprintf "Full .bashrc loading duration = ' +
+            '$(($(date +%s%3N) - bashrc_loading_start_time)) miliseconds.\\n"' +
+            '\nfi\n'
         )
 
         return stitched_bashrc_contents
