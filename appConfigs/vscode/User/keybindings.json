@@ -560,15 +560,15 @@
   // *** Cursor AI ***
   // #region
 
-  {
-    "key": "ctrl+e",
-    "command": "-cursor.composer.openAgentWindow",
-    "when": "cursor.appLayoutEnabled && cursor.appLayout != 'agent'"
-  },
+  // Ctrl + e (p): Toggle search by file name.
   {
     "key": "ctrl+e",
     "command": "-cursor.toggleAgentWindowIDEUnification",
-    "when": "cursor.agentIdeUnification.featureGate && workbenchState != 'empty'"
+    "when": "cursor.agentIdeUnification.featureGate && !isGlass && workbenchState != 'empty'"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.quickOpen"
   },
 
   // #endregion
