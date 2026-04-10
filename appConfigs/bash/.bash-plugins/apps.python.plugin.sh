@@ -1,0 +1,2 @@
+
+alias ytdlp="yt-dlp"
