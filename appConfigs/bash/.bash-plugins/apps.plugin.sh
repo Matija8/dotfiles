@@ -22,3 +22,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 function open_localhost_port {
     xdg-open http://localhost:$1/
 }
+
+
+function ytdlplaylist {
+    printf "${GREEN}Downloading playlist${NC} ${1}${GREEN}...${NC}\n"
+    if [ $# -lt 1 ]; then
+        printf "At least one playlist URL is required.\n"
+        return 1
+    fi
+    yt-dlp -f "bv*+ba/b" --merge-output-format mp4 -o "%(playlist_index)02d - %(title)s.%(ext)s" "$1"
+    printf "${GREEN}Playlist${NC} ${1} ${GREEN}done.${NC}\n"
+}
