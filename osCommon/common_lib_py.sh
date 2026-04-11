@@ -13,10 +13,11 @@ function install_python_globals {
         scikit-learn \
         matplotlib \
         virtualenv \
-        visidata \
-        youtube_dl
+        visidata
 
     # TODO: pipx instead of pip
     # yt-dlp instead of youtube-dl
     sudo pipx install yt-dlp
+    # To upgrade, easiest is reinstall:
+    # sudo pipx reinstall yt-dlp
 }

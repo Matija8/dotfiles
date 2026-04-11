@@ -28,7 +28,8 @@ NC='\033[0m' # No Color
 
 function dl_playlist {
     printf "${GREEN}Downloading playlist${NC} ${1}${GREEN}...${NC}\n"
-    youtube-dl -i -o "%(playlist_index)s %(title)s.%(ext)s" -f22 $1
+    # youtube-dl -i -o "%(playlist_index)s %(title)s.%(ext)s" -f22 $1
+    ytdlp -f "bv*+ba/b" --merge-output-format mp4 -o "%(playlist_index)02d - %(title)s.%(ext)s" "$1"
     printf "${GREEN}Playlist${NC} ${1} ${GREEN}done.${NC}\n"
 }
 
