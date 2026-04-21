@@ -18,6 +18,6 @@ function install_python_globals {
     # TODO: pipx instead of pip
     # yt-dlp instead of youtube-dl
     sudo pipx install yt-dlp
-    # To upgrade, easiest is reinstall:
+    # To upgrade ytdlp, easiest is reinstall:
     # sudo pipx reinstall yt-dlp
 }
