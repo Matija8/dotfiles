@@ -287,38 +287,52 @@
     "when": "terminalFocus"
   },
 
-  // Alt + q: Toggle maximized terminal.
+  // Alt + q: Toggle maximized terminal when not in panel.
   {
     // Toggle maximized terminal when panel is closed.
     "key": "alt+q",
-    "command": "workbench.action.toggleMaximizedPanel"
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.terminal.focus",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    }
   },
   {
     "key": "cmd+q",
-    "command": "workbench.action.toggleMaximizedPanel",
-    "when": "isMac"
+    "when": "isMac",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.terminal.focus",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    }
   },
+  // Alt + q: Minimize terminal when in panel.
   {
-    // Switch to terminal when it is not focused but panel is open.
+    // Minimize terminal when it is focused; then force focus back to the editor (otherwise Cursor often lands on Agent/chat).
     "key": "alt+q",
-    "command": "workbench.action.terminal.focus",
-    "when": "activePanel"
+    "when": "panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.togglePanel"
+      ]
+    }
   },
   {
     "key": "cmd+q",
-    "command": "workbench.action.terminal.focus",
-    "when": "isMac && activePanel"
-  },
-  {
-    // Minimize terminal when it is focused.
-    "key": "alt+q",
-    "command": "workbench.action.togglePanel",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "cmd+q",
-    "command": "workbench.action.togglePanel",
-    "when": "isMac && terminalFocus"
+    "when": "isMac && panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusActiveEditorGroup",
+        "workbench.action.togglePanel"
+      ]
+    }
   },
 
   // Alt + d: Kill active terminal.
@@ -559,6 +573,14 @@
 
   // *** Cursor AI ***
   // #region
+
+  // Alt + a: Open / focus the AI sidebar (right-hand panel).
+  {
+    "key": "alt+a",
+    "when": "composer.enabled",
+    "command": "composer.focusComposer"
+    // TODO: Add go back to editor command if chat already focused.
+  },
 
   // Ctrl + e (p): Toggle search by file name.
   {
