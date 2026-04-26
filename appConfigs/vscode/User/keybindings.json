@@ -291,24 +291,12 @@
   {
     // Toggle maximized terminal when panel is closed.
     "key": "alt+q",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.terminal.focus",
-        "workbench.action.toggleMaximizedPanel"
-      ]
-    }
+    "command": "workbench.action.toggleMaximizedPanel"
   },
   {
     "key": "cmd+q",
     "when": "isMac",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.action.terminal.focus",
-        "workbench.action.toggleMaximizedPanel"
-      ]
-    }
+    "command": "workbench.action.toggleMaximizedPanel"
   },
   // Alt + q: Minimize terminal when in panel.
   {
