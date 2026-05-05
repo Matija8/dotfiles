@@ -287,18 +287,31 @@
     "when": "terminalFocus"
   },
 
-  // Alt + q: Toggle maximized terminal when not in panel.
+  // Alt + q (1of2): Toggle maximized terminal when not in panel.
   {
     // Toggle maximized terminal when panel is closed.
     "key": "alt+q",
-    "command": "workbench.action.toggleMaximizedPanel"
+    "when": "!panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusPanel",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    }
   },
   {
     "key": "cmd+q",
-    "when": "isMac",
-    "command": "workbench.action.toggleMaximizedPanel"
+    "when": "isMac && !panelFocus",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.action.focusPanel",
+        "workbench.action.toggleMaximizedPanel"
+      ]
+    }
   },
-  // Alt + q: Minimize terminal when in panel.
+  // Alt + q (2of2): Minimize terminal when in panel.
   {
     // Minimize terminal when it is focused; then force focus back to the editor (otherwise Cursor often lands on Agent/chat).
     "key": "alt+q",
